@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concept A — クラフトウッド / RADOLF × 81</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #FAF5EC;
+    --paper-2: #F2E9D5;
+    --oat: #E6D9BE;
+    --wood: #B68A4F;
+    --wood-deep: #6E4F2C;
+    --espresso: #3A2A1E;
+    --ink: #2A1F14;
+    --ink-2: #5B4A38;
+    --mute: #8C7A62;
+    --terra: #B85C3D;
+    --terra-deep: #8E3F26;
+    --sage: #6B7F4E;
+    --line: #D9CDB1;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Noto Sans JP", system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    /* paper texture */
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(184,92,61,.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(107,127,78,.04) 0%, transparent 50%);
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.06; mix-blend-mode: multiply;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  /* CONCEPT BANNER */
+  .concept-tag {
+    position: fixed; top: 18px; right: 24px; z-index: 200;
+    background: var(--espresso); color: var(--paper);
+    padding: 10px 18px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500; font-size: 11px; letter-spacing: 0.2em;
+    border-radius: 100px;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,245,236,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 18px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700; font-size: 24px;
+    letter-spacing: -0.02em;
+    color: var(--espresso);
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .logo em {
+    font-family: "Caveat", cursive;
+    font-weight: 600; font-style: normal;
+    color: var(--terra);
+    font-size: 16px;
+    transform: rotate(-3deg);
+    display: inline-block;
+  }
+  .menu {
+    display: flex; gap: 32px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--ink-2);
+  }
+  .menu a:hover { color: var(--terra); }
+  .menu .cta {
+    background: var(--terra); color: var(--paper);
+    padding: 10px 20px; border-radius: 100px;
+    font-weight: 500; letter-spacing: 0.12em;
+  }
+  .menu .cta:hover { background: var(--espresso); color: var(--paper); }
+
+  /* HERO */
+  .hero {
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__handwritten {
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+    font-size: clamp(28px, 3vw, 42px);
+    color: var(--terra);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .hero__title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: clamp(44px, 7vw, 96px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--espresso);
+    max-width: 900px;
+  }
+  .hero__title em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--terra);
+  }
+  .hero__title .underline {
+    position: relative;
+    display: inline-block;
+  }
+  .hero__title .underline::after {
+    content: "";
+    position: absolute;
+    bottom: -8px; left: 0; right: 0;
+    height: 14px;
+    background: var(--wood);
+    opacity: 0.35;
+    border-radius: 100px;
+    transform: rotate(-0.5deg);
+    z-index: -1;
+  }
+  .hero__sub {
+    margin-top: 36px;
+    max-width: 640px;
+    font-size: 15px;
+    line-height: 2.2;
+    color: var(--ink-2);
+  }
+  .hero__leaves {
+    position: absolute;
+    top: 80px; right: -50px;
+    width: 320px; height: 320px;
+    opacity: 0.45;
+    transform: rotate(15deg);
+    pointer-events: none;
+  }
+
+  /* WOODEN PANEL DIVIDER */
+  .wood-divider {
+    height: 12px;
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(110,79,44,0.0) 0,
+        rgba(110,79,44,0.18) 2px,
+        rgba(110,79,44,0.0) 4px,
+        rgba(110,79,44,0.0) 80px);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background-color: var(--paper-2);
+  }
+
+  /* SECTION */
+  .sec {
+    padding: 120px 0;
+    position: relative;
+  }
+  .sec__head {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 48px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .sec__num {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 64px;
+    color: var(--terra);
+    line-height: 1;
+    transform: rotate(-3deg);
+  }
+  .sec__num small {
+    display: block;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500; font-size: 12px;
+    color: var(--mute);
+    letter-spacing: 0.2em;
+    transform: rotate(3deg);
+    margin-top: 16px;
+    text-transform: uppercase;
+  }
+  .sec__title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.4;
+    color: var(--espresso);
+    letter-spacing: -0.01em;
+  }
+  .sec__title em {
+    font-style: italic;
+    color: var(--terra);
+    font-weight: 500;
+  }
+  .sec__lead {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 2.1;
+    color: var(--ink-2);
+    max-width: 640px;
+  }
+
+  /* BRAND CARDS — wooden frame */
+  .brands {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .brand {
+    background: #FFFEF7;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 40px 32px;
+    position: relative;
+    transition: all .35s ease;
+    box-shadow: 0 2px 0 rgba(110,79,44,0.05), 0 12px 28px rgba(110,79,44,0.06);
+  }
+  .brand:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 0 rgba(110,79,44,0.08), 0 22px 40px rgba(110,79,44,0.12);
+  }
+  .brand__pin {
+    position: absolute;
+    top: -10px; left: 32px;
+    background: var(--terra);
+    color: var(--paper);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+    font-size: 16px;
+    transform: rotate(-3deg);
+  }
+  .brand.b .brand__pin { background: var(--sage); }
+  .brand.c .brand__pin { background: var(--wood); }
+  .brand__num {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--terra);
+    margin-top: 12px;
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .brand__name {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1;
+    margin: 16px 0 12px;
+    color: var(--espresso);
+    letter-spacing: -0.02em;
+  }
+  .brand__name em { font-style: italic; color: var(--terra); }
+  .brand__jp {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .brand__desc {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 2;
+  }
+  .brand__photo {
+    margin-top: 24px;
+    aspect-ratio: 16/10;
+    background: var(--paper-2);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .brand__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* NUMBERS — receipt-card style */
+  .numbers {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .num {
+    background: #FFFEF7;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px 24px;
+    text-align: left;
+    position: relative;
+  }
+  .num__label {
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--terra);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .num__big {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--espresso);
+    letter-spacing: -0.04em;
+  }
+  .num__big small {
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--mute);
+    margin-left: 4px;
+  }
+  .num__cap {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta {
+    background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+    padding: 120px 32px;
+    text-align: center;
+    border-top: 2px solid var(--line);
+    border-bottom: 2px solid var(--line);
+  }
+  .cta__hand {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--terra);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .cta__title {
+    font-family: "Noto Serif JP", serif;
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.3;
+    color: var(--espresso);
+    margin-bottom: 32px;
+  }
+  .cta__title em { font-style: italic; color: var(--terra); }
+  .cta__btn {
+    display: inline-block;
+    background: var(--terra);
+    color: var(--paper);
+    padding: 22px 56px;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    border-radius: 100px;
+    transition: all .3s;
+    box-shadow: 0 4px 0 var(--terra-deep);
+  }
+  .cta__btn:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--terra-deep);
+    background: var(--terra-deep);
+  }
+
+  footer {
+    padding: 32px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--mute);
+    letter-spacing: 0.15em;
+  }
+
+  @media (max-width: 900px) {
+    .brands { grid-template-columns: 1fr; }
+    .numbers { grid-template-columns: 1fr 1fr; }
+    .sec__head { grid-template-columns: 1fr; gap: 16px; }
+    .hero__leaves { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-tag">CONCEPT A — クラフトウッド</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="logo">R 81 <em>recruit</em></a>
+    <div class="menu">
+      <a>About</a>
+      <a>People</a>
+      <a>Jobs</a>
+      <a>Company</a>
+      <a class="cta">エントリー</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__handwritten">— hey, listen.</div>
+    <h1 class="hero__title">
+      私たちは、車を売る前に、<br/>
+      <em>誰かの</em><span class="underline">家族の風景</span>を<br/>
+      つくっています。
+    </h1>
+    <p class="hero__sub">
+      プレミアムカーの画廊、家族のための工場カフェ、まだ名前のない次の場所。<br/>
+      呼び方は色々あるけれど、ぜんぶ「81」というひとつの家のような世界です。<br/>
+      その家の柱を、これから一緒に立てる人を募集しています。
+    </p>
+    <svg class="hero__leaves" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#6B7F4E" stroke-width="1.5" stroke-linecap="round">
+        <path d="M40 40 Q 80 80 100 100 T 160 160" />
+        <ellipse cx="60" cy="55" rx="14" ry="6" transform="rotate(-30 60 55)" fill="#8FAA66" stroke="none" opacity="0.7" />
+        <ellipse cx="85" cy="80" rx="16" ry="7" transform="rotate(-25 85 80)" fill="#8FAA66" stroke="none" opacity="0.6" />
+        <ellipse cx="115" cy="115" rx="18" ry="7" transform="rotate(-20 115 115)" fill="#8FAA66" stroke="none" opacity="0.5" />
+        <ellipse cx="140" cy="145" rx="14" ry="6" transform="rotate(-15 140 145)" fill="#8FAA66" stroke="none" opacity="0.45" />
+      </g>
+    </svg>
+  </div>
+</section>
+
+<div class="wood-divider"></div>
+
+<!-- BRAND WORLD -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div class="sec__num">01<small>brand world</small></div>
+      <div>
+        <h2 class="sec__title">「81」は、<em>3つの居場所</em>でできています。</h2>
+        <p class="sec__lead">
+          ショールーム、工場カフェ、未来の東京拠点。<br/>
+          家のリビング、台所、勝手口のように、それぞれの役割でひとつの暮らしを形づくります。
+        </p>
+      </div>
+    </div>
+
+    <div class="brands">
+      <article class="brand a">
+        <span class="brand__pin">flagship</span>
+        <div class="brand__num">001</div>
+        <h3 class="brand__name">81 <em>Gallery</em></h3>
+        <div class="brand__jp">プレミアムカーの、画廊。</div>
+        <p class="brand__desc">フェラーリ、ランボルギーニ、ロールスロイス。1000万円超を常時50台。コレクターの方の人生に、車という贅沢を添える場所。</p>
+        <div class="brand__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      </article>
+      <article class="brand b">
+        <span class="brand__pin">family café</span>
+        <div class="brand__num">002</div>
+        <h3 class="brand__name">81 <em>Factory</em></h3>
+        <div class="brand__jp">家族で来られる、工場カフェ。</div>
+        <p class="brand__desc">整備場の窓越しに、ラテアートを淹れる。お父さんの整備待ちが、家族の小さな思い出になる場所。</p>
+        <div class="brand__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      </article>
+      <article class="brand c">
+        <span class="brand__pin">coming 2026</span>
+        <div class="brand__num">003</div>
+        <h3 class="brand__name">81 <em>Next</em></h3>
+        <div class="brand__jp">名前は、まだ決まっていません。</div>
+        <p class="brand__desc">バーチャル × リアル × 越境EC。次の「81」の名前を、入社するあなたに付けてほしい。2026年、東京。</p>
+        <div class="brand__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="wood-divider"></div>
+
+<!-- NUMBERS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div class="sec__num">02<small>by the numbers</small></div>
+      <div>
+        <h2 class="sec__title">「81」を、<em>かぞえてみる</em>。</h2>
+        <p class="sec__lead">数字は、想いの輪郭。会社のいまを、いくつかの数で。</p>
+      </div>
+    </div>
+
+    <div class="numbers">
+      <div class="num">
+        <div class="num__label">— 平均年齢</div>
+        <div class="num__big">29<small>歳</small></div>
+        <div class="num__cap">若くて、対等。新卒1年目が、東京進出の議論に混ざります。</div>
+      </div>
+      <div class="num">
+        <div class="num__label">— 売上</div>
+        <div class="num__big">52<small>億円</small></div>
+        <div class="num__cap">創業7年で52億円。次の山は100億円。</div>
+      </div>
+      <div class="num">
+        <div class="num__label">— 拠点</div>
+        <div class="num__big">5<small>店舗 + α</small></div>
+        <div class="num__cap">堺・南堺・福岡・岡山。+ 2026 東京・福岡中央。</div>
+      </div>
+      <div class="num">
+        <div class="num__label">— 家族数</div>
+        <div class="num__big">72<small>名</small></div>
+        <div class="num__cap">仕事の仲間、というより。文字どおりの家族のような関係を。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta__hand">— よかったら、はじめませんか。</div>
+  <h2 class="cta__title">あなたの章を、<em>ここから。</em></h2>
+  <a class="cta__btn">エントリーする →</a>
+</section>
+
+<footer>© 2026 RADOLF INC. — concept A / craft wood</footer>
+
+</body>
+</html>

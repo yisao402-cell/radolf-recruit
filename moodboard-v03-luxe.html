@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RADOLF / 81 — Recruitment Moodboard v0.3 LUXE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&family=Inter:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --night: #08070A;        /* warm black */
+    --onyx: #121014;
+    --ivory: #F4EFE4;        /* warm white */
+    --gold: #C9A961;         /* aged champagne gold */
+    --gold-lt: #E5CE94;      /* lighter gold */
+    --oxblood: #5C1A1E;      /* deep burgundy */
+    --smoke: #2A2623;        /* warm gray */
+    --mute: #948A7B;         /* warm mute */
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--night);
+    color: var(--ivory);
+    font-family: "Inter", "Zen Kaku Gothic New", sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  .serif { font-family: "Fraunces", "Playfair Display", serif; }
+  .mincho { font-family: "Zen Old Mincho", serif; }
+  .sans { font-family: "Inter", sans-serif; }
+  .jp { font-family: "Zen Kaku Gothic New", sans-serif; }
+
+  /* Gold text effect */
+  .gold-text {
+    background: linear-gradient(180deg, #E5CE94 0%, #C9A961 50%, #8F7340 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .gold-shimmer {
+    background: linear-gradient(90deg, #8F7340 0%, #E5CE94 25%, #F4EFE4 50%, #E5CE94 75%, #8F7340 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 6s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Vignette */
+  .vignette {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%);
+  }
+
+  /* Gold hairline divider */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(201,169,97,0.5) 20%, rgba(201,169,97,0.5) 80%, transparent 100%);
+    margin: 0 48px;
+  }
+
+  section { position: relative; z-index: 1; }
+  .wrap { max-width: 1360px; margin: 0 auto; padding: 0 48px; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    padding: 48px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+  }
+  .hero__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 40%, rgba(201,169,97,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 60%, rgba(92,26,30,0.15) 0%, transparent 50%),
+      linear-gradient(180deg, #08070A 0%, #121014 100%);
+    z-index: -1;
+  }
+  .hero__bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><circle cx='60' cy='60' r='0.5' fill='%23C9A961' opacity='0.15'/></svg>");
+    background-size: 120px;
+    opacity: 0.5;
+  }
+  .hero__top {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: "Inter", sans-serif;
+    font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--mute);
+  }
+  .hero__top .mark {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 22px; letter-spacing: 0;
+    text-transform: none;
+    color: var(--gold);
+  }
+  .hero__center {
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+    padding: 80px 0;
+  }
+  .hero__ornament {
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .hero__ornament::before,
+  .hero__ornament::after {
+    content: "";
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold) 100%);
+  }
+  .hero__ornament::after {
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+  .hero__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(64px, 11vw, 180px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+  .hero__title em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .hero__title .accent { font-style: italic; }
+  .hero__sub {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: clamp(20px, 2vw, 30px);
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    max-width: 760px;
+  }
+  .hero__sub .gold { color: var(--gold); font-weight: 600; }
+  .hero__bottom {
+    display: flex; justify-content: space-between; align-items: end;
+    font-family: "Inter", sans-serif;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  /* TICKER refined */
+  .ticker {
+    border-top: 1px solid rgba(201,169,97,0.2);
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+    overflow: hidden; white-space: nowrap;
+    padding: 20px 0;
+    background: linear-gradient(90deg, rgba(8,7,10,1) 0%, rgba(18,16,20,1) 50%, rgba(8,7,10,1) 100%);
+  }
+  .ticker__track {
+    display: inline-block;
+    animation: scroll 45s linear infinite;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+  .ticker__track span { margin: 0 40px; }
+  .ticker__track .diamond { color: var(--ivory); font-style: normal; font-size: 8px; vertical-align: middle; }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTION */
+  .sec {
+    padding: 160px 0;
+    position: relative;
+  }
+  .sec::before {
+    content: ""; position: absolute; top: 0; left: 48px; right: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,169,97,0.3), transparent);
+  }
+  .sec__head {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 96px;
+    align-items: end;
+  }
+  .sec__num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .sec__num::before {
+    content: ""; width: 40px; height: 1px; background: var(--gold);
+  }
+  .sec__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(44px, 5.5vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144;
+  }
+  .sec__title em { font-style: italic; color: var(--gold); }
+  .sec__lead {
+    font-family: "Zen Old Mincho", serif;
+    font-size: 16px;
+    line-height: 2.1;
+    color: var(--mute);
+    max-width: 540px;
+    padding-bottom: 12px;
+  }
+
+  /* CONCEPT QUOTE */
+  .quote {
+    padding: 80px 0 120px;
+    text-align: center;
+    position: relative;
+  }
+  .quote__mark {
+    font-family: "Fraunces", serif;
+    font-size: 160px;
+    line-height: 0.5;
+    color: var(--gold);
+    opacity: 0.25;
+    margin-bottom: -40px;
+  }
+  .quote__body {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: clamp(28px, 3.6vw, 52px);
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+  }
+  .quote__body em {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .quote__cite {
+    margin-top: 48px;
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--mute);
+  }
+
+  /* BRAND GRID */
+  .brand-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,169,97,0.25); border-top: 1px solid rgba(201,169,97,0.3); border-bottom: 1px solid rgba(201,169,97,0.3); }
+  .brand-card {
+    background: linear-gradient(180deg, #0E0C10 0%, #08070A 100%);
+    padding: 0;
+    min-height: 560px;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    transition: all .6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .brand-card:hover {
+    background: linear-gradient(180deg, #15131A 0%, #0C0B0F 100%);
+  }
+  .brand-card__photo {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative; z-index: 1;
+    filter: brightness(0.85) contrast(1.05);
+  }
+  .brand-card__photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(8,7,10,0.85) 100%);
+    pointer-events: none;
+  }
+  .brand-card__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s; }
+  .brand-card:hover .brand-card__photo img { transform: scale(1.04); }
+  .brand-card__inner {
+    padding: 48px 40px 56px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    flex: 1;
+    position: relative; z-index: 2;
+  }
+  .brand-card:hover .brand-card__bg { transform: scale(1.05); opacity: 0.15; }
+  .brand-card__bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(201,169,97,0.08) 0%, transparent 60%);
+    transition: all .6s;
+  }
+  .brand-card__tag {
+    font-family: "Inter", sans-serif;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold);
+    position: relative;
+  }
+  .brand-card__name {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(48px, 4.5vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin: 40px 0 24px;
+    font-variation-settings: "opsz" 144;
+    position: relative;
+  }
+  .brand-card__name em { font-style: italic; color: var(--gold); }
+  .brand-card__jp {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+  .brand-card__desc {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-size: 14px; line-height: 2;
+    color: var(--mute);
+    margin-top: 40px;
+    position: relative;
+  }
+  .brand-card__ornament {
+    position: absolute; top: 40px; right: 40px;
+    font-family: "Fraunces", serif; font-style: italic;
+    font-size: 14px; color: var(--gold); opacity: 0.6;
+  }
+
+  /* TYPE */
+  .type-stack { display: flex; flex-direction: column; gap: 1px; background: rgba(201,169,97,0.15); border-top: 1px solid rgba(201,169,97,0.25); border-bottom: 1px solid rgba(201,169,97,0.25); }
+  .type-row {
+    background: var(--night);
+    padding: 72px 48px;
+  }
+  .type-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    font-family: "Inter", sans-serif;
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 40px;
+  }
+  .type-meta .gold { color: var(--gold); }
+  .type-display {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(56px, 8vw, 140px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+  .type-display em { font-style: italic; }
+  .type-display .ac { color: var(--gold); }
+  .type-jp {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 600;
+    font-size: clamp(40px, 5vw, 80px);
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+
+  /* COLOR */
+  .color-row {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 1px;
+    background: rgba(201,169,97,0.25);
+    border: 1px solid rgba(201,169,97,0.3);
+  }
+  .color-cell {
+    aspect-ratio: 1 / 1.3;
+    padding: 32px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    font-family: "Inter", sans-serif;
+    position: relative; overflow: hidden;
+  }
+  .color-cell.hero { aspect-ratio: auto; }
+  .color-cell__ornament {
+    position: absolute; top: 24px; right: 24px;
+    font-family: "Fraunces", serif; font-style: italic; font-size: 14px; opacity: 0.5;
+  }
+  .color-cell__name {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(28px, 2.6vw, 48px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-variation-settings: "opsz" 144;
+  }
+  .color-cell__name em { font-style: italic; }
+  .color-cell__code { font-size: 11px; letter-spacing: 0.2em; }
+  .color-cell__role { font-size: 10px; letter-spacing: 0.2em; opacity: 0.55; text-transform: uppercase; }
+
+  /* STATS */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(201,169,97,0.2);
+    border-top: 1px solid rgba(201,169,97,0.3);
+    border-bottom: 1px solid rgba(201,169,97,0.3);
+  }
+  .stat {
+    background: var(--night);
+    padding: 64px 40px;
+    min-height: 360px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative;
+    transition: background .5s;
+  }
+  .stat:hover { background: linear-gradient(180deg, #12101A 0%, #08070A 100%); }
+  .stat__tag {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .stat__num {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(72px, 8vw, 140px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+  }
+  .stat__num em { font-style: italic; color: var(--gold); }
+  .stat__unit {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 0.35em;
+    color: var(--gold);
+    vertical-align: super;
+    margin-left: 8px;
+  }
+  .stat__label {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ivory);
+    letter-spacing: 0.04em;
+  }
+
+  /* COPY DECK */
+  .copy-deck { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,169,97,0.2); border-top: 1px solid rgba(201,169,97,0.3); border-bottom: 1px solid rgba(201,169,97,0.3); }
+  .copy-card {
+    background: linear-gradient(180deg, #0C0B0F 0%, #08070A 100%);
+    padding: 64px 40px; min-height: 560px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+  }
+  .copy-card::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity .6s;
+  }
+  .copy-card:hover::before { opacity: 1; }
+  .copy-card__tag {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 14px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .copy-card__tag::before {
+    content: ""; width: 24px; height: 1px; background: var(--gold);
+  }
+  .copy-card__en {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(32px, 3.4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 24px;
+  }
+  .copy-card__en em { font-style: italic; color: var(--gold); }
+  .copy-card__jp {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 600;
+    font-size: 26px; line-height: 1.6; letter-spacing: 0.05em;
+  }
+  .copy-card__note {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 13px; letter-spacing: 0.05em;
+    color: var(--mute); margin-top: 40px; padding-top: 24px;
+    border-top: 1px solid rgba(201,169,97,0.2);
+  }
+
+  /* REFS */
+  .ref-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(201,169,97,0.2);
+    border-top: 1px solid rgba(201,169,97,0.3);
+    border-bottom: 1px solid rgba(201,169,97,0.3);
+  }
+  .ref-card {
+    background: var(--night);
+    padding: 48px 32px;
+    min-height: 320px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .ref-card__tag {
+    font-family: "Inter", sans-serif;
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .ref-card__name {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(28px, 2.6vw, 40px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
+    margin: 24px 0;
+  }
+  .ref-card__name em { font-style: italic; color: var(--gold); }
+  .ref-card__desc {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-size: 13px; line-height: 1.9; color: var(--mute);
+  }
+
+  /* SITEMAP */
+  .sitemap {
+    border-top: 1px solid rgba(201,169,97,0.3);
+  }
+  .sitemap__row {
+    display: grid; grid-template-columns: 80px 1fr 220px;
+    gap: 48px;
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(201,169,97,0.15);
+    align-items: center;
+    transition: all .5s;
+  }
+  .sitemap__row:hover {
+    background: linear-gradient(90deg, transparent, rgba(201,169,97,0.04), transparent);
+    padding-left: 24px;
+  }
+  .sitemap__num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 44px;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
+  }
+  .sitemap__title {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(28px, 2.8vw, 44px);
+    letter-spacing: -0.02em;
+    font-variation-settings: "opsz" 144;
+  }
+  .sitemap__title em { font-style: italic; color: var(--gold); }
+  .sitemap__title span {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500; font-style: normal;
+    font-size: 15px; color: var(--mute); margin-left: 20px;
+    letter-spacing: 0.05em;
+  }
+  .sitemap__desc {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 13px; letter-spacing: 0.1em;
+    color: var(--mute); text-align: right;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 120px;
+    padding: 120px 48px 48px;
+    background: radial-gradient(ellipse at center bottom, rgba(92,26,30,0.25) 0%, transparent 60%), var(--night);
+    border-top: 1px solid rgba(201,169,97,0.25);
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .footer__ornament {
+    font-family: "Fraunces", serif;
+    font-size: 14px;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 24px;
+    margin-bottom: 48px;
+  }
+  .footer__ornament::before,
+  .footer__ornament::after {
+    content: "";
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--gold) 100%);
+  }
+  .footer__ornament::after {
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+  .footer__big {
+    font-family: "Fraunces", serif;
+    font-weight: 300;
+    font-size: clamp(80px, 14vw, 240px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-variation-settings: "opsz" 144;
+    margin-bottom: 48px;
+  }
+  .footer__big em { font-style: italic; }
+  .footer__sub {
+    font-family: "Zen Old Mincho", serif;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    color: var(--ivory);
+    margin-bottom: 96px;
+  }
+  .footer__meta {
+    display: flex; justify-content: space-between;
+    font-family: "Inter", sans-serif;
+    font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--mute);
+    border-top: 1px solid rgba(201,169,97,0.2);
+    padding-top: 32px;
+  }
+
+  @media (max-width: 900px) {
+    .wrap { padding: 0 24px; }
+    .hero { padding: 24px; }
+    .sec { padding: 96px 0; }
+    .sec__head { grid-template-columns: 1fr; gap: 24px; }
+    .brand-grid { grid-template-columns: 1fr; }
+    .color-row { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .copy-deck { grid-template-columns: 1fr; }
+    .ref-grid { grid-template-columns: 1fr 1fr; }
+    .sitemap__row { grid-template-columns: 60px 1fr; gap: 16px; }
+    .sitemap__desc { display: none; }
+    footer { padding: 64px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="vignette"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+
+  <div class="hero__top">
+    <span class="mark">Radolf</span>
+    <span>Recruitment MMXXVI</span>
+  </div>
+
+  <div class="hero__center">
+    <div class="hero__ornament">Manifesto</div>
+
+    <h1 class="hero__title">
+      We are <em>not</em><br/>
+      a car <span class="gold-shimmer">dealer.</span>
+    </h1>
+
+    <p class="hero__sub">
+      私たちは、自動車屋ではない。<br/>
+      <span class="gold">「81」</span>という名の、人生を豊かにする場所を<br/>
+      紡いでいる会社である。
+    </p>
+
+    <div class="hero__ornament">Enrich Your Life</div>
+  </div>
+
+  <div class="hero__bottom">
+    <span>Sakai &mdash; Fukuoka &mdash; Tokyo 2026</span>
+    <span>Scroll to begin</span>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker__track">
+    <span>Enrich Your Life</span>
+    <span class="diamond">◆</span>
+    <span>We are not a car dealer</span>
+    <span class="diamond">◆</span>
+    <span>81 Gallery</span>
+    <span class="diamond">◆</span>
+    <span>81 Factory &amp; Café</span>
+    <span class="diamond">◆</span>
+    <span>Tokyo MMXXVI</span>
+    <span class="diamond">◆</span>
+    <span>Now inviting new members</span>
+    <span class="diamond">◆</span>
+    <span>Enrich Your Life</span>
+    <span class="diamond">◆</span>
+    <span>We are not a car dealer</span>
+    <span class="diamond">◆</span>
+    <span>81 Gallery</span>
+    <span class="diamond">◆</span>
+    <span>81 Factory &amp; Café</span>
+    <span class="diamond">◆</span>
+    <span>Tokyo MMXXVI</span>
+    <span class="diamond">◆</span>
+    <span>Now inviting new members</span>
+    <span class="diamond">◆</span>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<section>
+  <div class="wrap">
+    <div class="quote">
+      <div class="quote__mark serif">&ldquo;</div>
+      <div class="quote__body">
+        私たちは、自動車屋ではない。<br/>
+        カフェ屋でもない。<br/>
+        <em>「81」という名の世界</em>を、<br/>
+        紡いでいる。
+      </div>
+      <div class="quote__cite">— The 81 Manifesto, 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 THE WORLD OF 81 -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <div class="sec__num">Chapter I &mdash; The Universe</div>
+        <h2 class="sec__title">81, <em>a family</em><br/>of places.</h2>
+      </div>
+      <div class="sec__lead">
+        プレミアムカーの画廊。親子のための工場カフェ。<br/>
+        そして、まだ名前のない次の場所。<br/>
+        「81」は、株式会社ラドルフが育てる、ライフスタイル・ファミリーである。
+      </div>
+    </div>
+
+    <div class="brand-grid">
+      <div class="brand-card">
+        <div class="brand-card__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.style.display='none'" /></div>
+        <div class="brand-card__inner">
+          <div class="brand-card__bg"></div>
+          <div>
+            <div class="brand-card__tag">I. Gallery</div>
+            <div class="brand-card__ornament">est. 2020</div>
+            <div class="brand-card__name">81<br/><em>Gallery</em></div>
+            <div class="brand-card__jp">所有する、歓び。</div>
+          </div>
+          <div class="brand-card__desc">プレミアムカーの画廊。コレクターへ、車という名のアートを届ける。入手困難なモデルを常時50台。</div>
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.style.display='none'" /></div>
+        <div class="brand-card__inner">
+          <div class="brand-card__bg"></div>
+          <div>
+            <div class="brand-card__tag">II. Factory &amp; Café</div>
+            <div class="brand-card__ornament">est. 2026</div>
+            <div class="brand-card__name">81<br/><em>Factory</em></div>
+            <div class="brand-card__jp">過ごす、歓び。</div>
+          </div>
+          <div class="brand-card__desc">親子のための工場カフェ。整備の待ち時間を、家族の豊かな時間へ。本格生パスタと焼きたてワッフル。</div>
+        </div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.style.display='none'" /></div>
+        <div class="brand-card__inner">
+          <div class="brand-card__bg"></div>
+          <div>
+            <div class="brand-card__tag">III. Next</div>
+            <div class="brand-card__ornament">in progress</div>
+            <div class="brand-card__name">81<br/><em>Next</em></div>
+            <div class="brand-card__jp">次の、歓び。</div>
+          </div>
+          <div class="brand-card__desc">東京進出。越境EC。バーチャルショールーム。次の「81」を、あなたと共に紡ぐ。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 TYPE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <div class="sec__num">Chapter II &mdash; Typography</div>
+        <h2 class="sec__title">Voice, <em>in</em><br/>three tones.</h2>
+      </div>
+      <div class="sec__lead">
+        Fraunces のエレガントなイタリックで宣言し、<br/>
+        Zen Old Mincho の静謐で語り、<br/>
+        Inter で機能を支える。<br/>
+        装飾は金の罫線と斜体だけに絞る。
+      </div>
+    </div>
+
+    <div class="type-stack">
+      <div class="type-row">
+        <div class="type-meta">
+          <span>Display / English</span>
+          <span class="gold">— Fraunces</span>
+          <span>weight 300 · italic</span>
+          <span>role: hero, chapter title</span>
+        </div>
+        <div class="type-display">We are <em>not</em><br/>a car <span class="ac">dealer.</span></div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <span>Display / Japanese</span>
+          <span class="gold">— Zen Old Mincho</span>
+          <span>weight 600</span>
+          <span>role: lead, tagline</span>
+        </div>
+        <div class="type-jp">次の景色は、<br/>若い仲間と紡いでいく。</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <span>Body / Japanese</span>
+          <span class="gold">— Zen Old Mincho 500</span>
+          <span>role: interview, manifesto</span>
+        </div>
+        <div style="font-family:'Zen Old Mincho',serif;font-weight:500;font-size:18px;line-height:2.2;letter-spacing:0.04em;max-width:720px;">
+          私たちは、自動車屋ではない。カフェ屋でもない。「81」という名の、人生を豊かにする場所を紡いでいる会社だ。最初の場所は、プレミアムカーの画廊だった。次の場所は、親子のための工場カフェだった。その次を、あなたと共につくりたい。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COLOR -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <div class="sec__num">Chapter III &mdash; Palette</div>
+        <h2 class="sec__title">Midnight, <em>gold</em>,<br/>and oxblood.</h2>
+      </div>
+      <div class="sec__lead">
+        深い夜の黒に、熟成されたシャンパン・ゴールド。<br/>
+        アクセントに、プライベート・クラブの革張りソファを思わせるオックスブラッド。<br/>
+        競合の"黒×明るいゴールド"より、もう一段深く、もう一段熟す。
+      </div>
+    </div>
+
+    <div class="color-row">
+      <div class="color-cell hero" style="background: linear-gradient(135deg, #08070A 0%, #121014 100%); color: var(--ivory);">
+        <div class="color-cell__ornament gold-text">◆ Principal</div>
+        <div class="color-cell__name">Mid<em>night</em></div>
+        <div>
+          <div class="color-cell__code">#08070A</div>
+          <div class="color-cell__role">Base / 70%</div>
+        </div>
+      </div>
+      <div class="color-cell" style="background:#F4EFE4; color:#08070A;">
+        <div class="color-cell__ornament" style="color:#8F7340;">◆</div>
+        <div class="color-cell__name">Ivory</div>
+        <div>
+          <div class="color-cell__code">#F4EFE4</div>
+          <div class="color-cell__role">Text / 18%</div>
+        </div>
+      </div>
+      <div class="color-cell" style="background: linear-gradient(135deg, #E5CE94 0%, #C9A961 50%, #8F7340 100%); color:#08070A;">
+        <div class="color-cell__ornament" style="color:#08070A; opacity:0.6;">◆</div>
+        <div class="color-cell__name">Cham<em>pagne</em></div>
+        <div>
+          <div class="color-cell__code">#C9A961</div>
+          <div class="color-cell__role">Accent / 8%</div>
+        </div>
+      </div>
+      <div class="color-cell" style="background:#5C1A1E; color:var(--ivory);">
+        <div class="color-cell__ornament gold-text">◆</div>
+        <div class="color-cell__name">Ox<em>blood</em></div>
+        <div>
+          <div class="color-cell__code">#5C1A1E</div>
+          <div class="color-cell__role">Accent / 3%</div>
+        </div>
+      </div>
+      <div class="color-cell" style="background:#2A2623; color:var(--ivory);">
+        <div class="color-cell__ornament gold-text">◆</div>
+        <div class="color-cell__name">Smoke</div>
+        <div>
+          <div class="color-cell__code">#2A2623</div>
+          <div class="color-cell__role">Line / 1%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 NUMBERS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <div class="sec__num">Chapter IV &mdash; Numbers</div>
+        <h2 class="sec__title">The <em>figures</em><br/>behind 81.</h2>
+      </div>
+      <div class="sec__lead">
+        数字は、金の罫線の向こうに静かに置く。<br/>
+        声を張り上げなくとも、事実は雄弁である。
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__tag">Average age</div>
+        <div class="stat__num">28<span class="stat__unit">years</span></div>
+        <div class="stat__label">20代が主役の<br/>若きカンパニー</div>
+      </div>
+      <div class="stat">
+        <div class="stat__tag">Average salary</div>
+        <div class="stat__num"><em>¥12</em><span class="stat__unit">M</span></div>
+        <div class="stat__label">業界平均の 2 倍、<br/>青天井のインセンティブ</div>
+      </div>
+      <div class="stat">
+        <div class="stat__tag">Annual revenue</div>
+        <div class="stat__num">¥5.7<span class="stat__unit">Bn</span></div>
+        <div class="stat__label">2024 年度実績、<br/>創業 7 年で 57 億</div>
+      </div>
+      <div class="stat">
+        <div class="stat__tag">Locations</div>
+        <div class="stat__num">3<span class="stat__unit">+1</span></div>
+        <div class="stat__label">堺・福岡・<br/>2026 東京上陸</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 COPY -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <div class="sec__num">Chapter V &mdash; Copy</div>
+        <h2 class="sec__title">Three <em>whispers,</em><br/>one voice.</h2>
+      </div>
+      <div class="sec__lead">
+        叫ぶのではなく、囁く。<br/>
+        囁きの重みが、本物の贅沢である。
+      </div>
+    </div>
+
+    <div class="copy-deck">
+      <div class="copy-card">
+        <div>
+          <div class="copy-card__tag">Direction A &middot; Manifesto</div>
+          <div class="copy-card__en">We are <em>not</em><br/>a car dealer.</div>
+          <div class="copy-card__jp">私たちは、<br/>自動車屋ではない。</div>
+        </div>
+        <div class="copy-card__note">宣言型。サイトの冒頭に静かに置く。</div>
+      </div>
+      <div class="copy-card">
+        <div>
+          <div class="copy-card__tag">Direction B &middot; Invitation</div>
+          <div class="copy-card__en">See the <em>next</em><br/>horizon, with us.</div>
+          <div class="copy-card__jp">次の景色を、<br/>一緒に紡ぎに。</div>
+        </div>
+        <div class="copy-card__note">招待型。代表の言葉に由来する。</div>
+      </div>
+      <div class="copy-card">
+        <div>
+          <div class="copy-card__tag">Direction C &middot; Value</div>
+          <div class="copy-card__en"><em>Enrich</em> your life.<br/>Starting here.</div>
+          <div class="copy-card__jp">人生を豊かに。<br/>まず、自分から。</div>
+        </div>
+        <div class="copy-card__note">理念反転型。既存スローガンの昇華。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 REFS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <div class="sec__num">Chapter VI &mdash; References</div>
+        <h2 class="sec__title">The <em>lineage</em><br/>we draw from.</h2>
+      </div>
+      <div class="sec__lead">
+        ベンチマークは、自動車業界の外。<br/>
+        熟した贅沢と、静かな挑発を持ち合わせるブランド群から学ぶ。
+      </div>
+    </div>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div>
+          <div class="ref-card__tag">Fashion &mdash; Maison</div>
+          <div class="ref-card__name">Tom <em>Ford</em></div>
+        </div>
+        <div class="ref-card__desc">黒とゴールド、官能と知性。ラグジュアリーをクラシックな権威から、現代の自信へ翻訳した手本。</div>
+      </div>
+      <div class="ref-card">
+        <div>
+          <div class="ref-card__tag">Horology</div>
+          <div class="ref-card__name">Hublot<br/><em>Audemars</em></div>
+        </div>
+        <div class="ref-card__desc">深い黒と金の罫線。数字とディテールで語る高級時計ブランドのウェブ設計。</div>
+      </div>
+      <div class="ref-card">
+        <div>
+          <div class="ref-card__tag">Hospitality</div>
+          <div class="ref-card__name">Aman<br/><em>Tokyo</em></div>
+        </div>
+        <div class="ref-card__desc">無音の贅沢。説明ではなく気配で伝える。ホテル業のウェブが持つ圧倒的な空気感。</div>
+      </div>
+      <div class="ref-card">
+        <div>
+          <div class="ref-card__tag">Automotive</div>
+          <div class="ref-card__name">McLaren<br/><em>Automotive</em></div>
+        </div>
+        <div class="ref-card__desc">スーパーカーを売るのではなく、工芸品としての車を見せる。高級車ブランドの最前線。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SITEMAP -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div>
+        <div class="sec__num">Chapter VII &mdash; Sitemap</div>
+        <h2 class="sec__title">Seven <em>chapters,</em><br/>one manuscript.</h2>
+      </div>
+      <div class="sec__lead">
+        採用サイトを、上製本の章立てのように設計する。<br/>
+        読み終えた時、会社の輪郭が立ち上がる構成。
+      </div>
+    </div>
+
+    <div class="sitemap">
+      <div class="sitemap__row">
+        <div class="sitemap__num">I.</div>
+        <div class="sitemap__title">Manifesto<span>宣言</span></div>
+        <div class="sitemap__desc">Hero &middot; Full bleed<br/>&mdash; Opening statement</div>
+      </div>
+      <div class="sitemap__row">
+        <div class="sitemap__num">II.</div>
+        <div class="sitemap__title">The <em>Universe</em><span>81 の世界</span></div>
+        <div class="sitemap__desc">Gallery &middot; Factory &middot; Next<br/>&mdash; The family of places</div>
+      </div>
+      <div class="sitemap__row">
+        <div class="sitemap__num">III.</div>
+        <div class="sitemap__title">People<span>働く人たち</span></div>
+        <div class="sitemap__desc">Curator &middot; Craftsman<br/>&mdash; Editorial interviews</div>
+      </div>
+      <div class="sitemap__row">
+        <div class="sitemap__num">IV.</div>
+        <div class="sitemap__title">Figures<span>数字</span></div>
+        <div class="sitemap__desc">Stats &middot; With restraint<br/>&mdash; Let the numbers speak</div>
+      </div>
+      <div class="sitemap__row">
+        <div class="sitemap__num">V.</div>
+        <div class="sitemap__title">Founder<span>代表の言葉</span></div>
+        <div class="sitemap__desc">Long read<br/>&mdash; 犬飼良</div>
+      </div>
+      <div class="sitemap__row">
+        <div class="sitemap__num">VI.</div>
+        <div class="sitemap__title">Culture<span>カルチャー</span></div>
+        <div class="sitemap__desc">Values &middot; Photographs<br/>&mdash; The way of 81</div>
+      </div>
+      <div class="sitemap__row">
+        <div class="sitemap__num">VII.</div>
+        <div class="sitemap__title"><em>Join</em><span>募集 &middot; エントリー</span></div>
+        <div class="sitemap__desc">Positions &middot; CTA<br/>&mdash; Become part of 81</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer__ornament">&mdash; Enrich Your Life &mdash;</div>
+  <div class="footer__big">Join <em>81.</em></div>
+  <div class="footer__sub">次の景色を、一緒に紡ぎに。</div>
+  <div class="footer__meta">
+    <div>Radolf Inc. &middot; 81</div>
+    <div>Moodboard V · 0.3 &mdash; MMXXVI.04.XXIV</div>
+    <div>Enrich Your Life</div>
+  </div>
+</footer>
+
+</body>
+</html>

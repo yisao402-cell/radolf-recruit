@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Case 13 — Itochu Feed-style / RADOLF × 81</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#FAFAEC;--bg2:#F0EDD0;--ink:#1F2818;--ink-2:#3D4A30;--mute:#6F7A5C;--green:#5C8B3A;--green-deep:#3F6924;--orange:#E89B3A;--cream:#FFF8DC;--line:#DCD8B5}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;line-height:1.95;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+  .tag{position:fixed;top:18px;right:20px;z-index:200;background:var(--green-deep);color:var(--bg);padding:10px 18px;font-size:11px;letter-spacing:.2em;border-radius:100px}
+  .nav{padding:18px 32px;display:flex;justify-content:space-between;align-items:center;background:var(--bg);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
+  .logo{font-weight:900;font-size:24px;letter-spacing:-.02em;display:flex;align-items:center;gap:6px}
+  .logo .leaf{color:var(--green)}
+  .menu{display:flex;gap:24px;font-size:13px;font-weight:500}
+  .menu .cta{background:var(--green);color:#fff;padding:10px 22px;border-radius:100px;font-weight:700}
+  .hero{padding:64px 0;background:var(--cream);overflow:hidden;position:relative}
+  .hero__inner{max-width:1280px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;position:relative}
+  .hero__leaves{position:absolute;top:0;right:0;font-size:32px;color:var(--green);opacity:.4}
+  .hero__title{font-weight:900;font-size:clamp(40px,6vw,84px);line-height:1.18;letter-spacing:-.02em;color:var(--ink)}
+  .hero__title .group{display:block;background:var(--green);color:#fff;padding:8px 20px;border-radius:100px;width:fit-content;margin-bottom:14px;font-weight:900}
+  .hero__title em{color:var(--orange);font-style:normal}
+  .hero__sub{margin-top:24px;font-size:15px;line-height:2.05;color:var(--ink-2);max-width:520px}
+  .hero__photo{aspect-ratio:4/5;border-radius:24px;overflow:hidden;border:6px solid #fff;box-shadow:0 12px 36px rgba(31,40,24,.18)}
+  .hero__photo img{width:100%;height:100%;object-fit:cover}
+  /* phrase grid */
+  .phrases{padding:80px 0;background:var(--bg2);text-align:center}
+  .phrases__pre{font-size:12px;letter-spacing:.3em;color:var(--green-deep);font-weight:700;text-transform:uppercase;margin-bottom:14px}
+  .phrases__title{font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1.5}
+  .phrases__row{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+  .phrase{background:#fff;border:2px solid var(--ink);padding:14px 32px;border-radius:100px;font-weight:700;font-size:18px;box-shadow:4px 4px 0 var(--ink);transition:transform .15s}
+  .phrase:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .phrase.green{background:var(--green);color:#fff}
+  .phrase.orange{background:var(--orange);color:#fff}
+  /* video block */
+  .video{padding:120px 0;background:var(--bg)}
+  .video__head{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:end;margin-bottom:40px}
+  .video__pre{font-size:12px;letter-spacing:.3em;color:var(--green-deep);font-weight:700;text-transform:uppercase}
+  .video__title{font-weight:900;font-size:clamp(32px,4.5vw,56px);line-height:1.18;letter-spacing:-.02em}
+  .video__title em{color:var(--orange);font-style:normal}
+  .video__lead{font-size:14px;line-height:2.05;color:var(--ink-2)}
+  .video__player{aspect-ratio:16/9;border-radius:24px;overflow:hidden;border:6px solid #fff;box-shadow:0 14px 40px rgba(31,40,24,.22);position:relative;background:#1A1F12}
+  .video__player img{width:100%;height:100%;object-fit:cover}
+  .video__player::after{content:"▶";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:96px;height:96px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 12px 32px rgba(0,0,0,.3)}
+  /* brands */
+  .sec{padding:120px 0}
+  .sec__pre{font-size:12px;letter-spacing:.3em;color:var(--green-deep);font-weight:700;text-transform:uppercase;margin-bottom:14px}
+  .sec__title{font-weight:900;font-size:clamp(28px,4vw,48px);line-height:1.3;text-align:center}
+  .sec__title em{color:var(--orange);font-style:normal}
+  .brands{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .brand{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:transform .25s}
+  .brand:hover{transform:translateY(-4px)}
+  .brand__photo{aspect-ratio:4/3;background:var(--bg2)}
+  .brand__photo img{width:100%;height:100%;object-fit:cover}
+  .brand__body{padding:24px}
+  .brand__name{font-weight:900;font-size:24px;letter-spacing:-.02em}
+  .brand__sub{font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.95}
+  .cta{padding:120px 32px;background:var(--green);color:#fff;text-align:center}
+  .cta__title{font-weight:900;font-size:clamp(36px,5.5vw,72px);line-height:1.18;color:#fff}
+  .cta__title em{color:var(--cream);font-style:normal}
+  .cta__btn{display:inline-block;margin-top:28px;background:#fff;color:var(--green-deep);padding:22px 56px;border-radius:100px;font-weight:900;letter-spacing:.1em}
+  footer{padding:32px;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:.2em;text-align:center}
+  @media(max-width:900px){.hero__inner,.video__head{grid-template-columns:1fr}.brands{grid-template-columns:1fr}}
+
+/* === INFO EXPANSION (theme-agnostic, inherits color/font) === */
+.x-sec{padding:96px 32px;border-top:1px solid rgba(127,127,127,.18);position:relative;z-index:2}
+.x-sec.alt{background:rgba(127,127,127,.05)}
+.x-wrap{max-width:1200px;margin:0 auto}
+.x-pre{display:block;font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;opacity:.65;margin-bottom:14px}
+.x-title{font-weight:900;font-size:clamp(28px,4vw,46px);line-height:1.25;letter-spacing:-.02em;margin-bottom:8px}
+.x-lead{font-size:14px;line-height:2;opacity:.78;max-width:680px;margin:8px 0 32px}
+/* Founder */
+.x-founder{display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:start}
+.x-founder__photo{aspect-ratio:4/5;overflow:hidden;border-radius:8px;background:rgba(127,127,127,.1)}
+.x-founder__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.x-founder__name{font-weight:900;font-size:30px;letter-spacing:-.02em;margin-bottom:2px}
+.x-founder__role{font-size:11px;letter-spacing:.2em;opacity:.6;margin-bottom:18px;text-transform:uppercase}
+.x-founder__body p{font-size:14px;line-height:2;margin-bottom:14px;opacity:.88}
+.x-founder__sign{margin-top:24px;padding-top:18px;border-top:1px solid rgba(127,127,127,.18);font-style:italic;opacity:.7;font-size:13px}
+/* Numbers */
+.x-numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.x-num{padding:24px;border:1px solid rgba(127,127,127,.18);border-radius:8px;background:rgba(127,127,127,.04)}
+.x-num__big{font-weight:900;font-size:42px;letter-spacing:-.04em;line-height:1}
+.x-num__big small{font-size:14px;font-weight:500;margin-left:4px;opacity:.7}
+.x-num__lab{margin-top:10px;font-size:11px;letter-spacing:.2em;font-weight:700;opacity:.7;text-transform:uppercase}
+.x-num__sub{margin-top:6px;font-size:12px;opacity:.7;line-height:1.7}
+/* Career */
+.x-steps{display:flex;flex-direction:column;gap:8px}
+.x-step{display:grid;grid-template-columns:140px 1fr 80px;gap:24px;padding:20px 24px;border:1px solid rgba(127,127,127,.18);border-radius:8px;background:rgba(127,127,127,.04);align-items:center}
+.x-step__time{font-weight:900;font-size:13px;letter-spacing:.05em;line-height:1.4}
+.x-step__time small{display:block;font-size:10px;opacity:.6;font-weight:500;margin-top:2px}
+.x-step__title{font-weight:700;font-size:18px;letter-spacing:-.01em}
+.x-step__desc{font-size:12px;opacity:.75;line-height:1.85;margin-top:4px}
+.x-step__tag{font-size:10px;letter-spacing:.2em;opacity:.55;text-align:right}
+/* People */
+.x-people{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.x-pers{border:1px solid rgba(127,127,127,.18);border-radius:8px;overflow:hidden;background:rgba(127,127,127,.04)}
+.x-pers__photo{aspect-ratio:4/5;background:rgba(127,127,127,.1)}
+.x-pers__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.x-pers__body{padding:16px}
+.x-pers__role{font-size:10px;letter-spacing:.2em;font-weight:700;opacity:.65;text-transform:uppercase}
+.x-pers__name{font-weight:700;font-size:17px;margin-top:4px}
+.x-pers__name small{font-size:11px;opacity:.6;margin-left:6px;font-weight:500}
+.x-pers__quote{margin-top:10px;font-size:12px;line-height:1.85;opacity:.82;border-top:1px solid rgba(127,127,127,.15);padding-top:8px}
+/* Jobs */
+.x-jobs{border-top:1px solid rgba(127,127,127,.18)}
+.x-job{display:grid;grid-template-columns:60px 1fr auto;gap:24px;padding:24px;border-bottom:1px solid rgba(127,127,127,.18);align-items:center;cursor:pointer;transition:background .2s}
+.x-job:hover{background:rgba(127,127,127,.05)}
+.x-job__num{font-weight:900;font-size:22px;letter-spacing:-.02em;opacity:.65}
+.x-job__title{font-weight:700;font-size:18px;letter-spacing:-.01em}
+.x-job__sub{font-size:12px;opacity:.7;margin-top:4px;line-height:1.7}
+.x-job__chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.x-chip{padding:3px 10px;border:1px solid rgba(127,127,127,.3);border-radius:100px;font-size:10px;letter-spacing:.05em;opacity:.85}
+.x-job__arrow{font-size:18px;font-weight:700;opacity:.65}
+/* Offices */
+.x-offices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.x-off{border:1px solid rgba(127,127,127,.18);border-radius:8px;overflow:hidden;background:rgba(127,127,127,.04)}
+.x-off__photo{aspect-ratio:4/3;background:rgba(127,127,127,.1)}
+.x-off__photo img{width:100%;height:100%;object-fit:cover;display:block}
+.x-off__body{padding:16px 18px}
+.x-off__chip{display:inline-block;padding:3px 10px;border:1px solid rgba(127,127,127,.3);border-radius:100px;font-size:10px;letter-spacing:.08em;margin-bottom:8px;opacity:.85}
+.x-off__name{font-weight:900;font-size:18px;letter-spacing:-.01em}
+.x-off__addr{font-size:11px;opacity:.7;margin-top:4px;line-height:1.6}
+/* Company DL */
+.x-dl{display:grid;grid-template-columns:160px 1fr;row-gap:14px;column-gap:24px;border:1px solid rgba(127,127,127,.18);padding:32px;border-radius:8px;font-size:13px;line-height:1.7;background:rgba(127,127,127,.04)}
+.x-dl dt{opacity:.6;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding-top:3px}
+.x-dl dd{font-weight:500}
+/* FAQ */
+.x-faq{display:flex;flex-direction:column;gap:8px}
+.x-q{padding:18px 22px;border:1px solid rgba(127,127,127,.18);border-radius:8px;background:rgba(127,127,127,.04)}
+.x-q__q{font-weight:700;font-size:14px;letter-spacing:-.01em;margin-bottom:6px}
+.x-q__a{font-size:13px;opacity:.78;line-height:1.85}
+@media(max-width:900px){
+  .x-founder{grid-template-columns:1fr;gap:24px}
+  .x-numbers{grid-template-columns:1fr 1fr}
+  .x-people{grid-template-columns:1fr 1fr}
+  .x-offices{grid-template-columns:1fr}
+  .x-step{grid-template-columns:90px 1fr}
+  .x-step__tag{grid-column:2;text-align:left}
+  .x-dl{grid-template-columns:1fr;row-gap:6px}
+  .x-sec{padding:64px 24px}
+}
+
+</style></head><body>
+<div class="tag">CASE 13 — ITOCHU FEED</div>
+<nav class="nav"><a class="logo">RADOLF<span class="leaf"> ❀ </span>81</a><div class="menu"><a>About</a><a>People</a><a>Jobs</a><a class="cta">エントリー</a></div></nav>
+
+<section class="hero">
+  <div class="hero__leaves">❀ ❀ ❀</div>
+  <div class="hero__inner">
+    <div>
+      <h1 class="hero__title"><span class="group">RADOLF FAMILY</span>あなたの<em>毎日</em>を、<br/>豊かに、たかめる。</h1>
+      <p class="hero__sub">「車屋らしくない車屋」を、家族で来られる工場カフェを、未来の東京拠点を。<br/>関わるすべての人の人生を、ひと回り豊かにする会社です。</p>
+    </div>
+    <div class="hero__photo"><img src="images/ceo.jpg" onerror="this.parentElement.style.display='none'"/></div>
+  </div>
+</section>
+
+<section class="phrases">
+  <div class="phrases__pre">━ Our 3 Words</div>
+  <h2 class="phrases__title">3つの言葉で、<br/>「81」を伝えます。</h2>
+  <div class="phrases__row">
+    <span class="phrase green">あんしんを、つくる。</span>
+    <span class="phrase orange">よろこびを、とどける。</span>
+    <span class="phrase">ひとを、たかめる。</span>
+  </div>
+</section>
+
+<section class="video"><div class="wrap">
+  <div class="video__head">
+    <div>
+      <div class="video__pre">━ MOVIE</div>
+      <h2 class="video__title">現場の<em>声</em>を、<br/>動画で。</h2>
+    </div>
+    <div class="video__lead">営業、整備、カフェ、事務。それぞれの現場で「81」をつくる仲間が、リアルな声をお届けします。</div>
+  </div>
+  <div class="video__player"><img src="images/group-26.jpg" onerror="this.parentElement.style.display='none'"/></div>
+</div></section>
+
+<section class="sec">
+  <div class="wrap">
+    <div style="text-align:center"><div class="sec__pre">━ Brand World</div><h2 class="sec__title">3つの<em>事業</em>で、毎日を育てる。</h2></div>
+    <div class="brands">
+      <article class="brand"><div class="brand__photo"><img src="images/showroom-ferrari.jpg" onerror="this.parentElement.style.display='none'"/></div><div class="brand__body"><div class="brand__name">81 Gallery</div><div class="brand__sub">プレミアムカーの画廊。所有する歓びを届ける。</div></div></article>
+      <article class="brand"><div class="brand__photo"><img src="images/store-sakai.jpg" onerror="this.parentElement.style.display='none'"/></div><div class="brand__body"><div class="brand__name">81 Factory</div><div class="brand__sub">家族の時間を、工場カフェで育てる。</div></div></article>
+      <article class="brand"><div class="brand__photo"><img src="images/sales-scene.jpg" onerror="this.parentElement.style.display='none'"/></div><div class="brand__body"><div class="brand__name">81 Next</div><div class="brand__sub">2026年、東京。次の世界を、一緒に育てる。</div></div></article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== INFO EXPANSION ===== -->
+<section class="x-sec"><div class="x-wrap">
+  <span class="x-pre">━ Founder Message</span>
+  <h2 class="x-title">代表からのメッセージ。</h2>
+  <p class="x-lead">「努力が正当に評価される会社をつくりたい」。それが、すべての始まりでした。</p>
+  <div class="x-founder">
+    <div class="x-founder__photo"><img src="images/ceo.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+    <div class="x-founder__body">
+      <h3 class="x-founder__name">犬飼 良</h3>
+      <div class="x-founder__role">代表取締役 / Founder &amp; CEO</div>
+      <p>前職、輸入車販売会社で7年連続 No.1 セールスマン。2017年、堺で独立。「努力が正当に評価される会社をつくりたい」が、すべての始まりでした。</p>
+      <p>創業7年で売上52億円。次の山は100億円。プレミアムカーの画廊から、家族のための工場カフェへ、そして2026年、東京拠点へ。一緒に「次の景色」を見にいく仲間を、ずっと探しています。</p>
+      <p>役職や年齢の壁はいりません。すべての社員が、ひとつの「81」を一緒につくる。72人で、もうすでにそうしています。</p>
+      <div class="x-founder__sign">— 犬飼 良 / Ryo Inukai, Founder &amp; CEO</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="x-sec alt"><div class="x-wrap">
+  <span class="x-pre">━ Numbers</span>
+  <h2 class="x-title">数字で見る、RADOLF。</h2>
+  <p class="x-lead">創業から7年で、こうなりました。誇張なく、事実を、いくつかの数字で。</p>
+  <div class="x-numbers">
+    <div class="x-num"><div class="x-num__big">29<small>歳</small></div><div class="x-num__lab">— 平均年齢</div><div class="x-num__sub">若手主役。新卒1年目が東京進出の議論に。</div></div>
+    <div class="x-num"><div class="x-num__big">52<small>億</small></div><div class="x-num__lab">— 売上 2024</div><div class="x-num__sub">創業7年で、ここまで。次の山は100億。</div></div>
+    <div class="x-num"><div class="x-num__big">5<small>+</small></div><div class="x-num__lab">— 拠点</div><div class="x-num__sub">堺・南堺・福岡・岡山 + 2026 東京。</div></div>
+    <div class="x-num"><div class="x-num__big">72<small>名</small></div><div class="x-num__lab">— 仲間</div><div class="x-num__sub">家族のような関係を、72人で。</div></div>
+    <div class="x-num"><div class="x-num__big">50<small>台</small></div><div class="x-num__lab">— 在庫</div><div class="x-num__sub">フェラーリ、ランボルなど常時50台。</div></div>
+    <div class="x-num"><div class="x-num__big">7<small>年</small></div><div class="x-num__lab">— 創業</div><div class="x-num__sub">2017年2月、堺で創業。</div></div>
+    <div class="x-num"><div class="x-num__big">100<small>%</small></div><div class="x-num__lab">— 内定承諾</div><div class="x-num__sub">2024 / 2025年内定者の100%が入社。</div></div>
+    <div class="x-num"><div class="x-num__big">3.4<small>年</small></div><div class="x-num__lab">— 平均勤続</div><div class="x-num__sub">短くない。長くもない。みんな育ち中。</div></div>
+  </div>
+</div></section>
+
+<section class="x-sec"><div class="x-wrap">
+  <span class="x-pre">━ Career Path</span>
+  <h2 class="x-title">入社からの、成長ストーリー。</h2>
+  <p class="x-lead">最初の1年で、何が起きるか。3年目で、どこに立っているか。実際のキャリアパスを5ステップで。</p>
+  <div class="x-steps">
+    <div class="x-step"><div class="x-step__time">STEP 01<small>入社1ヶ月目</small></div><div><div class="x-step__title">新人研修</div><div class="x-step__desc">車両知識・業界理解・接客マナー。同期と一緒に「81」を体感する1ヶ月。</div></div><div class="x-step__tag">// 基礎</div></div>
+    <div class="x-step"><div class="x-step__time">STEP 02<small>3ヶ月目</small></div><div><div class="x-step__title">OJT 配属</div><div class="x-step__desc">先輩について実務スタート。最初の1台を任されるのもこの頃。</div></div><div class="x-step__tag">// 実務</div></div>
+    <div class="x-step"><div class="x-step__time">STEP 03<small>6ヶ月目</small></div><div><div class="x-step__title">独立担当</div><div class="x-step__desc">自分のお客様を持ち、商談から納車まで一気通貫で担当。</div></div><div class="x-step__tag">// 独立</div></div>
+    <div class="x-step"><div class="x-step__time">STEP 04<small>1〜2年目</small></div><div><div class="x-step__title">プロジェクト参画</div><div class="x-step__desc">新規出店、商品企画、東京進出など、希望のプロジェクトに混ざれる。</div></div><div class="x-step__tag">// 拡張</div></div>
+    <div class="x-step"><div class="x-step__time">STEP 05<small>3年目〜</small></div><div><div class="x-step__title">リーダー / 店長</div><div class="x-step__desc">適性とやる気次第で、店舗責任者へ。20代の店長が複数います。</div></div><div class="x-step__tag">// 経営</div></div>
+  </div>
+</div></section>
+
+<section class="x-sec alt"><div class="x-wrap">
+  <span class="x-pre">━ People</span>
+  <h2 class="x-title">「81」を、つくる人たち。</h2>
+  <p class="x-lead">職種は違っても、肩書きを越えて、ひとつの「81」を一緒につくる仲間。72名のなかから、4人をご紹介。</p>
+  <div class="x-people">
+    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-okada.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Sales / 営業</div><h3 class="x-pers__name">岡田<small>30 / 4年目</small></h3><p class="x-pers__quote">「車を売る」じゃなく、人生を一緒に選ぶ。そう呼べる仕事です。</p></div></article>
+    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-kano.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Mech / 整備</div><h3 class="x-pers__name">加納<small>27 / 3年目</small></h3><p class="x-pers__quote">フェラーリの定期整備を任される日が来た。一生忘れません。</p></div></article>
+    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-01.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Café / カフェ</div><h3 class="x-pers__name">田中<small>24 / 2年目</small></h3><p class="x-pers__quote">窓の向こうのポルシェを見ながら、ラテを淹れる。</p></div></article>
+    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-02.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Office / 事務</div><h3 class="x-pers__name">鈴木<small>26 / 2年目</small></h3><p class="x-pers__quote">経営の隣で、会社が育つ瞬間を見ています。</p></div></article>
+  </div>
+</div></section>
+
+<section class="x-sec"><div class="x-wrap">
+  <span class="x-pre">━ Open Positions</span>
+  <h2 class="x-title">いま、募集中の4職種。</h2>
+  <p class="x-lead">職種は違っても、肩書きを越えて「81」を一緒につくる、対等な仕事です。</p>
+  <div class="x-jobs">
+    <a class="x-job"><div class="x-job__num">01</div><div><div class="x-job__title">営業スタッフ</div><div class="x-job__sub">プレミアムカーの提案営業 / 未経験OK / 新卒・第二新卒歓迎</div><div class="x-job__chips"><span class="x-chip">インセン青天井</span><span class="x-chip">月給25万〜</span><span class="x-chip">堺 / 福岡 / 東京</span></div></div><div class="x-job__arrow">→</div></a>
+    <a class="x-job"><div class="x-job__num">02</div><div><div class="x-job__title">自動車整備士</div><div class="x-job__sub">整備・板金・コーティング / 2級整備士資格優遇</div><div class="x-job__chips"><span class="x-chip">資格取得支援</span><span class="x-chip">堺本社</span><span class="x-chip">81ファクトリー</span></div></div><div class="x-job__arrow">→</div></a>
+    <a class="x-job"><div class="x-job__num">03</div><div><div class="x-job__title">カフェスタッフ</div><div class="x-job__sub">ホール・キッチン / 時給1200円〜 / 社員登用あり</div><div class="x-job__chips"><span class="x-chip">81ファクトリー&amp;カフェ</span><span class="x-chip">シフト自由</span></div></div><div class="x-job__arrow">→</div></a>
+    <a class="x-job"><div class="x-job__num">04</div><div><div class="x-job__title">社長秘書 / 事務サポート</div><div class="x-job__sub">経営サポート・事務 / 中途募集</div><div class="x-job__chips"><span class="x-chip">月給25万〜45万</span><span class="x-chip">経営の近く</span></div></div><div class="x-job__arrow">→</div></a>
+  </div>
+</div></section>
+
+<section class="x-sec alt"><div class="x-wrap">
+  <span class="x-pre">━ Offices</span>
+  <h2 class="x-title">働く場所、6拠点。</h2>
+  <p class="x-lead">堺の本社から、福岡、岡山、そして2026年の東京へ。どの拠点も、ただの職場じゃなく「81」を体現する場所。</p>
+  <div class="x-offices">
+    <article class="x-off"><div class="x-off__photo"><img src="images/hq-exterior.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">本社 / HQ</span><div class="x-off__name">81 SAKAI</div><div class="x-off__addr">大阪府堺市堺区北清水町 1丁2-15</div></div></article>
+    <article class="x-off"><div class="x-off__photo"><img src="images/showroom-cabin.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">フラッグシップ</span><div class="x-off__name">81 FACTORY</div><div class="x-off__addr">大阪府堺市 — 81ギャラリーから徒歩圏</div></div></article>
+    <article class="x-off"><div class="x-off__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">店舗</span><div class="x-off__name">81 SOUTH</div><div class="x-off__addr">大阪府堺市 — 南部エリア</div></div></article>
+    <article class="x-off"><div class="x-off__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">九州</span><div class="x-off__name">81 FUKUOKA</div><div class="x-off__addr">福岡県 — 九州エリアの拠点</div></div></article>
+    <article class="x-off"><div class="x-off__photo"><img src="images/showroom-plate.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">店舗</span><div class="x-off__name">81 OKAYAMA</div><div class="x-off__addr">岡山県 — 中国エリア</div></div></article>
+    <article class="x-off"><div class="x-off__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">2026 OPEN</span><div class="x-off__name">81 TOKYO</div><div class="x-off__addr">東京都内 — 詳細は近日公開</div></div></article>
+  </div>
+</div></section>
+
+<section class="x-sec"><div class="x-wrap">
+  <span class="x-pre">━ Company</span>
+  <h2 class="x-title">会社概要</h2>
+  <dl class="x-dl">
+    <dt>会社名</dt><dd>株式会社ラドルフ</dd>
+    <dt>設立</dt><dd>2017年 2月19日</dd>
+    <dt>資本金</dt><dd>1,000万円</dd>
+    <dt>代表取締役</dt><dd>犬飼 良</dd>
+    <dt>本社</dt><dd>大阪府堺市堺区北清水町 1丁2-15</dd>
+    <dt>事業所</dt><dd>堺本社 / 81ファクトリー店 / 南堺店 / 福岡店 / 岡山店（+ 東京店・福岡中央店 開設予定）</dd>
+    <dt>事業内容</dt><dd>プレミアムカー販売・整備・板金、工場カフェ運営、東京進出（2026）、バーチャルショールーム</dd>
+    <dt>売上</dt><dd>52億円（2024年度）</dd>
+    <dt>従業員数</dt><dd>72名（2026年4月時点）</dd>
+    <dt>企業理念</dt><dd>「関わる人々の人生を豊かにする」</dd>
+  </dl>
+</div></section>
+
+<section class="x-sec alt"><div class="x-wrap">
+  <span class="x-pre">━ FAQ</span>
+  <h2 class="x-title">よくある質問</h2>
+  <div class="x-faq">
+    <div class="x-q"><div class="x-q__q">Q. 未経験でも応募できますか？</div><div class="x-q__a">A. はい。営業・カフェ・事務は未経験OK。整備士のみ2級資格優遇です。研修制度も整備されています。</div></div>
+    <div class="x-q"><div class="x-q__q">Q. 新卒と中途、どちらの応募が多いですか？</div><div class="x-q__a">A. 半々です。2026年4月は新卒13名、中途4名が入社しました。</div></div>
+    <div class="x-q"><div class="x-q__q">Q. 残業時間はどれくらいですか？</div><div class="x-q__a">A. 部署によりますが、平均20〜30時間/月。週休2日制、有給取得率90%以上です。</div></div>
+    <div class="x-q"><div class="x-q__q">Q. 東京勤務はいつから可能ですか？</div><div class="x-q__a">A. 2026年秋オープン予定。2026年4月入社者も希望すれば、東京の立ち上げメンバーになれます。</div></div>
+    <div class="x-q"><div class="x-q__q">Q. インターンや会社見学はできますか？</div><div class="x-q__a">A. もちろん。「81 FACTORY &amp; CAFE」は実際の業務スペースを見学できる空間として開放しています。エントリーから「見学希望」とお書きください。</div></div>
+  </div>
+</div></section>
+<!-- ===== END INFO EXPANSION ===== -->
+
+<section class="cta">
+  <h2 class="cta__title">あなたの<em>毎日</em>を、<br/>ここで、育てる。</h2>
+  <a class="cta__btn">エントリーする →</a>
+</section>
+<footer>RADOLF INC. © 2026 — CASE 13 / ITOCHU FEED-INSPIRED</footer>
+</body></html>

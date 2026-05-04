@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concept D — アイソメトリック・タウン / RADOLF × 81</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Kiwi+Maru:wght@400;500&family=M+PLUS+Rounded+1c:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --sky: #DCEBE6;
+    --sky-2: #C4DCD2;
+    --ground: #E8DFC4;
+    --ground-2: #D9CDA8;
+    --road: #5C5345;
+    --brick: #B85C3D;
+    --brick-deep: #883E27;
+    --wood: #C4945A;
+    --wood-deep: #8C6332;
+    --leaf: #6E8C4A;
+    --leaf-soft: #9CB17A;
+    --cream: #FFF9E8;
+    --paper: #FAF5E5;
+    --ink: #1F1A12;
+    --ink-2: #4A4030;
+    --mute: #847762;
+    --line: #C9BC9B;
+    --pop: #F0C45F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "M PLUS Rounded 1c", "Noto Sans JP", system-ui, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 2; }
+
+  .concept-tag {
+    position: fixed; top: 18px; right: 20px; z-index: 200;
+    background: var(--ink); color: var(--cream);
+    padding: 10px 18px;
+    font-weight: 500; font-size: 11px; letter-spacing: 0.2em;
+    border-radius: 100px;
+  }
+
+  /* NAV — pill with rounded shape */
+  .nav {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 100;
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 100px;
+    padding: 8px 8px 8px 28px;
+    display: flex; align-items: center; gap: 28px;
+    box-shadow: 4px 4px 0 var(--ink);
+    width: max-content;
+    max-width: calc(100vw - 80px);
+  }
+  .logo {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .logo .num {
+    background: var(--brick);
+    color: var(--cream);
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: 18px;
+  }
+  .nav__menu {
+    display: flex; align-items: center; gap: 18px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .nav__menu a:hover { color: var(--brick); }
+  .nav__cta {
+    background: var(--brick);
+    color: var(--cream);
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--ink);
+    transition: transform .15s;
+  }
+  .nav__cta:hover { background: var(--ink); transform: translateY(-1px); }
+
+  /* HERO — fullscreen isometric town */
+  .hero {
+    position: relative;
+    height: 100vh; min-height: 720px;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 60%, var(--ground) 60%, var(--ground-2) 100%);
+  }
+  .hero__title-block {
+    position: absolute;
+    top: 14%; left: 6%;
+    z-index: 5;
+    max-width: 540px;
+  }
+  .hero__hand {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 38px;
+    color: var(--brick);
+    transform: rotate(-3deg);
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .hero__title {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: clamp(40px, 5.5vw, 76px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .hero__title .pop {
+    background: var(--pop);
+    padding: 0 12px;
+    border-radius: 100px;
+    display: inline-block;
+    transform: rotate(-1deg);
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .hero__title em {
+    font-style: italic;
+    color: var(--brick);
+  }
+  .hero__sub {
+    margin-top: 28px;
+    max-width: 460px;
+    font-size: 14px;
+    line-height: 2.1;
+    color: var(--ink-2);
+  }
+  .hero__btns { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--ink);
+    transition: transform .15s;
+    display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+  .btn--primary { background: var(--brick); color: var(--cream); }
+  .btn--ghost { background: var(--cream); color: var(--ink); }
+
+  /* clouds */
+  .cloud {
+    position: absolute;
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 100px;
+    padding: 4px 16px;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    z-index: 4;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .cloud-1 { top: 8%; right: 12%; transform: rotate(-3deg); }
+  .cloud-2 { top: 18%; right: 4%; transform: rotate(2deg); }
+
+  /* TOWN — isometric SVG container */
+  .town {
+    position: absolute;
+    bottom: 0;
+    left: 50%; transform: translateX(-50%);
+    width: 1400px;
+    max-width: 100%;
+    height: 70%;
+    z-index: 3;
+  }
+  .town svg { width: 100%; height: 100%; display: block; }
+
+  /* SECTIONS */
+  .sec {
+    padding: 140px 0;
+    position: relative;
+  }
+  .sec.cream { background: var(--cream); }
+  .sec.brick {
+    background: var(--brick);
+    color: var(--cream);
+  }
+  .sec.brick {
+    background:
+      linear-gradient(rgba(184,92,61,0.92), rgba(184,92,61,0.92)),
+      repeating-linear-gradient(0deg,
+        var(--brick) 0,
+        var(--brick) 28px,
+        var(--brick-deep) 28px,
+        var(--brick-deep) 30px,
+        var(--brick) 30px),
+      repeating-linear-gradient(90deg,
+        transparent 0,
+        transparent 56px,
+        rgba(0,0,0,.18) 56px,
+        rgba(0,0,0,.18) 58px);
+    background-size: cover, 100% 30px, 114px 30px;
+  }
+  .sec__pre {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--brick);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .sec.brick .sec__pre { color: var(--pop); }
+  .sec__title {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+  }
+  .sec__title em { font-style: italic; color: var(--brick); }
+  .sec.brick .sec__title em { color: var(--pop); font-style: italic; }
+  .sec__title .pop {
+    background: var(--pop); padding: 0 14px; border-radius: 100px;
+    display: inline-block; transform: rotate(-1deg);
+    border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink);
+  }
+  .sec.brick .sec__title .pop { border-color: var(--cream); box-shadow: 4px 4px 0 var(--ink); }
+  .sec__lead {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 2.1;
+    color: var(--ink-2);
+    max-width: 680px;
+  }
+  .sec.brick .sec__lead { color: rgba(255,249,232,0.9); }
+
+  /* ZONES — clickable areas of the town */
+  .zones {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .zone {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all .2s;
+    cursor: pointer;
+    position: relative;
+  }
+  .zone:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--ink); }
+  .zone__icon {
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    border: 2px solid var(--ink);
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .zone__icon svg { width: 100%; height: 100%; display: block; }
+  .zone__num {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--brick);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .zone__name {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 4px 0 8px;
+    color: var(--ink);
+  }
+  .zone__desc {
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.85;
+  }
+
+  /* PEOPLE — illustrated avatar cards */
+  .people {
+    margin-top: 56px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .person {
+    background: var(--cream);
+    border: 2px solid var(--cream);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 rgba(31,26,18,0.4);
+    transition: transform .2s;
+    color: var(--ink);
+  }
+  .person:hover { transform: translateY(-4px); }
+  .person__img {
+    aspect-ratio: 1/1;
+    background: var(--ground);
+    overflow: hidden;
+    border-bottom: 2px solid var(--ink);
+  }
+  .person__img img { width: 100%; height: 100%; object-fit: cover; }
+  .person__body { padding: 18px 20px 22px; }
+  .person__role {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--brick);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  .person__name {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .person__name small {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--mute);
+    margin-left: 6px;
+  }
+  .person__quote {
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.85;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+    margin-top: 8px;
+  }
+
+  /* NUMBERS as bubble */
+  .numbers {
+    margin-top: 56px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .num {
+    background: var(--cream);
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 4px 4px 0 var(--ink);
+    color: var(--ink);
+  }
+  .num.b { background: var(--pop); }
+  .num.c { background: var(--leaf-soft); }
+  .num.d { background: #F4B58A; }
+  .num__big {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .num__big small {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-left: 4px;
+  }
+  .num__lab {
+    margin-top: 8px;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--brick);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .num.b .num__lab, .num.c .num__lab, .num.d .num__lab { color: var(--ink); }
+  .num__cap {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--ink-2);
+  }
+
+  /* CTA */
+  .cta {
+    padding: 140px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .cta__hand {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--brick);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .cta__title {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .cta__title .pop {
+    background: var(--pop);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    padding: 0 16px;
+    border-radius: 100px;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+  .cta__btn {
+    margin-top: 40px;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--brick);
+    color: var(--cream);
+    padding: 24px 56px;
+    border-radius: 100px;
+    border: 2px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+    transition: transform .15s;
+  }
+  .cta__btn:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--ink); }
+
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 48px 32px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+  }
+
+  @media (max-width: 1024px) {
+    .hero { height: auto; min-height: auto; padding-bottom: 0; }
+    .hero__title-block { position: relative; top: auto; left: auto; padding: 100px 24px 32px; max-width: 100%; }
+    .town { position: relative; height: 380px; transform: none; left: auto; bottom: auto; width: 100%; }
+    .zones { grid-template-columns: 1fr 1fr; }
+    .people { grid-template-columns: 1fr 1fr; }
+    .numbers { grid-template-columns: 1fr 1fr; }
+    .cloud-1, .cloud-2 { display: none; }
+  }
+  @media (max-width: 600px) {
+    .nav { padding: 6px 8px; gap: 12px; }
+    .nav__menu { display: none; }
+    .zones { grid-template-columns: 1fr; }
+    .people { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-tag">CONCEPT D — アイソメトリック・タウン</div>
+
+<nav class="nav">
+  <a class="logo">R <span class="num">81</span></a>
+  <div class="nav__menu">
+    <a>About</a>
+    <a>People</a>
+    <a>Jobs</a>
+    <a>Company</a>
+  </div>
+  <a class="nav__cta">エントリー</a>
+</nav>
+
+<!-- HERO with isometric town -->
+<section class="hero">
+  <div class="hero__title-block">
+    <div class="hero__hand">— ようこそ。</div>
+    <h1 class="hero__title">
+      ここは、<br/>
+      <span class="pop">81</span>という<br/>
+      <em>家のような</em>町。
+    </h1>
+    <p class="hero__sub">
+      ショールーム、工場カフェ、東京拠点。<br/>
+      4つの建物の住人として、一緒に町を育てる人を募集しています。
+    </p>
+    <div class="hero__btns">
+      <a class="btn btn--primary">町を案内する →</a>
+      <a class="btn btn--ghost">エントリー ↗</a>
+    </div>
+  </div>
+
+  <div class="cloud cloud-1">2026年、東京上陸 🚗</div>
+  <div class="cloud cloud-2">家族で来られる工場カフェ ☕</div>
+
+  <!-- ISOMETRIC TOWN SVG -->
+  <div class="town">
+    <svg viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Ground tiles -->
+      <g>
+        <!-- Main isometric ground -->
+        <polygon points="700,200 1380,540 700,880 20,540" fill="#E8DFC4" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- Tile pattern lines -->
+        <g stroke="#C9BC9B" stroke-width="1.2" opacity="0.6">
+          <line x1="200" y1="350" x2="950" y2="725" />
+          <line x1="380" y1="260" x2="1130" y2="635" />
+          <line x1="560" y1="170" x2="1310" y2="545" />
+          <line x1="200" y1="350" x2="450" y2="225" />
+          <line x1="380" y1="440" x2="630" y2="315" />
+          <line x1="560" y1="530" x2="810" y2="405" />
+          <line x1="740" y1="620" x2="990" y2="495" />
+        </g>
+      </g>
+
+      <!-- Road / path connecting buildings -->
+      <polygon points="700,420 900,520 700,620 500,520" fill="#5C5345" stroke="#1F1A12" stroke-width="2.5" opacity="0.8" />
+      <line x1="700" y1="420" x2="700" y2="620" stroke="#FFF9E8" stroke-width="2" stroke-dasharray="6,8" opacity="0.7" />
+
+      <!-- BUILDING 1: 81 GALLERY (back-left) -->
+      <g transform="translate(150, 200)">
+        <!-- right wall (brick) -->
+        <polygon points="240,80 380,150 380,300 240,230" fill="#B85C3D" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- brick lines -->
+        <g stroke="#883E27" stroke-width="1.2" opacity="0.6">
+          <line x1="245" y1="105" x2="380" y2="172" />
+          <line x1="245" y1="135" x2="380" y2="202" />
+          <line x1="245" y1="165" x2="380" y2="232" />
+          <line x1="245" y1="195" x2="380" y2="262" />
+        </g>
+        <!-- left wall (cream w/ big window) -->
+        <polygon points="100,150 240,80 240,230 100,300" fill="#FFF9E8" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- window -->
+        <polygon points="125,160 220,115 220,210 125,255" fill="#92B6C5" stroke="#1F1A12" stroke-width="2" opacity="0.85" />
+        <!-- car silhouette inside (Ferrari-ish) -->
+        <g opacity="0.95">
+          <path d="M138,210 L160,195 Q175,185 195,182 L200,180 Q210,178 218,182 L218,212 L138,212 Z" fill="#FFFFFF" stroke="#1F1A12" stroke-width="1.5" />
+          <ellipse cx="158" cy="213" rx="8" ry="3" fill="#1F1A12" />
+          <ellipse cx="206" cy="213" rx="8" ry="3" fill="#1F1A12" />
+        </g>
+        <!-- roof -->
+        <polygon points="100,150 240,80 380,150 240,220" fill="#1F1A12" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- sign -->
+        <rect x="180" y="50" width="70" height="34" rx="4" fill="#FFF9E8" stroke="#1F1A12" stroke-width="2" transform="skewX(-30) translate(58,18)" />
+        <text x="195" y="55" font-family="Kiwi Maru, serif" font-size="14" fill="#1F1A12" transform="skewX(-30) translate(58,18)" font-weight="700">81 GAL</text>
+      </g>
+
+      <!-- BUILDING 2: 81 FACTORY (back-right) -->
+      <g transform="translate(800, 180)">
+        <!-- right wall (wood) -->
+        <polygon points="220,90 380,170 380,320 220,240" fill="#C4945A" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- wood plank lines -->
+        <g stroke="#8C6332" stroke-width="1.2" opacity="0.7">
+          <line x1="225" y1="120" x2="380" y2="200" />
+          <line x1="225" y1="150" x2="380" y2="230" />
+          <line x1="225" y1="180" x2="380" y2="260" />
+          <line x1="225" y1="210" x2="380" y2="290" />
+        </g>
+        <!-- left wall (cream w/ rolling door) -->
+        <polygon points="60,170 220,90 220,240 60,320" fill="#FFF9E8" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- garage door -->
+        <polygon points="85,200 205,140 205,250 85,310" fill="#5C5345" stroke="#1F1A12" stroke-width="2" />
+        <g stroke="#FFF9E8" stroke-width="1" opacity="0.4">
+          <line x1="89" y1="215" x2="201" y2="160" />
+          <line x1="89" y1="235" x2="201" y2="180" />
+          <line x1="89" y1="255" x2="201" y2="200" />
+          <line x1="89" y1="275" x2="201" y2="220" />
+        </g>
+        <!-- roof -->
+        <polygon points="60,170 220,90 380,170 220,250" fill="#883E27" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- chimney -->
+        <rect x="270" y="40" width="20" height="50" fill="#5C5345" stroke="#1F1A12" stroke-width="2" />
+        <!-- steam -->
+        <path d="M280,45 Q286,28 280,12 Q274,0 280,-12" stroke="#FFF9E8" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7" />
+      </g>
+
+      <!-- BUILDING 3: 81 CAFE (front-left) -->
+      <g transform="translate(280, 380)">
+        <!-- right wall -->
+        <polygon points="220,90 360,160 360,310 220,240" fill="#FFF9E8" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- big windows on right wall -->
+        <polygon points="240,120 290,145 290,200 240,175" fill="#DCEBE6" stroke="#1F1A12" stroke-width="2" />
+        <polygon points="305,153 355,178 355,233 305,208" fill="#DCEBE6" stroke="#1F1A12" stroke-width="2" />
+        <!-- left wall -->
+        <polygon points="80,160 220,90 220,240 80,310" fill="#B85C3D" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- brick lines -->
+        <g stroke="#883E27" stroke-width="1.2" opacity="0.6">
+          <line x1="85" y1="190" x2="220" y2="120" />
+          <line x1="85" y1="220" x2="220" y2="150" />
+          <line x1="85" y1="250" x2="220" y2="180" />
+          <line x1="85" y1="280" x2="220" y2="210" />
+        </g>
+        <!-- door -->
+        <polygon points="120,200 165,177 165,275 120,298" fill="#8C6332" stroke="#1F1A12" stroke-width="2" />
+        <circle cx="156" cy="240" r="2" fill="#F0C45F" />
+        <!-- roof red -->
+        <polygon points="80,160 220,90 360,160 220,230" fill="#883E27" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- coffee cup sign -->
+        <g transform="translate(190,40)">
+          <ellipse cx="0" cy="0" rx="22" ry="8" fill="#FFF9E8" stroke="#1F1A12" stroke-width="2" />
+          <path d="M-22,0 L-18,18 Q-15,24 -10,26 L10,26 Q15,24 18,18 L22,0 Z" fill="#FFF9E8" stroke="#1F1A12" stroke-width="2" />
+          <ellipse cx="0" cy="2" rx="18" ry="5" fill="#5C3A1F" stroke="#1F1A12" stroke-width="1" />
+          <path d="M-3,-12 Q-1,-22 -3,-32" stroke="#1F1A12" stroke-width="1.5" fill="none" stroke-linecap="round" />
+          <path d="M3,-12 Q5,-22 3,-32" stroke="#1F1A12" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        </g>
+        <!-- planter outside cafe -->
+        <g transform="translate(50,290)">
+          <rect x="0" y="0" width="32" height="22" fill="#C4945A" stroke="#1F1A12" stroke-width="2" />
+          <ellipse cx="16" cy="-8" rx="20" ry="10" fill="#9CB17A" stroke="#1F1A12" stroke-width="1.5" />
+          <ellipse cx="10" cy="-14" rx="14" ry="7" fill="#6E8C4A" />
+          <ellipse cx="22" cy="-12" rx="14" ry="7" fill="#6E8C4A" />
+        </g>
+        <!-- bench in front -->
+        <g transform="translate(380,280)">
+          <polygon points="0,0 60,30 60,40 0,10" fill="#8C6332" stroke="#1F1A12" stroke-width="1.5" />
+          <line x1="20" y1="10" x2="20" y2="55" stroke="#1F1A12" stroke-width="2" />
+          <line x1="50" y1="25" x2="50" y2="65" stroke="#1F1A12" stroke-width="2" />
+        </g>
+      </g>
+
+      <!-- BUILDING 4: 81 NEXT TOKYO (front-right, smaller, with "coming soon") -->
+      <g transform="translate(900, 380)">
+        <!-- right wall -->
+        <polygon points="180,80 300,140 300,260 180,200" fill="#92B6C5" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- left wall -->
+        <polygon points="60,140 180,80 180,200 60,260" fill="#FFF9E8" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- minimal windows -->
+        <polygon points="80,160 110,145 110,180 80,195" fill="#1F1A12" />
+        <polygon points="125,140 155,125 155,160 125,175" fill="#1F1A12" />
+        <!-- roof flat -->
+        <polygon points="60,140 180,80 300,140 180,200" fill="#1F1A12" stroke="#1F1A12" stroke-width="2.5" />
+        <!-- 'coming soon' tape -->
+        <g transform="translate(140,50)">
+          <rect x="-50" y="-12" width="100" height="22" fill="#F0C45F" stroke="#1F1A12" stroke-width="2" transform="rotate(-15)" />
+          <text x="0" y="3" text-anchor="middle" font-family="Kiwi Maru, serif" font-size="11" fill="#1F1A12" font-weight="500" transform="rotate(-15)">2026 OPEN</text>
+        </g>
+      </g>
+
+      <!-- TREES scattered -->
+      <g>
+        <!-- big tree front-left -->
+        <g transform="translate(120,460)">
+          <ellipse cx="0" cy="-30" rx="42" ry="22" fill="#9CB17A" stroke="#1F1A12" stroke-width="2" />
+          <ellipse cx="-12" cy="-50" rx="32" ry="16" fill="#6E8C4A" stroke="#1F1A12" stroke-width="2" />
+          <ellipse cx="14" cy="-46" rx="28" ry="14" fill="#6E8C4A" stroke="#1F1A12" stroke-width="2" />
+          <rect x="-7" y="-15" width="14" height="40" fill="#8C6332" stroke="#1F1A12" stroke-width="2" />
+        </g>
+        <!-- mid tree -->
+        <g transform="translate(680,360)">
+          <ellipse cx="0" cy="-22" rx="32" ry="16" fill="#9CB17A" stroke="#1F1A12" stroke-width="2" />
+          <ellipse cx="-8" cy="-38" rx="22" ry="12" fill="#6E8C4A" stroke="#1F1A12" stroke-width="2" />
+          <rect x="-6" y="-12" width="12" height="28" fill="#8C6332" stroke="#1F1A12" stroke-width="2" />
+        </g>
+        <!-- small tree front-right -->
+        <g transform="translate(1280,500)">
+          <ellipse cx="0" cy="-22" rx="32" ry="16" fill="#9CB17A" stroke="#1F1A12" stroke-width="2" />
+          <ellipse cx="6" cy="-38" rx="22" ry="12" fill="#6E8C4A" stroke="#1F1A12" stroke-width="2" />
+          <rect x="-6" y="-12" width="12" height="28" fill="#8C6332" stroke="#1F1A12" stroke-width="2" />
+        </g>
+      </g>
+
+      <!-- people walking -->
+      <!-- person 1 -->
+      <g transform="translate(580,540)">
+        <circle cx="0" cy="-20" r="9" fill="#F0C45F" stroke="#1F1A12" stroke-width="2" />
+        <rect x="-7" y="-10" width="14" height="22" rx="3" fill="#B85C3D" stroke="#1F1A12" stroke-width="2" />
+        <rect x="-6" y="10" width="5" height="10" fill="#1F1A12" />
+        <rect x="1" y="10" width="5" height="10" fill="#1F1A12" />
+      </g>
+      <!-- person 2 (kid) -->
+      <g transform="translate(620,560)">
+        <circle cx="0" cy="-15" r="7" fill="#E5A082" stroke="#1F1A12" stroke-width="2" />
+        <rect x="-6" y="-7" width="12" height="18" rx="3" fill="#92B6C5" stroke="#1F1A12" stroke-width="2" />
+        <rect x="-5" y="11" width="4" height="8" fill="#1F1A12" />
+        <rect x="1" y="11" width="4" height="8" fill="#1F1A12" />
+      </g>
+      <!-- person 3 -->
+      <g transform="translate(800,560)">
+        <circle cx="0" cy="-20" r="9" fill="#F4B58A" stroke="#1F1A12" stroke-width="2" />
+        <rect x="-7" y="-10" width="14" height="22" rx="3" fill="#6E8C4A" stroke="#1F1A12" stroke-width="2" />
+        <rect x="-6" y="10" width="5" height="10" fill="#1F1A12" />
+        <rect x="1" y="10" width="5" height="10" fill="#1F1A12" />
+      </g>
+
+      <!-- car parked at gallery -->
+      <g transform="translate(370,400)">
+        <path d="M0,20 L20,0 Q35,-10 60,-10 L80,-10 Q90,-10 95,-5 L105,15 L105,30 L0,30 Z" fill="#1F1A12" stroke="#1F1A12" stroke-width="2" />
+        <path d="M16,2 L20,-2 Q30,-8 50,-8 L70,-8 Q82,-8 88,-2 L92,2 L92,12 L16,12 Z" fill="#92B6C5" stroke="#1F1A12" stroke-width="1" opacity="0.7" />
+        <circle cx="22" cy="32" r="9" fill="#1F1A12" stroke="#1F1A12" stroke-width="1.5" />
+        <circle cx="22" cy="32" r="4" fill="#FFF9E8" />
+        <circle cx="80" cy="32" r="9" fill="#1F1A12" stroke="#1F1A12" stroke-width="1.5" />
+        <circle cx="80" cy="32" r="4" fill="#FFF9E8" />
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- TOWN ZONES -->
+<section class="sec cream">
+  <div class="wrap">
+    <div class="sec__pre">— 町を歩く</div>
+    <h2 class="sec__title">4つの<span class="pop">建物</span>、4つの暮らし。</h2>
+    <p class="sec__lead">
+      画廊、工場カフェ、未来の東京拠点、そして本社オフィス。<br/>
+      どの建物も、ただの仕事場じゃなく、ひとつの暮らしを抱える「家」のような場所です。
+    </p>
+
+    <div class="zones">
+      <!-- zone GALLERY -->
+      <div class="zone">
+        <div class="zone__icon">
+          <svg viewBox="0 0 200 200">
+            <rect width="200" height="200" fill="#F5EFE5" />
+            <polygon points="100,40 170,80 170,150 100,110" fill="#B85C3D" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="30,80 100,40 100,110 30,150" fill="#FFF9E8" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="50,98 90,75 90,125 50,148" fill="#92B6C5" stroke="#1F1A12" stroke-width="2.5" />
+            <polygon points="30,80 100,40 170,80 100,120" fill="#1F1A12" stroke="#1F1A12" stroke-width="3" />
+            <path d="M55,135 L67,128 Q78,122 92,121 L100,121 L100,142 L55,142 Z" fill="#FFFFFF" stroke="#1F1A12" stroke-width="1.5" />
+          </svg>
+        </div>
+        <div class="zone__num">001</div>
+        <div class="zone__name">81 Gallery</div>
+        <div class="zone__desc">プレミアムカーの画廊。フェラーリ、ランボルギーニ、ロールスロイス。常時50台。</div>
+      </div>
+
+      <div class="zone">
+        <div class="zone__icon">
+          <svg viewBox="0 0 200 200">
+            <rect width="200" height="200" fill="#F5EFE5" />
+            <polygon points="100,40 170,80 170,160 100,120" fill="#C4945A" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="30,80 100,40 100,120 30,160" fill="#FFF9E8" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="40,95 90,68 90,135 40,160" fill="#5C5345" stroke="#1F1A12" stroke-width="2.5" />
+            <polygon points="30,80 100,40 170,80 100,118" fill="#883E27" stroke="#1F1A12" stroke-width="3" />
+            <rect x="135" y="20" width="14" height="30" fill="#5C5345" stroke="#1F1A12" stroke-width="2" />
+            <path d="M142,18 Q146,8 142,-2" stroke="#1F1A12" stroke-width="2" fill="none" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="zone__num">002</div>
+        <div class="zone__name">81 Factory</div>
+        <div class="zone__desc">家族で来られる、工場カフェ。整備の音と、コーヒーの香り。</div>
+      </div>
+
+      <div class="zone">
+        <div class="zone__icon">
+          <svg viewBox="0 0 200 200">
+            <rect width="200" height="200" fill="#F5EFE5" />
+            <polygon points="100,40 170,80 170,160 100,120" fill="#92B6C5" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="30,80 100,40 100,120 30,160" fill="#FFF9E8" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="40,95 70,80 70,110 40,125" fill="#1F1A12" />
+            <polygon points="78,80 90,73 90,103 78,110" fill="#1F1A12" />
+            <polygon points="30,80 100,40 170,80 100,120" fill="#1F1A12" stroke="#1F1A12" stroke-width="3" />
+            <g transform="translate(100,30) rotate(-12)">
+              <rect x="-32" y="-8" width="64" height="16" fill="#F0C45F" stroke="#1F1A12" stroke-width="2" />
+            </g>
+          </svg>
+        </div>
+        <div class="zone__num">003</div>
+        <div class="zone__name">81 Next</div>
+        <div class="zone__desc">2026年、東京。バーチャル × リアル。あなたが、名付け親に。</div>
+      </div>
+
+      <div class="zone">
+        <div class="zone__icon">
+          <svg viewBox="0 0 200 200">
+            <rect width="200" height="200" fill="#F5EFE5" />
+            <polygon points="100,30 175,68 175,160 100,124" fill="#9CB17A" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="25,68 100,30 100,124 25,160" fill="#FFF9E8" stroke="#1F1A12" stroke-width="3" />
+            <polygon points="45,90 65,80 65,110 45,118" fill="#92B6C5" stroke="#1F1A12" stroke-width="2" />
+            <polygon points="75,80 95,70 95,100 75,108" fill="#92B6C5" stroke="#1F1A12" stroke-width="2" />
+            <polygon points="25,68 100,30 175,68 100,108" fill="#1F1A12" stroke="#1F1A12" stroke-width="3" />
+          </svg>
+        </div>
+        <div class="zone__num">004</div>
+        <div class="zone__name">81 Office</div>
+        <div class="zone__desc">経営・管理・人事の本部。72名のファミリー全員のホーム。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE on brick wall -->
+<section class="sec brick">
+  <div class="wrap">
+    <div class="sec__pre">— 町の住人</div>
+    <h2 class="sec__title">「81」を、<em>形にする人</em>。</h2>
+    <p class="sec__lead">
+      平均年齢29歳、72名のファミリー。<br/>
+      職種は違っても、肩書きを越えて、ひとつの町をつくっています。
+    </p>
+
+    <div class="people">
+      <article class="person">
+        <div class="person__img"><img src="images/person-okada.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+        <div class="person__body">
+          <div class="person__role">— 営業</div>
+          <div class="person__name">岡田<small>30 / 4年目</small></div>
+          <div class="person__quote">「車を売るって説明より、人生を聞く時間のほうが長いんです。」</div>
+        </div>
+      </article>
+      <article class="person">
+        <div class="person__img"><img src="images/person-kano.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+        <div class="person__body">
+          <div class="person__role">— 整備</div>
+          <div class="person__name">加納<small>27 / 3年目</small></div>
+          <div class="person__quote">「フェラーリを任される日が来るとは思わなかった。」</div>
+        </div>
+      </article>
+      <article class="person">
+        <div class="person__img"><img src="images/person-01.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+        <div class="person__body">
+          <div class="person__role">— カフェ</div>
+          <div class="person__name">田中<small>24 / 2年目</small></div>
+          <div class="person__quote">「窓の向こうのポルシェを見ながら、ラテを淹れる。」</div>
+        </div>
+      </article>
+      <article class="person">
+        <div class="person__img"><img src="images/person-02.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+        <div class="person__body">
+          <div class="person__role">— 事務</div>
+          <div class="person__name">鈴木<small>26 / 2年目</small></div>
+          <div class="person__quote">「経営のすぐ隣で、会社が育つ瞬間を見ています。」</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="sec cream">
+  <div class="wrap">
+    <div class="sec__pre">— 町のかぞえうた</div>
+    <h2 class="sec__title">数字で見る「81」。</h2>
+
+    <div class="numbers">
+      <div class="num">
+        <div class="num__big">29<small>歳</small></div>
+        <div class="num__lab">— 平均年齢</div>
+        <div class="num__cap">若くて、対等。</div>
+      </div>
+      <div class="num b">
+        <div class="num__big">52<small>億円</small></div>
+        <div class="num__lab">— 売上</div>
+        <div class="num__cap">創業7年で、ここまで。</div>
+      </div>
+      <div class="num c">
+        <div class="num__big">5<small>+</small></div>
+        <div class="num__lab">— 拠点</div>
+        <div class="num__cap">堺・福岡・岡山 + 東京 2026。</div>
+      </div>
+      <div class="num d">
+        <div class="num__big">72<small>名</small></div>
+        <div class="num__lab">— 家族</div>
+        <div class="num__cap">仕事仲間というより、家族。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta cream">
+  <div class="cta__hand">— 町に、住みませんか。</div>
+  <h2 class="cta__title">あなたの<span class="pop">家</span>を、<br/>ここに建てよう。</h2>
+  <a class="cta__btn">エントリーする →</a>
+</section>
+
+<footer>© 2026 RADOLF INC. — concept D / isometric town</footer>
+
+</body>
+</html>

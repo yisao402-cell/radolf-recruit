@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concept F — ピクチャーブック / RADOLF × 81</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kaisei+Decol:wght@400;500;700&family=Kiwi+Maru:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --book: #FFFAEF;
+    --book-2: #F4E9D0;
+    --page: #FFFAEF;
+    --margin: #E8DCB8;
+    --bind: #6B4423;
+    --leaf: #6E8C4A;
+    --leaf-soft: #B5C19E;
+    --berry: #B85C3D;
+    --berry-deep: #883E27;
+    --honey: #E5B247;
+    --sky: #B6C9D3;
+    --ink: #2A1F14;
+    --ink-2: #5C4D3D;
+    --mute: #94806A;
+    --line: #D8C9A2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--book-2);
+    color: var(--ink);
+    font-family: "Kaisei Decol", "Noto Serif JP", serif;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; }
+  .concept-tag {
+    position: fixed; top: 18px; right: 20px; z-index: 200;
+    background: var(--ink); color: var(--book);
+    padding: 10px 18px;
+    font-weight: 500; font-size: 11px; letter-spacing: 0.2em;
+    border-radius: 100px;
+    font-family: "Noto Sans JP", sans-serif;
+  }
+
+  /* SHELL — book look with margins */
+  .book {
+    max-width: 1200px;
+    margin: 32px auto 64px;
+    background: var(--page);
+    border-radius: 8px;
+    box-shadow:
+      0 2px 0 var(--margin),
+      0 8px 32px rgba(42,31,20,0.18),
+      0 -1px 0 rgba(255,255,255,0.5) inset;
+    position: relative;
+    overflow: hidden;
+  }
+  .book::before {
+    /* book spine */
+    content: "";
+    position: absolute;
+    left: 50%; top: 0; bottom: 0;
+    width: 1px;
+    background: var(--margin);
+    opacity: 0.5;
+  }
+
+  /* nav */
+  .nav {
+    padding: 24px 56px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px dashed var(--line);
+  }
+  .logo {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .logo .num { color: var(--berry); font-style: italic; }
+  .nav__menu {
+    display: flex; gap: 24px;
+    font-family: "Kaisei Decol", serif;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .nav__menu a:hover { color: var(--berry); }
+  .nav__cta {
+    background: var(--berry);
+    color: var(--book);
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+  }
+  .nav__cta:hover { background: var(--berry-deep); }
+
+  /* PAGE — single book page */
+  .page {
+    padding: 80px 80px 100px;
+    position: relative;
+    border-bottom: 1px solid var(--margin);
+  }
+  .page__num {
+    position: absolute;
+    bottom: 32px; left: 50%; transform: translateX(-50%);
+    font-family: "Kaisei Decol", serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    color: var(--mute);
+  }
+
+  /* hero page */
+  .page--hero {
+    padding: 80px 80px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page--hero::after {
+    /* leaf decoration */
+    content: "";
+    position: absolute;
+    top: -40px; right: -30px;
+    width: 280px; height: 280px;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(110,140,74,0.18) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .page__chapter {
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--berry);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+  .page__chapter::before {
+    content: "❀ ";
+    color: var(--honey);
+  }
+  .page__title {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .page__title em { font-style: italic; color: var(--berry); }
+  .page__title .first {
+    font-family: "Kaisei Decol", serif;
+    font-size: 1.4em;
+    color: var(--berry);
+    float: left;
+    line-height: 1;
+    margin: 12px 8px 0 0;
+    font-weight: 700;
+  }
+  .page__lead {
+    margin-top: 32px;
+    font-family: "Kaisei Decol", serif;
+    font-size: 15px;
+    line-height: 2.2;
+    color: var(--ink-2);
+    text-indent: 1em;
+  }
+  .page__lead p + p { margin-top: 16px; }
+
+  /* hero illustration */
+  .hero-illust {
+    position: relative;
+    aspect-ratio: 4/5;
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(229,178,71,0.18) 0%, transparent 60%),
+      var(--book);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .hero-illust svg { width: 100%; height: 100%; display: block; }
+
+  /* chapter open page */
+  .chapter-open {
+    padding: 100px 80px 80px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(184,92,61,0.05) 0%, transparent 60%),
+      var(--page);
+    border-top: 1px solid var(--margin);
+    border-bottom: 1px solid var(--margin);
+    position: relative;
+  }
+  .chapter-open .deco {
+    width: 96px; height: 1px;
+    background: var(--mute);
+    margin: 0 auto 28px;
+    position: relative;
+  }
+  .chapter-open .deco::before, .chapter-open .deco::after {
+    content: "❀";
+    position: absolute;
+    top: -10px;
+    color: var(--honey);
+    font-size: 14px;
+  }
+  .chapter-open .deco::before { left: -20px; }
+  .chapter-open .deco::after { right: -20px; }
+  .chapter-open__num {
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--mute);
+    margin-bottom: 16px;
+  }
+  .chapter-open__title {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .chapter-open__title em { font-style: italic; color: var(--berry); }
+  .chapter-open__sub {
+    margin-top: 20px;
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-2);
+    max-width: 600px;
+    margin-left: auto; margin-right: auto;
+    line-height: 2;
+  }
+
+  /* spread — two-page layout for brand stories */
+  .spread {
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    border-bottom: 1px solid var(--margin);
+    position: relative;
+  }
+  .spread.flip { grid-template-columns: 1fr 1fr; }
+  .spread.flip .spread__img { order: 2; }
+  .spread__img {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border: 8px solid var(--book);
+    box-shadow: 0 4px 14px rgba(42,31,20,0.18);
+    position: relative;
+  }
+  .spread__img img { width: 100%; height: 100%; object-fit: cover; }
+  .spread__img::after {
+    /* corner illustration */
+    content: "";
+    position: absolute;
+    bottom: -2px; right: -2px;
+    width: 60px; height: 60px;
+    background:
+      radial-gradient(circle at 100% 100%, var(--honey) 0 8px, transparent 8px),
+      radial-gradient(circle at 100% 100%, var(--berry) 0 16px, transparent 16px);
+  }
+  .spread__num {
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--berry);
+    letter-spacing: 0.1em;
+  }
+  .spread__title {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: clamp(36px, 4vw, 48px);
+    line-height: 1.2;
+    margin: 12px 0 16px;
+    color: var(--ink);
+  }
+  .spread__title em { font-style: italic; color: var(--berry); }
+  .spread__jp {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .spread__body {
+    font-size: 14px;
+    line-height: 2.1;
+    color: var(--ink-2);
+    text-indent: 1em;
+  }
+  .spread__body p + p { margin-top: 14px; }
+  .spread__quote {
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: var(--book-2);
+    border-left: 3px solid var(--honey);
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+
+  /* people page — illustrated portraits with story below */
+  .people-list {
+    padding: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px 80px;
+    border-bottom: 1px solid var(--margin);
+  }
+  .person-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .person-card__photo {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--honey);
+    box-shadow: 0 3px 10px rgba(42,31,20,0.2);
+  }
+  .person-card__photo img { width: 100%; height: 100%; object-fit: cover; }
+  .person-card__role {
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--berry);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .person-card__name {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .person-card__name small {
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--mute);
+    margin-left: 6px;
+  }
+  .person-card__quote {
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--ink-2);
+    padding-left: 12px;
+    border-left: 2px solid var(--leaf-soft);
+  }
+
+  /* numbers as ornament */
+  .number-list {
+    padding: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+    border-bottom: 1px solid var(--margin);
+  }
+  .num-card {
+    padding: 32px 16px;
+    border: 1px solid var(--line);
+    background: var(--book-2);
+    position: relative;
+  }
+  .num-card::before {
+    content: "❀";
+    position: absolute;
+    top: -10px; left: 50%; transform: translateX(-50%);
+    background: var(--page);
+    padding: 0 8px;
+    color: var(--honey);
+    font-size: 12px;
+  }
+  .num-card__big {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--berry);
+    letter-spacing: -0.04em;
+  }
+  .num-card__big small {
+    font-size: 18px;
+    color: var(--ink-2);
+    margin-left: 4px;
+  }
+  .num-card__lab {
+    margin-top: 12px;
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--mute);
+    letter-spacing: 0.1em;
+  }
+  .num-card__sub {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--ink-2);
+  }
+
+  /* CTA — final page */
+  .cta {
+    padding: 120px 80px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(229,178,71,0.18) 0%, transparent 50%),
+      var(--page);
+  }
+  .cta__hand {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 36px;
+    color: var(--berry);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .cta__title {
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .cta__title em { font-style: italic; color: var(--berry); }
+  .cta__btn {
+    display: inline-block;
+    margin-top: 40px;
+    background: var(--berry);
+    color: var(--book);
+    padding: 22px 56px;
+    border-radius: 100px;
+    font-family: "Kaisei Decol", serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    box-shadow: 0 4px 16px rgba(184,92,61,0.35);
+    transition: transform .15s;
+  }
+  .cta__btn:hover { transform: translateY(-2px); background: var(--berry-deep); }
+
+  footer {
+    padding: 32px;
+    text-align: center;
+    background: var(--book-2);
+    color: var(--mute);
+    font-family: "Kaisei Decol", serif;
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 1024px) {
+    .book { margin: 16px; }
+    .page--hero, .spread, .people-list { grid-template-columns: 1fr; gap: 32px; padding: 56px 36px; }
+    .spread.flip .spread__img { order: 0; }
+    .number-list { grid-template-columns: 1fr 1fr; padding: 56px 36px; }
+    .nav { padding: 18px 24px; }
+    .chapter-open { padding: 64px 32px; }
+    .cta { padding: 80px 32px; }
+    .person-card { grid-template-columns: 100px 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-tag">CONCEPT F — ピクチャーブック</div>
+
+<div class="book">
+
+  <nav class="nav">
+    <a class="logo">RADOLF / <span class="num">81</span></a>
+    <div class="nav__menu">
+      <a>About</a>
+      <a>People</a>
+      <a>Jobs</a>
+      <a>Company</a>
+      <a class="nav__cta">エントリー</a>
+    </div>
+  </nav>
+
+  <!-- HERO PAGE -->
+  <section class="page page--hero">
+    <div>
+      <div class="page__chapter">An Introduction</div>
+      <h1 class="page__title">
+        ある町の、<br/>
+        <em>家族のような会社</em>の<br/>
+        ものがたり。
+      </h1>
+      <div class="page__lead">
+        <p><span class="first">こ</span>れは、大阪・堺の小さなショールームから始まった、ひとつの会社のものがたり。</p>
+        <p>「車を売る」より、「人生を一緒に選ぶ」を選んだ人たちが、画廊を建て、工場カフェを建て、いま2026年に東京を建てようとしています。</p>
+        <p>次のページの主人公として、あなたを募集しています。</p>
+      </div>
+    </div>
+
+    <!-- illustrated cover scene -->
+    <div class="hero-illust">
+      <svg viewBox="0 0 400 500">
+        <!-- soft sky -->
+        <rect width="400" height="280" fill="#FFFAEF" />
+        <!-- sun -->
+        <circle cx="320" cy="80" r="36" fill="#E5B247" opacity="0.7" />
+        <circle cx="320" cy="80" r="20" fill="#E5B247" />
+        <!-- distant hills -->
+        <path d="M0 240 Q 80 200 160 230 Q 240 260 320 220 Q 380 200 400 220 L 400 280 L 0 280 Z" fill="#B5C19E" opacity="0.7" />
+        <path d="M0 260 Q 100 220 200 250 Q 300 280 400 240 L 400 290 L 0 290 Z" fill="#6E8C4A" opacity="0.7" />
+
+        <!-- ground -->
+        <rect y="280" width="400" height="220" fill="#E8DCB8" />
+
+        <!-- house: 81 -->
+        <g transform="translate(120 230)">
+          <!-- main wall -->
+          <rect x="0" y="40" width="160" height="110" fill="#FFFAEF" stroke="#2A1F14" stroke-width="3" />
+          <!-- roof -->
+          <polygon points="-8,40 80,-8 168,40" fill="#B85C3D" stroke="#2A1F14" stroke-width="3" />
+          <!-- chimney -->
+          <rect x="120" y="10" width="14" height="30" fill="#883E27" stroke="#2A1F14" stroke-width="2" />
+          <!-- door -->
+          <rect x="65" y="90" width="30" height="60" fill="#6B4423" stroke="#2A1F14" stroke-width="2.5" />
+          <circle cx="88" cy="120" r="2" fill="#E5B247" />
+          <!-- windows -->
+          <rect x="20" y="60" width="32" height="28" fill="#B6C9D3" stroke="#2A1F14" stroke-width="2.5" />
+          <line x1="36" y1="60" x2="36" y2="88" stroke="#2A1F14" stroke-width="2" />
+          <line x1="20" y1="74" x2="52" y2="74" stroke="#2A1F14" stroke-width="2" />
+          <rect x="108" y="60" width="32" height="28" fill="#B6C9D3" stroke="#2A1F14" stroke-width="2.5" />
+          <line x1="124" y1="60" x2="124" y2="88" stroke="#2A1F14" stroke-width="2" />
+          <line x1="108" y1="74" x2="140" y2="74" stroke="#2A1F14" stroke-width="2" />
+          <!-- 81 sign -->
+          <rect x="62" y="22" width="36" height="14" fill="#FFFAEF" stroke="#2A1F14" stroke-width="2" />
+          <text x="80" y="33" text-anchor="middle" font-family="Kaisei Decol, serif" font-size="11" fill="#B85C3D" font-weight="700" font-style="italic">81</text>
+        </g>
+
+        <!-- tree right -->
+        <g transform="translate(320 320)">
+          <ellipse cx="0" cy="-20" rx="34" ry="20" fill="#9CB17A" stroke="#2A1F14" stroke-width="2.5" />
+          <ellipse cx="-10" cy="-38" rx="22" ry="14" fill="#6E8C4A" stroke="#2A1F14" stroke-width="2.5" />
+          <ellipse cx="12" cy="-36" rx="20" ry="13" fill="#6E8C4A" stroke="#2A1F14" stroke-width="2.5" />
+          <rect x="-7" y="-5" width="14" height="40" fill="#6B4423" stroke="#2A1F14" stroke-width="2.5" />
+          <!-- fruit -->
+          <circle cx="-12" cy="-20" r="4" fill="#B85C3D" />
+          <circle cx="6" cy="-30" r="4" fill="#B85C3D" />
+          <circle cx="14" cy="-15" r="4" fill="#B85C3D" />
+        </g>
+
+        <!-- car parked -->
+        <g transform="translate(50 380)">
+          <path d="M0 16 L20 -2 Q35 -10 56 -10 L72 -10 Q80 -8 84 -2 L92 16 L92 26 L0 26 Z" fill="#FFFAEF" stroke="#2A1F14" stroke-width="2.5" />
+          <path d="M14 0 L25 -6 Q35 -8 50 -8 L66 -8 Q76 -8 82 -2 L88 0 L88 12 L14 12 Z" fill="#B6C9D3" opacity="0.6" stroke="#2A1F14" stroke-width="1.5" />
+          <circle cx="22" cy="28" r="8" fill="#2A1F14" />
+          <circle cx="22" cy="28" r="3" fill="#FFFAEF" />
+          <circle cx="72" cy="28" r="8" fill="#2A1F14" />
+          <circle cx="72" cy="28" r="3" fill="#FFFAEF" />
+        </g>
+
+        <!-- 2 people walking to house -->
+        <g transform="translate(180 380)">
+          <!-- adult -->
+          <circle cx="0" cy="-20" r="9" fill="#E5B247" stroke="#2A1F14" stroke-width="2" />
+          <rect x="-7" y="-10" width="14" height="22" rx="3" fill="#B85C3D" stroke="#2A1F14" stroke-width="2" />
+          <rect x="-6" y="10" width="5" height="10" fill="#2A1F14" />
+          <rect x="1" y="10" width="5" height="10" fill="#2A1F14" />
+          <!-- kid -->
+          <g transform="translate(20 8)">
+            <circle cx="0" cy="-15" r="6" fill="#E8A29A" stroke="#2A1F14" stroke-width="2" />
+            <rect x="-5" y="-9" width="10" height="14" rx="2" fill="#9CB17A" stroke="#2A1F14" stroke-width="2" />
+            <rect x="-5" y="5" width="3" height="6" fill="#2A1F14" />
+            <rect x="2" y="5" width="3" height="6" fill="#2A1F14" />
+          </g>
+        </g>
+
+        <!-- stars / sparks -->
+        <g fill="#E5B247">
+          <circle cx="60" cy="50" r="2" />
+          <circle cx="80" cy="120" r="1.5" />
+          <circle cx="220" cy="60" r="2" />
+          <circle cx="380" cy="180" r="1.5" />
+          <circle cx="40" cy="170" r="1.5" />
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- CHAPTER 1 OPEN -->
+  <section class="chapter-open">
+    <div class="deco"></div>
+    <div class="chapter-open__num">— Chapter One —</div>
+    <h2 class="chapter-open__title">「81」という、<em>3つの居場所</em>。</h2>
+    <p class="chapter-open__sub">
+      画廊と、工場カフェと、まだ名前のない次の場所。<br/>
+      家のリビング、台所、勝手口のように。
+    </p>
+  </section>
+
+  <!-- SPREAD: brand 1 -->
+  <section class="spread">
+    <div class="spread__img">
+      <img src="images/showroom-ferrari.jpg" alt="" onerror="this.parentElement.style.display='none'" />
+    </div>
+    <div>
+      <div class="spread__num">— 001</div>
+      <h3 class="spread__title">81 <em>Gallery</em></h3>
+      <div class="spread__jp">プレミアムカーの、画廊。</div>
+      <div class="spread__body">
+        <p>2017年、堺の小さなショールームから物語は始まりました。フェラーリ、ランボルギーニ、ロールスロイス。1000万円超の車を常時50台。</p>
+        <p>ここでは、車を売っているのではなく、その方の人生に贅沢を添えています。</p>
+      </div>
+      <div class="spread__quote">
+        「車を売る」という言い方は、もうしません。<br/>
+        私たちは、人生を一緒に選んでいます。
+      </div>
+    </div>
+  </section>
+
+  <!-- SPREAD: brand 2 (flip) -->
+  <section class="spread flip">
+    <div class="spread__img">
+      <img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'" />
+    </div>
+    <div>
+      <div class="spread__num">— 002</div>
+      <h3 class="spread__title">81 <em>Factory</em></h3>
+      <div class="spread__jp">家族で来られる、工場カフェ。</div>
+      <div class="spread__body">
+        <p>2024年、堺に「整備工場×カフェ」を開設しました。窓ガラスの向こうにポルシェが整備されているカフェなんて、ここにしかありません。</p>
+        <p>お父さんの整備待ちが、家族の小さな思い出に変わる場所です。</p>
+      </div>
+      <div class="spread__quote">
+        コーヒーの香りで、<br/>
+        「車屋＝怖い・汚い」を、上書きしていく。
+      </div>
+    </div>
+  </section>
+
+  <!-- SPREAD: brand 3 -->
+  <section class="spread">
+    <div class="spread__img">
+      <img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'" />
+    </div>
+    <div>
+      <div class="spread__num">— 003</div>
+      <h3 class="spread__title">81 <em>Next</em></h3>
+      <div class="spread__jp">名前は、まだ決まっていない。</div>
+      <div class="spread__body">
+        <p>2026年、東京。バーチャル × リアル × 越境EC。次の「81」は、まだ名前のない場所です。</p>
+        <p>これから入社するあなたの提案で、一緒に名付けたい。</p>
+      </div>
+      <div class="spread__quote">
+        次の章のタイトルを、<br/>
+        あなたに、決めてほしい。
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 2 OPEN -->
+  <section class="chapter-open">
+    <div class="deco"></div>
+    <div class="chapter-open__num">— Chapter Two —</div>
+    <h2 class="chapter-open__title">町の<em>住人たち</em>。</h2>
+    <p class="chapter-open__sub">
+      職種は違っても、肩書きを越えて。<br/>
+      ひとつの家族のような、72人。
+    </p>
+  </section>
+
+  <!-- PEOPLE LIST -->
+  <section class="people-list">
+    <div class="person-card">
+      <div class="person-card__photo"><img src="images/person-okada.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      <div>
+        <div class="person-card__role">— Sales / 営業</div>
+        <h3 class="person-card__name">岡田<small>30 / 4年目</small></h3>
+        <div class="person-card__quote">「車を売る」ではなく、人生を一緒に選ぶ。<br/>そう呼べる仕事が、ここにある。</div>
+      </div>
+    </div>
+    <div class="person-card">
+      <div class="person-card__photo"><img src="images/person-kano.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      <div>
+        <div class="person-card__role">— Mechanic / 整備</div>
+        <h3 class="person-card__name">加納<small>27 / 3年目</small></h3>
+        <div class="person-card__quote">フェラーリの定期整備を初めて任された日のこと、たぶん一生忘れません。</div>
+      </div>
+    </div>
+    <div class="person-card">
+      <div class="person-card__photo"><img src="images/person-01.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      <div>
+        <div class="person-card__role">— Café / カフェ</div>
+        <h3 class="person-card__name">田中<small>24 / 2年目</small></h3>
+        <div class="person-card__quote">窓の向こうのポルシェを見ながら、ラテを淹れる。ここでしか撮れない一枚です。</div>
+      </div>
+    </div>
+    <div class="person-card">
+      <div class="person-card__photo"><img src="images/person-02.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      <div>
+        <div class="person-card__role">— Office / 事務</div>
+        <h3 class="person-card__name">鈴木<small>26 / 2年目</small></h3>
+        <div class="person-card__quote">経営の隣で、会社が育つ瞬間を見ています。<br/>視野が、毎日広がります。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 3 OPEN -->
+  <section class="chapter-open">
+    <div class="deco"></div>
+    <div class="chapter-open__num">— Chapter Three —</div>
+    <h2 class="chapter-open__title">かぞえてみる、<em>町の輪郭</em>。</h2>
+  </section>
+
+  <!-- NUMBERS -->
+  <section class="number-list">
+    <div class="num-card">
+      <div class="num-card__big">29<small>歳</small></div>
+      <div class="num-card__lab">— 平均年齢</div>
+      <div class="num-card__sub">若くて、対等。新卒1年目が、議論に混ざる。</div>
+    </div>
+    <div class="num-card">
+      <div class="num-card__big">52<small>億</small></div>
+      <div class="num-card__lab">— 売上</div>
+      <div class="num-card__sub">創業7年で、ここまで。</div>
+    </div>
+    <div class="num-card">
+      <div class="num-card__big">5<small>+</small></div>
+      <div class="num-card__lab">— 拠点</div>
+      <div class="num-card__sub">堺・福岡・岡山 + 東京 2026。</div>
+    </div>
+    <div class="num-card">
+      <div class="num-card__big">72<small>名</small></div>
+      <div class="num-card__lab">— 家族</div>
+      <div class="num-card__sub">仕事仲間というより、家族。</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta__hand">— 最終章は、あなたと。</div>
+    <h2 class="cta__title">
+      この物語の<br/>
+      <em>主人公</em>を、<br/>
+      募集しています。
+    </h2>
+    <a class="cta__btn">エントリーする →</a>
+  </section>
+
+</div>
+
+<footer>RADOLF INC. © 2026 — picturebook edition / concept F</footer>
+
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concept 0 — オリジナル・ボールド英字 / RADOLF × 81</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@600;700&family=Inter:wght@400;500;700&family=Zen+Maru+Gothic:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --night: #1A1410;
+    --night-2: #231B15;
+    --cream: #FFF5E8;
+    --coral: #FF5E3A;
+    --butter: #F5C95F;
+    --peach: #FFB5A0;
+    --mute: #8B7E70;
+    --line: #332820;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--night);
+    color: var(--cream);
+    font-family: "Bricolage Grotesque", "Inter", system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      radial-gradient(ellipse at 15% 15%, rgba(255,94,58,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 85%, rgba(245,201,95,0.08) 0%, transparent 50%);
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='240' height='240' filter='url(%23n)' opacity='0.4'/></svg>");
+    opacity: 0.07; mix-blend-mode: overlay;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1400px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  .concept-tag {
+    position: fixed; top: 18px; right: 20px; z-index: 200;
+    background: var(--coral); color: var(--night);
+    padding: 10px 18px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 11px; letter-spacing: 0.2em;
+    border-radius: 100px;
+  }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: all .4s;
+    background: transparent;
+  }
+  .logo {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 28px; letter-spacing: -0.04em;
+    color: var(--cream);
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .logo .coral { color: var(--coral); }
+  .logo .script {
+    font-family: "Caveat", cursive;
+    font-weight: 700; font-size: 18px;
+    color: var(--butter);
+    transform: rotate(-4deg);
+    margin-left: 4px;
+  }
+  .menu {
+    display: flex; align-items: center; gap: 28px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px; font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .menu a:hover { color: var(--coral); }
+  .menu .cta {
+    background: var(--coral); color: var(--night);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-weight: 700;
+  }
+  .menu .cta:hover { background: var(--butter); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 32px 32px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__orb {
+    position: absolute;
+    width: 720px; height: 720px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--coral) 0%, #C73E1F 40%, transparent 70%);
+    top: -12%; right: -18%;
+    filter: blur(80px);
+    opacity: 0.75;
+    z-index: 0;
+  }
+  .hero__orb-2 {
+    position: absolute;
+    width: 540px; height: 540px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--butter) 0%, transparent 70%);
+    bottom: -18%; left: -14%;
+    filter: blur(100px);
+    opacity: 0.4;
+    z-index: 0;
+  }
+  .hero__center {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 48px 0;
+  }
+  .hero__script {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: clamp(24px, 2.8vw, 40px);
+    color: var(--coral);
+    margin-bottom: 12px;
+    transform: rotate(-2deg);
+    display: inline-block;
+    width: fit-content;
+  }
+  .hero__title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(64px, 14vw, 220px);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .hero__title .strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 8px;
+    text-decoration-color: var(--coral);
+    color: var(--mute);
+  }
+  .hero__title .hl {
+    background: var(--butter);
+    color: var(--night);
+    padding: 0 0.15em;
+    border-radius: 16px;
+    display: inline-block;
+    transform: rotate(-1.5deg);
+  }
+  .hero__title .coral {
+    color: var(--coral);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-style: italic;
+  }
+  .hero__sub {
+    margin-top: 40px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: clamp(18px, 2vw, 28px);
+    max-width: 780px;
+    line-height: 1.7;
+    color: var(--cream);
+  }
+  .hero__sub .hl {
+    background: var(--coral); color: var(--night);
+    padding: 2px 12px; border-radius: 10px;
+  }
+  .hero__bottom {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between; align-items: end;
+    font-family: "Inter", sans-serif;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--mute);
+  }
+  .hero__bottom .big {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 14px; color: var(--cream);
+  }
+  .hero__scroll { color: var(--butter); }
+
+  /* TICKER */
+  .ticker {
+    overflow: hidden; white-space: nowrap;
+    padding: 22px 0;
+    background: var(--coral);
+    color: var(--night);
+    border-top: 2px solid var(--night);
+    border-bottom: 2px solid var(--night);
+    position: relative; z-index: 5;
+  }
+  .ticker__track {
+    display: inline-block;
+    animation: scroll 38s linear infinite;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 18px; letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .ticker__track span { margin: 0 28px; display: inline-flex; align-items: center; gap: 28px; }
+  .ticker__track .heart { color: var(--night); font-size: 22px; }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* SECTION */
+  .sec { padding: 140px 0; position: relative; z-index: 1; }
+  .sec__head {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 48px;
+    margin-bottom: 80px;
+    align-items: end;
+  }
+  .sec__num {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(64px, 10vw, 140px);
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    color: var(--coral);
+  }
+  .sec__num sup {
+    font-family: "Caveat", cursive;
+    font-size: 0.3em;
+    font-weight: 600;
+    color: var(--butter);
+    vertical-align: super;
+    margin-left: 12px;
+    transform: rotate(-4deg);
+    display: inline-block;
+  }
+  .sec__title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(36px, 4.8vw, 80px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--cream);
+  }
+  .sec__title em {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-style: italic;
+    color: var(--coral);
+  }
+  .sec__title .hl {
+    background: var(--butter); color: var(--night);
+    padding: 0 0.1em; border-radius: 12px;
+    display: inline-block; transform: rotate(-1deg);
+  }
+  .sec__lead {
+    margin-top: 24px;
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-size: 15px; line-height: 1.95;
+    color: var(--cream); opacity: 0.75;
+    max-width: 640px;
+  }
+
+  /* BRANDS */
+  .brands {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .brand {
+    background: var(--night-2);
+    padding: 0;
+    border-radius: 32px;
+    min-height: 540px;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    transition: all .5s;
+    border: 1px solid var(--line);
+  }
+  .brand__photo {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    position: relative; z-index: 1;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .brand:hover .brand__photo img { transform: scale(1.06); }
+  .brand__inner {
+    padding: 36px 32px 40px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    flex: 1;
+    position: relative; z-index: 1;
+  }
+  .brand:hover { transform: translateY(-10px); border-color: var(--coral); }
+  .brand.a { background: linear-gradient(155deg, #2F1D14 0%, #1A1410 70%); }
+  .brand.b { background: linear-gradient(155deg, #2A2516 0%, #1A1410 70%); }
+  .brand.c { background: linear-gradient(155deg, #2F1F1F 0%, #1A1410 70%); }
+  .brand::before {
+    content: ""; position: absolute; top: -20%; right: -20%;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    opacity: 0.3; filter: blur(40px);
+  }
+  .brand.a::before { background: var(--coral); }
+  .brand.b::before { background: var(--butter); opacity: 0.25; }
+  .brand.c::before { background: var(--peach); opacity: 0.25; }
+  .brand__tag {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--coral);
+    position: relative;
+  }
+  .brand.b .brand__tag { color: var(--butter); }
+  .brand.c .brand__tag { color: var(--peach); }
+  .brand__name {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(44px, 4vw, 68px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    margin: 24px 0 12px;
+    position: relative;
+  }
+  .brand__name em {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-style: italic;
+    color: var(--coral);
+  }
+  .brand.b .brand__name em { color: var(--butter); }
+  .brand.c .brand__name em { color: var(--peach); }
+  .brand__jp {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.5;
+    position: relative;
+    margin-bottom: 16px;
+  }
+  .brand__desc {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 13px; line-height: 1.95;
+    color: var(--mute);
+    position: relative;
+  }
+  .brand__script {
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--butter);
+    transform: rotate(-3deg);
+    display: inline-block;
+    margin-top: 24px;
+    position: relative;
+  }
+
+  /* NUMBERS */
+  .numbers {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .num {
+    background: var(--night-2);
+    padding: 36px 28px;
+    border-radius: 24px;
+    min-height: 280px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid var(--line);
+    position: relative; overflow: hidden;
+  }
+  .num__tag {
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+    font-size: 22px;
+    transform: rotate(-2deg);
+    display: inline-block;
+    color: var(--coral);
+  }
+  .num.b .num__tag { color: var(--butter); }
+  .num.c .num__tag { color: var(--peach); }
+  .num.d .num__tag { color: var(--coral); }
+  .num__big {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(56px, 7vw, 112px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    color: var(--cream);
+  }
+  .num__unit {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-style: italic;
+    font-size: 0.35em;
+    margin-left: 4px;
+    color: var(--coral);
+  }
+  .num.b .num__unit { color: var(--butter); }
+  .num.c .num__unit { color: var(--peach); }
+  .num__label {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--cream);
+    opacity: 0.85;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 160px 32px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--night) 0%, #2A1D16 100%);
+    overflow: hidden;
+    position: relative;
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    width: 900px; height: 900px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--coral) 0%, transparent 70%);
+    bottom: -70%; left: 50%;
+    transform: translateX(-50%);
+    filter: blur(120px);
+    opacity: 0.35;
+  }
+  .cta__script {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 52px);
+    color: var(--butter);
+    transform: rotate(-3deg);
+    display: inline-block;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .cta__title {
+    font-family: "Archivo Black", sans-serif;
+    font-size: clamp(80px, 16vw, 280px);
+    line-height: 0.85;
+    letter-spacing: -0.06em;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    color: var(--cream);
+    position: relative; z-index: 1;
+  }
+  .cta__title em {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800; font-style: italic;
+    color: var(--coral);
+  }
+  .cta__btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--coral);
+    color: var(--night);
+    padding: 22px 48px;
+    border-radius: 100px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 20px; letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 20px 60px rgba(255,94,58,0.35);
+    position: relative; z-index: 1;
+    transition: all .3s;
+  }
+  .cta__btn:hover { background: var(--butter); transform: translateY(-2px); }
+  .cta__btn::after { content: "→"; }
+
+  footer {
+    padding: 32px;
+    text-align: center;
+    background: var(--night);
+    color: var(--mute);
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 1024px) {
+    .brands { grid-template-columns: 1fr; }
+    .numbers { grid-template-columns: 1fr 1fr; }
+    .sec__head { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-tag">CONCEPT 0 — ORIGINAL BOLD EN</div>
+
+<nav class="nav">
+  <a class="logo">
+    <span>R</span><span class="coral">81</span>
+    <span class="script">recruit</span>
+  </a>
+  <div class="menu">
+    <a>Brands</a>
+    <a>People</a>
+    <a>Numbers</a>
+    <a>Founder</a>
+    <a>Jobs</a>
+    <a class="cta">Apply</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__orb"></div>
+  <div class="hero__orb-2"></div>
+  <div class="hero__center">
+    <div class="hero__script">hey, listen —</div>
+    <h1 class="hero__title">
+      <span>WE ARE</span><br/>
+      <span class="strike">A CAR</span> <span class="hl">NOT</span><br/>
+      <span class="coral">a dealer.</span>
+    </h1>
+    <p class="hero__sub">
+      自動車屋じゃない。<span class="hl">「81」という名の世界</span>を<br/>
+      つくっている、ライフスタイル・カンパニー。
+    </p>
+  </div>
+  <div class="hero__bottom">
+    <div>
+      <div class="big">SAKAI × FUKUOKA × TOKYO 2026</div>
+      <div>RADOLF INC. / 81 — RECRUITMENT</div>
+    </div>
+    <div class="hero__scroll">SCROLL TO SEE 81 ↓</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker__track">
+    <span>WE ARE NOT A CAR DEALER</span><span class="heart">♥</span>
+    <span>81 GALLERY</span><span class="heart">♥</span>
+    <span>81 FACTORY &amp; CAFE</span><span class="heart">♥</span>
+    <span>NEXT → TOKYO 2026</span><span class="heart">♥</span>
+    <span>WE ARE NOT A CAR DEALER</span><span class="heart">♥</span>
+    <span>81 GALLERY</span><span class="heart">♥</span>
+    <span>81 FACTORY &amp; CAFE</span><span class="heart">♥</span>
+    <span>NEXT → TOKYO 2026</span><span class="heart">♥</span>
+  </div>
+</div>
+
+<!-- BRAND WORLD -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div class="sec__num">01<sup>— brands</sup></div>
+      <div>
+        <h2 class="sec__title">THE WORLD<br/>OF <em>EIGHT-ONE</em>.</h2>
+        <p class="sec__lead">「81」は、株式会社ラドルフが育てるライフスタイル・ファミリー。3つの場所、3つの呼び名で、ひとつの世界を形づくっています。</p>
+      </div>
+    </div>
+
+    <div class="brands">
+      <div class="brand a">
+        <div class="brand__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.style.display='none'" /></div>
+        <div class="brand__inner">
+          <div>
+            <div class="brand__tag">// 001 — gallery</div>
+            <h3 class="brand__name">81 <em>GALLERY</em></h3>
+            <div class="brand__jp">所有する、歓び。</div>
+            <div class="brand__desc">
+              Premium car gallery. Ferrari, Lamborghini, Porsche, Rolls-Royce. 50+ cars over $100K, always on display. Curated like art.
+            </div>
+          </div>
+          <div class="brand__script">— since 2017</div>
+        </div>
+      </div>
+
+      <div class="brand b">
+        <div class="brand__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.style.display='none'" /></div>
+        <div class="brand__inner">
+          <div>
+            <div class="brand__tag">// 002 — factory</div>
+            <h3 class="brand__name">81 <em>FACTORY</em></h3>
+            <div class="brand__jp">家族のための、工場カフェ。</div>
+            <div class="brand__desc">
+              Garage meets café. Watch the porsche getting fixed, while your kid sips a special cocoa. The wall between car and family — gone.
+            </div>
+          </div>
+          <div class="brand__script">— since 2024</div>
+        </div>
+      </div>
+
+      <div class="brand c">
+        <div class="brand__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.style.display='none'" /></div>
+        <div class="brand__inner">
+          <div>
+            <div class="brand__tag">// 003 — next</div>
+            <h3 class="brand__name">81 <em>NEXT</em></h3>
+            <div class="brand__jp">次の「81」、まだ名もなく。</div>
+            <div class="brand__desc">
+              2026, Tokyo. Virtual showroom × cross-border EC. The next "81". We're looking for someone to name it with us.
+            </div>
+          </div>
+          <div class="brand__script">— 2026 →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__head">
+      <div class="sec__num">02<sup>— numbers</sup></div>
+      <div>
+        <h2 class="sec__title">81 <em>BY THE</em><br/>NUMBERS.</h2>
+        <p class="sec__lead">Numbers are the outline of intent. Here's a sketch of who we are, today.</p>
+      </div>
+    </div>
+
+    <div class="numbers">
+      <div class="num a">
+        <div class="num__tag">avg. age →</div>
+        <div class="num__big">29<span class="num__unit">yrs</span></div>
+        <div class="num__label">平均年齢29歳。新卒1年目が、東京進出の議論に混ざる現場。</div>
+      </div>
+      <div class="num b">
+        <div class="num__tag">revenue →</div>
+        <div class="num__big">52<span class="num__unit">¥B</span></div>
+        <div class="num__label">創業7年で52億円。次の山は、100億円。</div>
+      </div>
+      <div class="num c">
+        <div class="num__tag">stores →</div>
+        <div class="num__big">5<span class="num__unit">+</span></div>
+        <div class="num__label">堺・南堺・福岡・岡山 + 2026 東京・福岡中央。</div>
+      </div>
+      <div class="num d">
+        <div class="num__tag">family →</div>
+        <div class="num__big">72<span class="num__unit">ppl</span></div>
+        <div class="num__label">仕事仲間というより、家族のような関係を72名で。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta__script">— hey, listen, one more time:</div>
+  <h2 class="cta__title">JOIN <em>81.</em></h2>
+  <a class="cta__btn">Apply now</a>
+</section>
+
+<footer>© 2026 RADOLF INC. — concept 0 / original bold english</footer>
+
+</body>
+</html>

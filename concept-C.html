@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concept C — ペーパー・スケッチ / RADOLF × 81</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kiwi+Maru:wght@400;500&family=M+PLUS+Rounded+1c:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #FFFCF5;
+    --paper-2: #F8F0DE;
+    --milk: #FBF6E8;
+    --beige: #E8DDC4;
+    --terra: #C16846;
+    --terra-soft: #E5A082;
+    --apricot: #F4B58A;
+    --leaf: #7D9460;
+    --leaf-soft: #B5C19E;
+    --butter: #F0C45F;
+    --sky: #92B6C5;
+    --ink: #2A2018;
+    --ink-2: #5C4D3D;
+    --mute: #94806A;
+    --line: #DDD0B3;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "M PLUS Rounded 1c", "Noto Sans JP", system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.4'/></svg>");
+    opacity: 0.07; mix-blend-mode: multiply;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; height: auto; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  .concept-tag {
+    position: fixed; top: 18px; right: 24px; z-index: 200;
+    background: var(--ink); color: var(--paper);
+    padding: 10px 18px;
+    font-weight: 500; font-size: 11px; letter-spacing: 0.2em;
+    border-radius: 100px;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,252,245,0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .nav__inner {
+    max-width: 1200px; margin: 0 auto;
+    padding: 18px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .logo .num {
+    background: var(--terra);
+    color: var(--paper);
+    padding: 0 10px;
+    border-radius: 100px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .menu {
+    display: flex; gap: 24px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-2);
+  }
+  .menu a { padding: 6px 4px; border-radius: 100px; transition: all .2s; }
+  .menu a:hover { color: var(--terra); }
+  .menu .cta {
+    background: var(--terra); color: var(--paper);
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-weight: 700;
+  }
+  .menu .cta:hover { background: var(--ink); }
+
+  /* HERO with isometric SVG illustration */
+  .hero {
+    padding: 80px 0 40px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero__copy { padding-left: 32px; }
+  .hero__small {
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+    font-size: 32px;
+    color: var(--terra);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .hero__title {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: clamp(40px, 6.5vw, 88px);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .hero__title .pop {
+    background: var(--butter);
+    padding: 0 12px;
+    border-radius: 100px;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+  .hero__title .pop2 {
+    color: var(--terra);
+    position: relative;
+  }
+  .hero__title .pop2::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 5px;
+    background: var(--terra);
+    border-radius: 100px;
+    transform: rotate(-0.5deg);
+  }
+  .hero__sub {
+    margin-top: 32px;
+    font-size: 15px;
+    line-height: 2.1;
+    color: var(--ink-2);
+    max-width: 540px;
+  }
+  .hero__btns {
+    margin-top: 36px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .btn {
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    transition: transform .2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn--primary { background: var(--terra); color: var(--paper); }
+  .btn--ghost { background: transparent; color: var(--ink); border: 2px dashed var(--terra); }
+
+  /* the illustration scene */
+  .scene {
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 100%;
+  }
+
+  /* SECTION */
+  .sec { padding: 100px 0; }
+  .sec.cream { background: var(--paper-2); }
+  .sec__pre {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--terra);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .sec__title {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .sec__title em {
+    font-style: normal;
+    color: var(--terra);
+  }
+  .sec__title .pop {
+    background: var(--butter); padding: 0 14px; border-radius: 100px;
+    display: inline-block; transform: rotate(-1deg);
+  }
+  .sec__lead {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 2.05;
+    color: var(--ink-2);
+    max-width: 640px;
+  }
+
+  /* BRAND CARDS — sticker style */
+  .brands {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .brand {
+    background: var(--milk);
+    border: 2px solid var(--ink);
+    border-radius: 28px;
+    padding: 36px 28px;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all .2s ease;
+    position: relative;
+  }
+  .brand:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .brand.b { background: var(--leaf-soft); }
+  .brand.c { background: var(--apricot); }
+  .brand__sticker {
+    position: absolute;
+    top: -16px; right: -16px;
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--terra);
+    color: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+    text-align: center;
+    transform: rotate(-8deg);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    padding: 6px;
+  }
+  .brand.b .brand__sticker { background: var(--leaf); }
+  .brand.c .brand__sticker { background: var(--ink); }
+  .brand__num {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--ink);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .brand__name {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1;
+    margin: 12px 0 12px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .brand__jp {
+    font-family: "Zen Maru Gothic", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .brand__desc {
+    font-size: 13px;
+    line-height: 1.95;
+    color: var(--ink-2);
+  }
+  .brand__photo {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 2px solid var(--ink);
+    margin-top: 20px;
+    background: var(--paper);
+  }
+  .brand__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* NUMBERS — bubble style */
+  .numbers {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .num {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 24px;
+    padding: 28px 24px;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-align: center;
+    transition: transform .2s;
+  }
+  .num:hover { transform: translateY(-3px); }
+  .num.b { background: var(--butter); }
+  .num.c { background: var(--leaf-soft); }
+  .num.d { background: var(--apricot); }
+  .num__big {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.04em;
+  }
+  .num__big small {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink-2);
+    margin-left: 4px;
+  }
+  .num__label {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--terra);
+    margin-top: 8px;
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .num.b .num__label { color: var(--ink); }
+  .num.c .num__label { color: var(--ink); }
+  .num.d .num__label { color: var(--ink); }
+  .num__cap {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+
+  /* CTA */
+  .cta {
+    padding: 120px 32px;
+    text-align: center;
+    background: var(--terra);
+    color: var(--paper);
+    position: relative;
+  }
+  .cta__deco-l, .cta__deco-r {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-family: "Caveat", cursive;
+    font-weight: 600;
+    font-size: 38px;
+    color: var(--butter);
+  }
+  .cta__deco-l { left: 8%; transform: translateY(-50%) rotate(-12deg); }
+  .cta__deco-r { right: 8%; transform: translateY(-50%) rotate(12deg); }
+  .cta__title {
+    font-family: "Kiwi Maru", serif;
+    font-weight: 500;
+    font-size: clamp(36px, 5.5vw, 80px);
+    line-height: 1.2;
+    color: var(--paper);
+  }
+  .cta__title .pop {
+    background: var(--butter);
+    color: var(--ink);
+    padding: 0 16px;
+    border-radius: 100px;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+  .cta__btn {
+    display: inline-block;
+    margin-top: 36px;
+    background: var(--paper);
+    color: var(--terra);
+    padding: 22px 56px;
+    border-radius: 100px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: all .2s;
+  }
+  .cta__btn:hover {
+    transform: translate(-2px,-2px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  footer {
+    padding: 40px 32px;
+    text-align: center;
+    background: var(--paper-2);
+    color: var(--ink-2);
+    font-size: 12px;
+    letter-spacing: 0.15em;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero__copy { padding-left: 0; }
+    .scene { max-width: 480px; margin: 0 auto; }
+    .brands { grid-template-columns: 1fr; }
+    .numbers { grid-template-columns: 1fr 1fr; }
+    .cta__deco-l, .cta__deco-r { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="concept-tag">CONCEPT C — ペーパー・スケッチ</div>
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="logo">R <span class="num">81</span> recruit</a>
+    <div class="menu">
+      <a>About</a>
+      <a>People</a>
+      <a>Jobs</a>
+      <a>Company</a>
+      <a class="cta">エントリー</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO with illustrated scene -->
+<section class="hero">
+  <div class="hero__copy">
+    <div class="hero__small">— hey, listen.</div>
+    <h1 class="hero__title">
+      家族で来られる<br/>
+      <span class="pop">工場カフェ</span>を、<br/>
+      <span class="pop2">本気で</span>つくる<br/>
+      会社です。
+    </h1>
+    <p class="hero__sub">
+      フェラーリの整備音と、コーヒーのいい香り。<br/>
+      お父さんの整備待ちが、家族の小さな思い出になる。<br/>
+      そんな「車屋らしくない車屋」を、みんなで育てています。
+    </p>
+    <div class="hero__btns">
+      <a class="btn btn--primary">エントリーする →</a>
+      <a class="btn btn--ghost">遊びにくる ↗</a>
+    </div>
+  </div>
+
+  <!-- Illustrated scene: a stylized café interior in SVG -->
+  <div class="scene">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+      <!-- Sky / window background -->
+      <rect x="40" y="40" width="420" height="240" fill="#FBF6E8" stroke="#2A2018" stroke-width="3" rx="14" />
+      <!-- Window grid -->
+      <line x1="180" y1="40" x2="180" y2="280" stroke="#2A2018" stroke-width="2.5" />
+      <line x1="320" y1="40" x2="320" y2="280" stroke="#2A2018" stroke-width="2.5" />
+      <line x1="40" y1="160" x2="460" y2="160" stroke="#2A2018" stroke-width="2.5" />
+      <!-- Plants -->
+      <circle cx="100" cy="180" r="40" fill="#B5C19E" />
+      <circle cx="120" cy="160" r="32" fill="#7D9460" />
+      <rect x="78" y="200" width="44" height="50" fill="#C16846" stroke="#2A2018" stroke-width="3" />
+      <!-- Big plant on right -->
+      <ellipse cx="400" cy="180" rx="50" ry="22" fill="#7D9460" />
+      <ellipse cx="380" cy="160" rx="44" ry="20" fill="#B5C19E" />
+      <ellipse cx="420" cy="150" rx="40" ry="18" fill="#7D9460" />
+      <rect x="380" y="200" width="48" height="60" fill="#E8DDC4" stroke="#2A2018" stroke-width="3" />
+
+      <!-- Wood floor -->
+      <rect x="0" y="280" width="500" height="220" fill="#E8DDC4" />
+      <line x1="0" y1="320" x2="500" y2="320" stroke="#C16846" stroke-width="1.5" opacity="0.4" />
+      <line x1="0" y1="370" x2="500" y2="370" stroke="#C16846" stroke-width="1.5" opacity="0.4" />
+      <line x1="0" y1="425" x2="500" y2="425" stroke="#C16846" stroke-width="1.5" opacity="0.4" />
+      <line x1="0" y1="475" x2="500" y2="475" stroke="#C16846" stroke-width="1.5" opacity="0.4" />
+
+      <!-- Table 1 -->
+      <ellipse cx="160" cy="380" rx="65" ry="20" fill="#C16846" stroke="#2A2018" stroke-width="3" />
+      <rect x="155" y="380" width="10" height="40" fill="#2A2018" />
+      <!-- Plate on table -->
+      <ellipse cx="160" cy="378" rx="22" ry="6" fill="#FFFCF5" stroke="#2A2018" stroke-width="2" />
+      <circle cx="160" cy="376" r="6" fill="#F4B58A" />
+
+      <!-- Customer seated -->
+      <circle cx="100" cy="345" r="20" fill="#F0C45F" stroke="#2A2018" stroke-width="3" />
+      <rect x="84" y="365" width="32" height="40" rx="6" fill="#7D9460" stroke="#2A2018" stroke-width="3" />
+      <rect x="86" y="395" width="14" height="6" fill="#2A2018" />
+      <rect x="100" y="395" width="14" height="6" fill="#2A2018" />
+
+      <!-- Kid on stool -->
+      <circle cx="220" cy="355" r="14" fill="#E5A082" stroke="#2A2018" stroke-width="3" />
+      <rect x="208" y="368" width="24" height="28" rx="4" fill="#92B6C5" stroke="#2A2018" stroke-width="3" />
+
+      <!-- Table 2 (back) -->
+      <ellipse cx="350" cy="360" rx="60" ry="18" fill="#C16846" stroke="#2A2018" stroke-width="3" />
+      <rect x="345" y="360" width="10" height="34" fill="#2A2018" />
+      <!-- Mom -->
+      <circle cx="290" cy="332" r="18" fill="#F4B58A" stroke="#2A2018" stroke-width="3" />
+      <rect x="276" y="350" width="28" height="38" rx="6" fill="#C16846" stroke="#2A2018" stroke-width="3" />
+      <!-- Dad -->
+      <circle cx="400" cy="332" r="18" fill="#F0C45F" stroke="#2A2018" stroke-width="3" />
+      <rect x="386" y="350" width="28" height="38" rx="6" fill="#2A2018" stroke="#2A2018" stroke-width="3" />
+
+      <!-- Steam from coffee -->
+      <path d="M155 360 Q 160 350 156 340 Q 152 332 158 322" stroke="#2A2018" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5" />
+      <path d="M165 360 Q 170 350 166 340 Q 162 332 168 322" stroke="#2A2018" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5" />
+
+      <!-- Floor texture: small circles like a rug -->
+      <circle cx="60" cy="450" r="3" fill="#C16846" opacity="0.4" />
+      <circle cx="90" cy="465" r="3" fill="#7D9460" opacity="0.4" />
+      <circle cx="440" cy="455" r="3" fill="#C16846" opacity="0.4" />
+      <circle cx="470" cy="470" r="3" fill="#F0C45F" opacity="0.4" />
+
+      <!-- Hanging light 1 -->
+      <line x1="160" y1="40" x2="160" y2="100" stroke="#2A2018" stroke-width="2" />
+      <ellipse cx="160" cy="110" rx="20" ry="14" fill="#F0C45F" stroke="#2A2018" stroke-width="2.5" />
+      <!-- Hanging light 2 -->
+      <line x1="350" y1="40" x2="350" y2="100" stroke="#2A2018" stroke-width="2" />
+      <ellipse cx="350" cy="110" rx="20" ry="14" fill="#F0C45F" stroke="#2A2018" stroke-width="2.5" />
+
+      <!-- Outside silhouette of a car (showroom) -->
+      <path d="M260 200 Q 280 180 310 180 L 360 180 Q 380 180 390 200 L 390 235 L 260 235 Z" fill="#92B6C5" opacity="0.55" stroke="#2A2018" stroke-width="2" />
+      <circle cx="285" cy="240" r="10" fill="#2A2018" />
+      <circle cx="365" cy="240" r="10" fill="#2A2018" />
+    </svg>
+  </div>
+</section>
+
+<!-- BRAND WORLD -->
+<section class="sec cream">
+  <div class="wrap">
+    <div class="sec__pre">— 私たちのこと</div>
+    <h2 class="sec__title">「81」は、<span class="pop">3つ</span>の<br/>居場所でできている。</h2>
+    <p class="sec__lead">
+      ショールーム、工場カフェ、未来の東京拠点。<br/>
+      家のリビング、台所、勝手口のように、それぞれの役割でひとつの暮らしを形づくります。
+    </p>
+
+    <div class="brands">
+      <article class="brand a">
+        <span class="brand__sticker">flag<br/>ship</span>
+        <div class="brand__num">001</div>
+        <h3 class="brand__name">81 Gallery</h3>
+        <div class="brand__jp">プレミアムカーの、画廊。</div>
+        <p class="brand__desc">フェラーリ、ランボルギーニ、ロールスロイス。常時50台の画廊。</p>
+        <div class="brand__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      </article>
+      <article class="brand b">
+        <span class="brand__sticker">family<br/>café</span>
+        <div class="brand__num">002</div>
+        <h3 class="brand__name">81 Factory</h3>
+        <div class="brand__jp">家族で来られる、工場カフェ。</div>
+        <p class="brand__desc">整備場 × カフェ。整備待ちが、家族の思い出に。</p>
+        <div class="brand__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      </article>
+      <article class="brand c">
+        <span class="brand__sticker">2026<br/>NEW</span>
+        <div class="brand__num">003</div>
+        <h3 class="brand__name">81 Next</h3>
+        <div class="brand__jp">名前は、まだない。</div>
+        <p class="brand__desc">バーチャル × リアル × 越境EC。あなたが、名付け親になる。</p>
+        <div class="brand__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec__pre">— かぞえてみる</div>
+    <h2 class="sec__title">「81」の、<em>すきまの数字</em>。</h2>
+    <p class="sec__lead">数字は、想いの輪郭。会社のいまを、いくつかの数で。</p>
+
+    <div class="numbers">
+      <div class="num a">
+        <div class="num__big">29<small>歳</small></div>
+        <div class="num__label">— 平均年齢</div>
+        <div class="num__cap">若くて、対等。</div>
+      </div>
+      <div class="num b">
+        <div class="num__big">52<small>億円</small></div>
+        <div class="num__label">— 売上</div>
+        <div class="num__cap">創業7年で、ここまで。</div>
+      </div>
+      <div class="num c">
+        <div class="num__big">5<small>+</small></div>
+        <div class="num__label">— 拠点</div>
+        <div class="num__cap">堺・福岡・岡山 + 東京 2026。</div>
+      </div>
+      <div class="num d">
+        <div class="num__big">72<small>名</small></div>
+        <div class="num__label">— 家族</div>
+        <div class="num__cap">仕事仲間というより、家族。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta__deco-l">よかったら ↘</div>
+  <div class="cta__deco-r">↙ お待ちしてます</div>
+  <h2 class="cta__title">
+    あなたの章を、<br/>
+    <span class="pop">ここから。</span>
+  </h2>
+  <a class="cta__btn">エントリーする →</a>
+</section>
+
+<footer>© 2026 RADOLF INC. — concept C / paper sketch</footer>
+
+</body>
+</html>

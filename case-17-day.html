@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A Day in the Life — Case 17 / RADOLF × 81</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-2:#3D3D3D;--mute:#888;--accent:#FF3D00;--line:#EEE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+.tag{position:fixed;top:18px;right:20px;z-index:200;background:var(--ink);color:#fff;padding:10px 18px;font-size:11px;letter-spacing:.2em;border-radius:0;font-weight:700}
+.x-back{position:fixed;top:18px;left:20px;z-index:300;background:rgba(255,255,255,.94);color:#1A1410;padding:10px 18px 10px 14px;font-family:"Noto Sans JP",sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;border:1px solid rgba(127,127,127,.3);border-radius:100px;text-decoration:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.08);transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.x-back:hover{background:#1A1410;color:#fff;border-color:#1A1410;transform:translateX(-2px)}
+@media(max-width:600px){.x-back{top:10px;left:10px;padding:8px 14px 8px 10px;font-size:10px;letter-spacing:.12em}}
+.subnav{padding:80px 32px 0;text-align:center;font-size:11px;letter-spacing:.4em;color:var(--mute);text-transform:uppercase;font-weight:700}
+.subnav a{color:var(--accent);border-bottom:1px solid var(--accent)}
+.cta-end{padding:120px 32px;text-align:center;border-top:1px solid var(--line)}
+.cta-end__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(32px,5vw,64px);line-height:1.2;margin-bottom:24px}
+.cta-end__btns{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.cta-end__btn{font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;color:var(--ink)}
+.cta-end__btn:hover{color:var(--accent);border-color:var(--accent)}
+.cta-end__btn.primary{background:var(--ink);color:#fff;border:0;padding:18px 36px}
+.cta-end__btn.primary:hover{background:var(--accent);color:#fff}
+footer{padding:32px;text-align:center;color:var(--mute);font-size:11px;letter-spacing:.18em;background:var(--bg);border-top:1px solid var(--line)}
+
+/* === A DAY in the life === */
+.day-sec{padding:160px 32px;border-top:1px solid var(--line)}
+.day-wrap{max-width:1100px;margin:0 auto}
+.day-head{margin-bottom:96px}
+.day-pre{font-size:11px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:24px}
+.day-title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(56px,9vw,140px);line-height:1;letter-spacing:-.04em;color:var(--ink)}
+.day-title em{font-style:italic;color:var(--accent)}
+.day-sub{margin-top:32px;display:flex;align-items:center;gap:18px}
+.day-sub__avatar{width:64px;height:64px;border-radius:50%;overflow:hidden;background:#f5f5f5;flex-shrink:0}
+.day-sub__avatar img{width:100%;height:100%;object-fit:cover}
+.day-sub__name{font-weight:700;font-size:18px;color:var(--ink)}
+.day-sub__role{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:2px}
+.day-line{display:grid;grid-template-columns:160px 1fr;gap:48px;padding:32px 0;border-top:1px solid var(--line);align-items:start}
+.day-line:last-child{border-bottom:1px solid var(--line)}
+.day-time{font-family:"Noto Serif JP",serif;font-weight:900;font-size:56px;color:var(--accent);line-height:.95;letter-spacing:-.04em}
+.day-act__title{font-family:"Noto Serif JP",serif;font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:8px}
+.day-act__desc{font-size:14px;line-height:2.05;color:var(--ink-2);max-width:680px}
+
+/* === INTERVIEW deep === */
+.intv-sec{padding:160px 32px;background:var(--ink);color:#fff}
+.intv-wrap{max-width:1100px;margin:0 auto}
+.intv-head{text-align:center;margin-bottom:96px}
+.intv-pre{font-size:11px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:24px}
+.intv-title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(56px,9vw,140px);line-height:1;letter-spacing:-.04em;color:#fff}
+.intv-title em{font-style:italic;color:var(--accent)}
+.intv-card{padding:96px 0;border-top:1px solid rgba(255,255,255,.15);display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start}
+.intv-card:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
+.intv-photo__img{aspect-ratio:4/5;overflow:hidden;background:#222}
+.intv-photo__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.05) contrast(1.05)}
+.intv-photo__role{margin-top:18px;font-size:11px;letter-spacing:.32em;color:var(--accent);font-weight:700;text-transform:uppercase}
+.intv-photo__name{font-family:"Noto Serif JP",serif;font-weight:900;font-size:36px;letter-spacing:-.02em;margin-top:6px;color:#fff}
+.intv-photo__name small{font-size:13px;font-weight:500;opacity:.6;margin-left:8px}
+.intv-pull{margin:0 0 32px;font-family:"Noto Serif JP",serif;font-style:italic;font-weight:700;font-size:clamp(20px,2.4vw,30px);line-height:1.5;color:var(--accent);padding-left:18px;border-left:3px solid var(--accent)}
+.intv-q{margin-bottom:28px}
+.intv-q__q{font-family:"Noto Serif JP",serif;font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--accent);margin-bottom:10px}
+.intv-q__q::before{content:"Q. "}
+.intv-q__a{font-size:14px;line-height:2.05;color:rgba(255,255,255,.85)}
+.intv-q__a::before{content:"A.\00a0";font-weight:700;color:var(--accent)}
+
+/* === PROJECT STORY (project-X風) === */
+.proj-sec{padding:160px 32px;background:#FAFAFA}
+.proj-wrap{max-width:1100px;margin:0 auto}
+.proj-head{margin-bottom:96px;text-align:center}
+.proj-pre{font-size:11px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:24px}
+.proj-title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(56px,9vw,140px);line-height:1;letter-spacing:-.04em;color:var(--ink)}
+.proj-title em{font-style:italic;color:var(--accent)}
+.proj-sub{margin-top:32px;font-size:15px;line-height:2.05;color:var(--ink-2);max-width:640px;margin-left:auto;margin-right:auto}
+.proj-chap{padding:96px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start}
+.proj-chap:last-child{border-bottom:1px solid var(--line)}
+.proj-num{font-family:"Noto Serif JP",serif;font-weight:900;font-size:128px;color:var(--accent);line-height:.85;letter-spacing:-.06em;position:sticky;top:48px}
+.proj-num small{display:block;font-size:11px;letter-spacing:.32em;color:var(--ink-2);font-weight:700;margin-top:20px;font-family:"Noto Sans JP",sans-serif}
+.proj-chap__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(32px,4vw,52px);line-height:1.18;letter-spacing:-.03em;margin-bottom:24px;color:var(--ink)}
+.proj-chap__title em{font-style:italic;color:var(--accent)}
+.proj-photo{aspect-ratio:16/9;overflow:hidden;margin:24px 0 32px;background:#eee}
+.proj-photo img{width:100%;height:100%;object-fit:cover}
+.proj-chap__body{font-size:15px;line-height:2.05;color:var(--ink-2)}
+.proj-chap__body p{margin-bottom:20px}
+.proj-chap__body p:first-of-type::first-letter{font-family:"Noto Serif JP",serif;font-size:64px;float:left;line-height:.9;margin:4px 8px 0 0;color:var(--accent);font-weight:900}
+.proj-chap__pull{margin:32px 0;padding:24px 32px;background:#fff;border-left:4px solid var(--accent);font-family:"Noto Serif JP",serif;font-style:italic;font-weight:700;font-size:clamp(18px,2.2vw,24px);line-height:1.6;color:var(--ink)}
+
+@media(max-width:900px){
+  .day-line{grid-template-columns:1fr;gap:8px;padding:24px 0}
+  .day-time{font-size:42px}
+  .intv-card{grid-template-columns:1fr;gap:32px;padding:64px 0}
+  .proj-chap{grid-template-columns:1fr;gap:24px;padding:64px 0}
+  .proj-num{position:static;font-size:96px}
+  .day-sec,.intv-sec,.proj-sec{padding:96px 24px}
+}
+@media(max-width:900px){
+  .day-line{grid-template-columns:1fr;gap:8px;padding:24px 0}
+  .day-time{font-size:42px}
+  .intv-card{grid-template-columns:1fr;gap:32px;padding:64px 0}
+  .proj-chap{grid-template-columns:1fr;gap:24px;padding:64px 0}
+  .proj-num{position:static;font-size:96px}
+  .day-sec,.intv-sec,.proj-sec{padding:96px 24px}
+}
+</style></head>
+<body>
+<a class="x-back" href="case-17-hakuhodo.html">← CASE 17</a>
+<div class="tag">CASE 17 — A DAY</div>
+<div class="subnav">CASE 17 / <a href="case-17-hakuhodo.html">HAKUHODO-STYLE TOP</a></div>
+
+<!-- A DAY in the Life -->
+<section class="day-sec">
+  <div class="day-wrap">
+    <div class="day-head">
+      <div class="day-pre">— A Day in the Life</div>
+      <h2 class="day-title">ある日の、<br/><em>81。</em></h2>
+      <div class="day-sub">
+        <div class="day-sub__avatar"><img src="images/person-okada.jpg" onerror="this.parentElement.style.display='none'"/></div>
+        <div>
+          <div class="day-sub__name">岡田 — 営業 / 入社4年目</div>
+          <div class="day-sub__role">プレミアムカーの提案営業として、ショールームに立つ。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-line">
+      <div class="day-time">08:30</div>
+      <div class="day-act">
+        <div class="day-act__title">出社・ショールーム清掃</div>
+        <div class="day-act__desc">フェラーリも、ランボルギーニも、1mmのホコリを拭く。1台1,000万円を超える車たちが、お客様を迎える準備をする時間。</div>
+      </div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">09:30</div>
+      <div class="day-act">
+        <div class="day-act__title">朝礼・全店ZOOM</div>
+        <div class="day-act__desc">本社、南堺、福岡、岡山の全店メンバーがオンラインで集合。前日の商談状況、業界ニュース、代表からの一言。所要時間20分。</div>
+      </div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">10:00</div>
+      <div class="day-act">
+        <div class="day-act__title">商談 / 1組目</div>
+        <div class="day-act__desc">継続のお客様。3ヶ月前から探しているフェラーリ458の入荷連絡。試乗から、1台目の購入が決まりそう。</div>
+      </div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">12:00</div>
+      <div class="day-act">
+        <div class="day-act__title">ランチ / 81 FACTORY</div>
+        <div class="day-act__desc">徒歩2分の工場カフェへ。本格生パスタとコーヒー。家族連れのお客様もいる空間で、頭をリセットする1時間。</div>
+      </div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">13:30</div>
+      <div class="day-act">
+        <div class="day-act__title">商談 / 2組目</div>
+        <div class="day-act__desc">紹介でのご来店。お子さんと一緒。ショールームで「将来このフェラーリを買ってあげる」って言うお父さんが、毎月1組はいる。</div>
+      </div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">16:00</div>
+      <div class="day-act">
+        <div class="day-act__title">納車準備</div>
+        <div class="day-act__desc">来週納車予定のお客様の車を最終チェック。整備士の加納さんと一緒に、コンディションを1点1点確認。最終洗車、ナンバープレート取付。</div>
+      </div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">18:00</div>
+      <div class="day-act">
+        <div class="day-act__title">在庫車の撮影</div>
+        <div class="day-act__desc">新入荷の写真撮影。Web集客が売上の70%を占めるので、写真の質は売上に直結する。スマホ撮影だが、こだわりは一眼レフ並み。</div>
+      </div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">19:30</div>
+      <div class="day-act">
+        <div class="day-act__title">退社</div>
+        <div class="day-act__desc">残業ではなく、定時+αで終わる日が多い。月の平均残業は20時間以内。週末は趣味のキャンプか、お客様の納車立ち会い。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="cta-end">
+  <h2 class="cta-end__title">続けて、読む？</h2>
+  <div class="cta-end__btns">
+    <a class="cta-end__btn" href="case-17-hakuhodo.html">← Case 17 トップへ</a>
+    <a class="cta-end__btn" href="case-17-interview.html">Interview →</a>
+    <a class="cta-end__btn" href="case-17-story.html">Project 81 →</a>
+    <a class="cta-end__btn primary" href="entry.html">エントリーする →</a>
+  </div>
+</section>
+<footer>RADOLF INC. © 2026 — CASE 17 / HAKUHODO-INSPIRED — A DAY</footer>
+</body></html>

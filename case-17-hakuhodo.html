@@ -208,6 +208,21 @@
   .day-sec,.intv-sec,.proj-sec{padding:96px 24px}
 }
 
+
+/* === Stories teaser cards === */
+.x-stories{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.x-story{background:#fff;border:1px solid var(--line);transition:all .25s;display:flex;flex-direction:column;text-decoration:none;color:inherit;padding:0}
+.x-story:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 18px 36px rgba(0,0,0,.08)}
+.x-story__img{aspect-ratio:4/3;overflow:hidden;background:#f5f5f5}
+.x-story__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.x-story:hover .x-story__img img{transform:scale(1.04)}
+.x-story__cat{font-size:11px;letter-spacing:.32em;color:var(--accent);font-weight:700;text-transform:uppercase;margin:20px 24px 6px}
+.x-story__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:0 24px 12px;color:var(--ink)}
+.x-story__title em{font-style:italic;color:var(--accent)}
+.x-story__desc{font-size:13px;line-height:1.85;color:var(--ink-2);margin:0 24px 16px;flex:1}
+.x-story__more{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--accent);text-transform:uppercase;margin:0 24px 24px;border-bottom:2px solid var(--accent);align-self:flex-start;padding-bottom:4px}
+@media(max-width:900px){.x-stories{grid-template-columns:1fr}}
+
 </style></head><body>
 <a class="x-back" href="cases.html">← 25 CASES</a>
 <div class="tag">CASE 17 — HAKUHODO</div>
@@ -299,207 +314,35 @@
   </div>
 </div></section>
 
-<!-- A DAY in the Life -->
-<section class="day-sec">
-  <div class="day-wrap">
-    <div class="day-head">
-      <div class="day-pre">— A Day in the Life</div>
-      <h2 class="day-title">ある日の、<br/><em>81。</em></h2>
-      <div class="day-sub">
-        <div class="day-sub__avatar"><img src="images/person-okada.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div>
-          <div class="day-sub__name">岡田 — 営業 / 入社4年目</div>
-          <div class="day-sub__role">プレミアムカーの提案営業として、ショールームに立つ。</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="day-line">
-      <div class="day-time">08:30</div>
-      <div class="day-act">
-        <div class="day-act__title">出社・ショールーム清掃</div>
-        <div class="day-act__desc">フェラーリも、ランボルギーニも、1mmのホコリを拭く。1台1,000万円を超える車たちが、お客様を迎える準備をする時間。</div>
-      </div>
-    </div>
-    <div class="day-line">
-      <div class="day-time">09:30</div>
-      <div class="day-act">
-        <div class="day-act__title">朝礼・全店ZOOM</div>
-        <div class="day-act__desc">本社、南堺、福岡、岡山の全店メンバーがオンラインで集合。前日の商談状況、業界ニュース、代表からの一言。所要時間20分。</div>
-      </div>
-    </div>
-    <div class="day-line">
-      <div class="day-time">10:00</div>
-      <div class="day-act">
-        <div class="day-act__title">商談 / 1組目</div>
-        <div class="day-act__desc">継続のお客様。3ヶ月前から探しているフェラーリ458の入荷連絡。試乗から、1台目の購入が決まりそう。</div>
-      </div>
-    </div>
-    <div class="day-line">
-      <div class="day-time">12:00</div>
-      <div class="day-act">
-        <div class="day-act__title">ランチ / 81 FACTORY</div>
-        <div class="day-act__desc">徒歩2分の工場カフェへ。本格生パスタとコーヒー。家族連れのお客様もいる空間で、頭をリセットする1時間。</div>
-      </div>
-    </div>
-    <div class="day-line">
-      <div class="day-time">13:30</div>
-      <div class="day-act">
-        <div class="day-act__title">商談 / 2組目</div>
-        <div class="day-act__desc">紹介でのご来店。お子さんと一緒。ショールームで「将来このフェラーリを買ってあげる」って言うお父さんが、毎月1組はいる。</div>
-      </div>
-    </div>
-    <div class="day-line">
-      <div class="day-time">16:00</div>
-      <div class="day-act">
-        <div class="day-act__title">納車準備</div>
-        <div class="day-act__desc">来週納車予定のお客様の車を最終チェック。整備士の加納さんと一緒に、コンディションを1点1点確認。最終洗車、ナンバープレート取付。</div>
-      </div>
-    </div>
-    <div class="day-line">
-      <div class="day-time">18:00</div>
-      <div class="day-act">
-        <div class="day-act__title">在庫車の撮影</div>
-        <div class="day-act__desc">新入荷の写真撮影。Web集客が売上の70%を占めるので、写真の質は売上に直結する。スマホ撮影だが、こだわりは一眼レフ並み。</div>
-      </div>
-    </div>
-    <div class="day-line">
-      <div class="day-time">19:30</div>
-      <div class="day-act">
-        <div class="day-act__title">退社</div>
-        <div class="day-act__desc">残業ではなく、定時+αで終わる日が多い。月の平均残業は20時間以内。週末は趣味のキャンプか、お客様の納車立ち会い。</div>
-      </div>
-    </div>
+<!-- STORIES TEASER (3 sub-pages) -->
+<section class="x-sec"><div class="x-wrap">
+  <span class="x-pre">━ Stories — Deep Dive</span>
+  <h2 class="x-title">もっと、読む。</h2>
+  <p class="x-lead">「ある日の1日」「なぜ81を選んだか」「81をつくった物語」— 3つのストーリーを、別ページで深く読めます。</p>
+  <div class="x-stories">
+    <a class="x-story" href="case-17-day.html">
+      <div class="x-story__img"><img src="images/person-okada.jpg" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="x-story__cat">— Story 01</div>
+      <h3 class="x-story__title">ある日の、<em>81。</em></h3>
+      <p class="x-story__desc">営業 岡田さんの1日 — 8:30の出社から、19:30の退社まで。フェラーリとお客様と、ふつうの日常。</p>
+      <span class="x-story__more">A Day in the Life →</span>
+    </a>
+    <a class="x-story" href="case-17-interview.html">
+      <div class="x-story__img"><img src="images/person-kano.jpg" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="x-story__cat">— Story 02</div>
+      <h3 class="x-story__title">なぜ、<em>81</em>を<br/>選んだか。</h3>
+      <p class="x-story__desc">営業 岡田 × 整備 加納。それぞれが「ここを選んだ理由」を、5問の質問で深掘り。</p>
+      <span class="x-story__more">Interview →</span>
+    </a>
+    <a class="x-story" href="case-17-story.html">
+      <div class="x-story__img"><img src="images/store-sakai.jpg" onerror="this.parentElement.style.display='none'"/></div>
+      <div class="x-story__cat">— Story 03</div>
+      <h3 class="x-story__title"><em>81</em>を、<br/>つくった物語。</h3>
+      <p class="x-story__desc">2020年GALLERYから、2024年FACTORY、そして2026年TOKYOまで。3章のプロジェクトX。</p>
+      <span class="x-story__more">Project 81 →</span>
+    </a>
   </div>
-</section>
-
-<!-- INTERVIEW (deep) -->
-<section class="intv-sec">
-  <div class="intv-wrap">
-    <div class="intv-head">
-      <div class="intv-pre">— Interview</div>
-      <h2 class="intv-title">なぜ、<em>81</em>を<br/>選んだか。</h2>
-    </div>
-
-    <article class="intv-card">
-      <div class="intv-photo">
-        <div class="intv-photo__img"><img src="images/person-okada.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="intv-photo__role">— Sales / 営業</div>
-        <div class="intv-photo__name">岡田<small>30 / 入社4年目</small></div>
-      </div>
-      <div>
-        <div class="intv-pull">「車を売る」より、<br/>人生を聞いている時間のほうが、長い。</div>
-        <div class="intv-q">
-          <div class="intv-q__q">前職と何が違いますか？</div>
-          <div class="intv-q__a">国産ディーラーから転職してきました。前は月20件のノルマで、お客様の顔より背中ばかり見ていた。81では、商談時間に上限がない。1台のフェラーリを納車するまで3ヶ月、何度も来店いただく方も普通です。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">入社してギャップだったことは？</div>
-          <div class="intv-q__a">「車に詳しくなくていい」と本気で言われたこと。最初は「セールストークを覚えなきゃ」と意気込んでいたけれど、代表が「お客様の人生のほうが大事」って。半年経って、その意味がやっとわかりました。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">一番嬉しかった瞬間は？</div>
-          <div class="intv-q__a">入社2年目で初めて全部担当したお客様から、3年経った今もLINEが来ます。「次の1台もまた岡田さんから買いたい」って。インセンティブよりも、その一言が一番嬉しい。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">これから挑戦したいことは？</div>
-          <div class="intv-q__a">2026年の東京進出メンバーに手を挙げました。81GALLERYの世界観を、東京でも届けたい。堺で学んだ「人生を聞く営業」を、より多くの人に。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">新卒のあなたに、一言。</div>
-          <div class="intv-q__a">車に詳しくなくていい。前職で実績がなくていい。お客様の人生に興味があるなら、それだけで十分。あとは、ここで全部教えます。</div>
-        </div>
-      </div>
-    </article>
-
-    <article class="intv-card">
-      <div class="intv-photo">
-        <div class="intv-photo__img"><img src="images/person-kano.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="intv-photo__role">— Mechanic / 整備</div>
-        <div class="intv-photo__name">加納<small>27 / 入社3年目</small></div>
-      </div>
-      <div>
-        <div class="intv-pull">フェラーリを任された日、<br/>手が震えた。一生忘れない。</div>
-        <div class="intv-q">
-          <div class="intv-q__q">81に入る前は？</div>
-          <div class="intv-q__a">専門学校を出て、街の整備工場で軽自動車を中心に2年。「いつかスーパーカーに触りたい」と思っていた頃、81 FACTORYのオープンを知って、見学した日に応募しました。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">整備士なのに、なぜカフェ併設？</div>
-          <div class="intv-q__a">最初は「整備工場でコーヒー？」と意味がわからなかった。でも実際に働くと、お客様が整備の様子を見ながらゆっくり過ごす時間が「車屋らしくない車屋」を生んでる。整備中に子どもが工具を見にくる、その瞬間が一番好き。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">フェラーリを任された日のこと、覚えていますか？</div>
-          <div class="intv-q__a">入社1年半。初めて1台を全責任で任された日。8時間かけて整備して、最後にエンジンに火を入れた瞬間、手が震えました。1台1,000万円超を任せてもらえる重さと信頼。一生忘れません。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">資格取得は？</div>
-          <div class="intv-q__a">入社2年目で2級整備士を取りました。資格取得支援が手厚く、講習費・受験費は全額会社負担。次は1級を狙っています。</div>
-        </div>
-        <div class="intv-q">
-          <div class="intv-q__q">これから挑戦したいことは？</div>
-          <div class="intv-q__a">板金まで含めて、1台を頭から最後まで触れる整備士になること。81 FACTORYは整備・板金・コーティングが同じ屋根の下にある。だからこそ、全部できる職人になれる。</div>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- PROJECT STORY -->
-<section class="proj-sec">
-  <div class="proj-wrap">
-    <div class="proj-head">
-      <div class="proj-pre">— Project 81</div>
-      <h2 class="proj-title"><em>81</em>を、<br/>つくった物語。</h2>
-      <p class="proj-sub">創業から21期。RADOLFが歩んだ3つのターニングポイント。それぞれの「ゼロを1にした瞬間」を、当時を知る社員の言葉で。</p>
-    </div>
-
-    <article class="proj-chap">
-      <div class="proj-num">01<small>2020 — GALLERY</small></div>
-      <div>
-        <h3 class="proj-chap__title">「<em>業界の異物</em>」<br/>として、画廊を建てた。</h3>
-        <div class="proj-photo"><img src="images/showroom-ferrari.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="proj-chap__body">
-          <p>2020年、堺の街角に「画廊のような車屋」を建てる。それが代表・犬飼の決断だった。当時、業界の常識は「中古車屋は薄暗くて、車を並べて、安く売る」。誰もが知っているそのモデルを、ひっくり返す挑戦だった。</p>
-          <p>「車を、車として売るのをやめよう」。社内で繰り返し言われた言葉。フェラーリも、ランボルギーニも、1,000万円を超える車を「商品」ではなく「作品」として扱う。お客様を「客」ではなく「コレクター」として迎える。そのために、ショールームの床は大理石になり、照明は美術館仕様になり、コーヒーはバリスタが淹れた。</p>
-          <p>オープン初月、来店ゼロの日があった。誰もが「やっぱり業界の常識を破るのは無理だ」と思いかけたその時、最初のお客様が、ランボルギーニ・ウラカンを買ってくれた。「ここでしか感じられない世界がある」と言って。</p>
-          <div class="proj-chap__pull">「画廊」って言葉に込めた覚悟は、<br/>お客様の「ここで買いたい」という一言で報われた。</div>
-          <p>そこから5年。81GALLERYは年間100台超のプレミアムカーを販売する、業界でも特異な存在になった。常時在庫50台。お客様の70%がWeb経由。そして、ショールームには毎週、新しい「コレクター」が訪れている。</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="proj-chap">
-      <div class="proj-num">02<small>2024 — FACTORY</small></div>
-      <div>
-        <h3 class="proj-chap__title">整備工場に、<br/><em>カフェ</em>を、つくった。</h3>
-        <div class="proj-photo"><img src="images/store-sakai.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="proj-chap__body">
-          <p>2024年、堺の街にもう一つの「異端」が生まれた。81 FACTORY &amp; CAFE。整備工場とカフェを同じ屋根の下に置く、業界で前例のないプロジェクト。きっかけは、ある日の社内ミーティングだった。</p>
-          <p>「整備の待ち時間って、お客様にとって辛い時間ですよね」。新卒3年目の社員の一言。「車屋って、家族連れには敷居が高い。なんとかしたいです」。その言葉が、犬飼の頭から離れなかった。</p>
-          <p>整備工場の隣を、家族が過ごせる場所にする。コーヒーを淹れる。生パスタを焼く。ボーネルンドの遊具を置く。「父親の整備待ちが、子どもの楽しい記憶になる場所」。そういう車屋を、誰も見たことがなかった。</p>
-          <div class="proj-chap__pull">「整備工場でコーヒー？」という意外性が、<br/>業界の常識を、家族のものに変えた。</div>
-          <p>オープン後、客層が変わった。土日の駐車場には、ベビーカーが並ぶ。整備を待ちながら、お母さんがラテを飲み、お子さんが遊具で遊ぶ。整備士の窓ガラスの向こうには、ポルシェが並ぶ。「車屋＝怖い・汚い」を、コーヒーの香りで上書きする。それが81 FACTORYの挑戦だった。</p>
-        </div>
-      </div>
-    </article>
-
-    <article class="proj-chap">
-      <div class="proj-num">03<small>2026 — TOKYO</small></div>
-      <div>
-        <h3 class="proj-chap__title">名前のない場所を、<br/><em>東京</em>に建てる。</h3>
-        <div class="proj-photo"><img src="images/sales-scene.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="proj-chap__body">
-          <p>2026年、東京。RADOLFは次の挑戦に乗り出す。バーチャル × リアル × 越境EC、3つを掛け合わせた「次の81」。名前は、まだない。これから入社する人たちと一緒に決める。それが、犬飼の決めたルールだった。</p>
-          <p>「会社が大きくなったから、次の場所をつくる」のではない。「次の世代の人たちに、ゼロから何かを建ててもらう機会をつくる」のだ。だから、東京進出メンバーは新卒・若手中心。20代の店長が、新拠点を立ち上げる。</p>
-          <p>準備は2025年から始まった。物件探し、コンセプト設計、Webバーチャルショールームの設計、海外コレクターへの越境EC展開。社内から手を挙げた数十名のメンバーが、毎週ZOOMで議論を重ねる。「業界をどう変えたいか」を真剣に話し合う場所が、社内の宝物になった。</p>
-          <div class="proj-chap__pull">「名前のない場所」だから、自由がある。<br/>あなたが、その名前を決める一人になれる。</div>
-          <p>東京の場所は決まった。秋にオープン予定。残りの数ヶ月、入社してくる新しい仲間と一緒に、「81 ◯◯」の名前を決める。物語は、まだ書き始めたばかりだ。</p>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
+</div></section>
 
 <section class="x-sec"><div class="x-wrap">
   <span class="x-pre">━ Open Positions</span>

@@ -260,6 +260,110 @@
 .ppl-qa__a::before{content:"A. ";color:var(--accent);font-weight:700;margin-right:2px}
 @media(max-width:700px){.ppl-modal__panel{grid-template-columns:1fr;max-height:92vh}.ppl-modal__photo{aspect-ratio:16/9;font-size:96px}.ppl-modal__body{padding:28px}.ppl-modal__name{font-size:32px}}
 
+
+/* === HAKUHODO unified aesthetic for x-sec base + new .hb-* content === */
+.x-sec{padding:160px 32px;border-top:1px solid var(--line);background:var(--bg);position:relative}
+.x-sec.alt{background:#FAFAFA}
+.x-wrap{max-width:1180px;margin:0 auto}
+.x-pre{display:block;font-size:11px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:24px;opacity:1}
+.x-title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(40px,7vw,96px);line-height:1.05;letter-spacing:-.04em;color:var(--ink);margin-bottom:0}
+.x-title em{font-style:italic;color:var(--accent)}
+.x-lead{margin-top:28px;font-size:15px;line-height:2.1;color:var(--ink-2);max-width:640px;opacity:1}
+
+/* Vision / 7 GOAL */
+.hb-goals{margin-top:80px;display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}
+.hb-goal{display:grid;grid-template-columns:140px 1fr;gap:48px;padding:36px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.hb-goal__num{font-family:"Noto Serif JP",serif;font-weight:900;font-size:64px;line-height:1;color:var(--accent);letter-spacing:-.04em}
+.hb-goal__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(24px,3vw,36px);line-height:1.25;letter-spacing:-.02em;margin-bottom:8px;color:var(--ink)}
+.hb-goal__title em{font-style:italic;color:var(--accent)}
+.hb-goal__desc{font-size:14px;line-height:1.95;color:var(--ink-2);max-width:640px}
+
+/* Numbers */
+.hb-nums{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.hb-num{padding:36px 24px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hb-num:nth-child(4n){border-right:0}
+.hb-num__big{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(56px,7vw,96px);line-height:1;color:var(--accent);letter-spacing:-.05em}
+.hb-num__big small{font-family:"Noto Sans JP",sans-serif;font-weight:500;font-size:.28em;color:var(--ink-2);margin-left:4px}
+.hb-num__lab{margin-top:16px;font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--ink-2);text-transform:uppercase}
+.hb-num__desc{margin-top:8px;font-size:13px;line-height:1.85;color:var(--ink-2)}
+
+/* Founder */
+.hb-founder{margin-top:64px;display:grid;grid-template-columns:380px 1fr;gap:80px;align-items:start}
+.hb-founder__photo{aspect-ratio:4/5;overflow:hidden;background:#f5f5f5}
+.hb-founder__photo img{width:100%;height:100%;object-fit:cover}
+.hb-founder__cap{margin-top:14px;font-size:11px;letter-spacing:.32em;color:var(--ink-2);text-transform:uppercase;font-weight:700}
+.hb-founder__pull{font-family:"Noto Serif JP",serif;font-weight:900;font-style:italic;font-size:clamp(28px,3.6vw,44px);line-height:1.4;color:var(--accent);letter-spacing:-.02em;margin-bottom:40px}
+.hb-founder__pull span{display:block;margin-top:8px;font-family:"Noto Serif JP",serif;font-style:italic;font-weight:500;font-size:.45em;color:var(--ink-2)}
+.hb-founder__body p{font-size:15px;line-height:2.1;color:var(--ink-2);margin-bottom:24px}
+.hb-founder__body p:first-of-type::first-letter{font-family:"Noto Serif JP",serif;font-weight:900;font-size:80px;float:left;line-height:.85;margin:6px 12px 0 0;color:var(--accent)}
+.hb-founder__sign{margin-top:24px;padding-top:24px;border-top:1px solid var(--line);font-family:"Noto Serif JP",serif;font-weight:900;font-size:22px;color:var(--ink)}
+.hb-founder__sign small{font-size:11px;letter-spacing:.32em;color:var(--ink-2);text-transform:uppercase;font-weight:700;margin-left:14px}
+
+/* Career steps */
+.hb-steps{margin-top:80px;border-top:1px solid var(--line)}
+.hb-step{display:grid;grid-template-columns:140px 1fr;gap:48px;padding:48px 0;border-bottom:1px solid var(--line);align-items:start}
+.hb-step__num{font-family:"Noto Serif JP",serif;font-weight:900;font-size:80px;line-height:1;color:var(--accent);letter-spacing:-.04em}
+.hb-step__time{font-size:11px;letter-spacing:.32em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:8px}
+.hb-step__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(24px,3vw,32px);line-height:1.25;letter-spacing:-.02em;margin-bottom:12px;color:var(--ink)}
+.hb-step__desc{font-size:14px;line-height:2;color:var(--ink-2);max-width:640px}
+
+/* Jobs */
+.hb-jobs{margin-top:80px;border-top:1px solid var(--line)}
+.hb-job{display:grid;grid-template-columns:120px 1fr 60px;gap:40px;padding:40px 0;border-bottom:1px solid var(--line);align-items:center;text-decoration:none;color:inherit;transition:padding .2s}
+.hb-job:hover{padding-left:16px}
+.hb-job__num{font-family:"Noto Serif JP",serif;font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.04em}
+.hb-job__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(24px,3vw,32px);line-height:1.2;letter-spacing:-.02em;margin-bottom:8px;color:var(--ink)}
+.hb-job__title em{font-style:italic;color:var(--accent)}
+.hb-job__desc{font-size:13px;color:var(--ink-2);line-height:1.85;margin-bottom:12px}
+.hb-job__tags{display:flex;gap:8px;flex-wrap:wrap}
+.hb-job__tags span{font-size:10px;letter-spacing:.15em;padding:4px 10px;border:1px solid var(--ink);color:var(--ink);font-weight:500;text-transform:uppercase}
+.hb-job__arrow{font-family:"Noto Serif JP",serif;font-weight:900;font-size:32px;color:var(--accent);transition:transform .3s;justify-self:end}
+.hb-job:hover .hb-job__arrow{transform:translateX(8px)}
+
+/* Offices */
+.hb-offices{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.hb-office{display:flex;flex-direction:column}
+.hb-office__photo{aspect-ratio:4/3;overflow:hidden;background:#f5f5f5;margin-bottom:16px}
+.hb-office__photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.hb-office:hover .hb-office__photo img{transform:scale(1.05)}
+.hb-office__chip{display:inline-block;font-size:10px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.hb-office__chip--soon{color:#FFF;background:var(--accent);padding:4px 10px}
+.hb-office__name{font-family:"Noto Serif JP",serif;font-weight:900;font-size:28px;letter-spacing:-.02em;line-height:1.1;margin-bottom:8px;color:var(--ink)}
+.hb-office__addr{font-size:12px;line-height:1.7;color:var(--ink-2)}
+
+/* Company DL */
+.hb-dl{margin-top:80px;border-top:1px solid var(--line)}
+.hb-dl__row{display:grid;grid-template-columns:200px 1fr;gap:48px;padding:24px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.hb-dl dt{font-family:"Noto Sans JP",sans-serif;font-size:11px;letter-spacing:.32em;font-weight:700;color:var(--accent);text-transform:uppercase}
+.hb-dl dd{font-family:"Noto Serif JP",serif;font-weight:700;font-size:18px;color:var(--ink);letter-spacing:-.01em}
+.hb-dl dd small{font-family:"Noto Sans JP",sans-serif;font-weight:400;font-size:12px;color:var(--ink-2);letter-spacing:.05em}
+
+/* FAQ */
+.hb-faq{margin-top:80px;border-top:1px solid var(--line)}
+.hb-q{padding:32px 0;border-bottom:1px solid var(--line)}
+.hb-q__q{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(18px,2.2vw,24px);line-height:1.4;letter-spacing:-.02em;color:var(--ink);margin-bottom:12px}
+.hb-q__q::before{content:"Q. ";color:var(--accent)}
+.hb-q__a{font-size:14px;line-height:2.05;color:var(--ink-2);padding-left:1.7em}
+.hb-q__a::before{content:"A. ";color:var(--accent);font-weight:700;font-family:"Noto Serif JP",serif;margin-left:-1.7em;margin-right:.5em}
+
+@media(max-width:1024px){
+  .hb-nums{grid-template-columns:repeat(2,1fr)}
+  .hb-num:nth-child(4n){border-right:1px solid var(--line)}
+  .hb-num:nth-child(2n){border-right:0}
+  .hb-offices{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .x-sec{padding:96px 24px}
+  .hb-goal,.hb-step,.hb-job,.hb-dl__row{grid-template-columns:1fr;gap:8px}
+  .hb-goal__num,.hb-step__num,.hb-job__num{font-size:48px}
+  .hb-founder{grid-template-columns:1fr;gap:48px}
+  .hb-founder__photo{max-width:380px}
+  .hb-nums{grid-template-columns:1fr}
+  .hb-num{border-right:0!important}
+  .hb-offices{grid-template-columns:1fr}
+  .hb-job__arrow{display:none}
+}
+
 </style></head><body>
 <a class="x-back" href="cases.html">← 25 CASES</a>
 <div class="tag">CASE 17 — HAKUHODO</div>
@@ -291,53 +395,60 @@
   </div>
 </div></section>
 
-
-<!-- ===== INFO EXPANSION ===== -->
-<section class="x-sec"><div class="x-wrap">
-  <span class="x-pre">━ Founder Message</span>
-  <h2 class="x-title">代表からのメッセージ。</h2>
-  <p class="x-lead">「努力が正当に評価される会社をつくりたい」。それが、すべての始まりでした。</p>
-  <div class="x-founder">
-    <div class="x-founder__photo"><img src="images/ceo.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div>
-    <div class="x-founder__body">
-      <h3 class="x-founder__name">犬飼 良</h3>
-      <div class="x-founder__role">代表取締役 / Founder &amp; CEO</div>
-      <p>「関わるすべての人々の人生を豊かにする」— Enrich Your Life。それが、株式会社ラドルフのすべての出発点です。前職、輸入車販売会社で7年連続 No.1 セールスマンとして経験を積み、創業しました。</p>
-      <p>21期目（2024年期）を迎えた今、私たちは20年後のビジョンを描いています。81 GALLERYが、日本の自動車業界を牽引し、グローバルマーケットのハブとなる。プレミアムカーの画廊から、家族のための工場カフェへ、そして次の世界拠点へ。一緒に「次の景色」を見にいく仲間を、ずっと探しています。</p>
-      <p>役職や年齢の壁はいりません。すべての社員が、ひとつの「81」を一緒につくる。72人で、もうすでにそうしています。</p>
-      <div class="x-founder__sign">— 犬飼 良 / Ryo Inukai, Founder &amp; CEO</div>
+<section class="x-sec">
+  <div class="x-wrap">
+    <span class="x-pre">━ Vision / 7 GOAL</span>
+    <h2 class="x-title">20年後、<em>81</em>が<br/>業界のハブになる。</h2>
+    <p class="x-lead">21期目（2024年期）を迎えた今、見据えるのは20年後の姿。<br/>以下の7つを「7 GOAL」として掲げ、日々の仕事に向かっています。</p>
+    <div class="hb-goals">
+      <div class="hb-goal"><div class="hb-goal__num">01</div><div class="hb-goal__body"><h3 class="hb-goal__title">業界<em>最大手</em>に。</h3><p class="hb-goal__desc">日本を代表する業界最大手企業である。</p></div></div>
+      <div class="hb-goal"><div class="hb-goal__num">02</div><div class="hb-goal__body"><h3 class="hb-goal__title">若者の<em>挑戦</em>。</h3><p class="hb-goal__desc">次世代の若者が活躍、挑戦できる企業である。</p></div></div>
+      <div class="hb-goal"><div class="hb-goal__num">03</div><div class="hb-goal__body"><h3 class="hb-goal__title">ワクワクが<em>続く</em>。</h3><p class="hb-goal__desc">働くみんながいつもワクワク、楽しいと思える企業であり続ける。</p></div></div>
+      <div class="hb-goal"><div class="hb-goal__num">04</div><div class="hb-goal__body"><h3 class="hb-goal__title">お客様に<em>愛される</em>。</h3><p class="hb-goal__desc">お客様から愛されている企業である。</p></div></div>
+      <div class="hb-goal"><div class="hb-goal__num">05</div><div class="hb-goal__body"><h3 class="hb-goal__title">社会に<em>必要</em>とされる。</h3><p class="hb-goal__desc">社会から必要とされ感謝し続ける企業である。</p></div></div>
+      <div class="hb-goal"><div class="hb-goal__num">06</div><div class="hb-goal__body"><h3 class="hb-goal__title">世界に<em>注目</em>される。</h3><p class="hb-goal__desc">世界からも注目されているグローバル展開している企業である。</p></div></div>
+      <div class="hb-goal"><div class="hb-goal__num">07</div><div class="hb-goal__body"><h3 class="hb-goal__title">業界を<em>牽引</em>する。</h3><p class="hb-goal__desc">自動車業界を牽引していく企業の存在である。</p></div></div>
     </div>
   </div>
-</div></section>
+</section>
 
-<section class="x-sec alt"><div class="x-wrap">
-  <span class="x-pre">━ Numbers</span>
-  <h2 class="x-title">数字で見る、RADOLF。</h2>
-  <p class="x-lead">21期の積み重ねで、ここまで来ました。誇張なく、事実を、いくつかの数字で。</p>
-  <div class="x-numbers">
-    <div class="x-num"><div class="x-num__big">29<small>歳</small></div><div class="x-num__lab">— 平均年齢</div><div class="x-num__sub">若手主役。新卒1年目が東京進出の議論に。</div></div>
-    <div class="x-num"><div class="x-num__big">52<small>億</small></div><div class="x-num__lab">— 売上 2024</div><div class="x-num__sub">21期目、ここまで。次の山は100億。</div></div>
-    <div class="x-num"><div class="x-num__big">5<small>+</small></div><div class="x-num__lab">— 拠点</div><div class="x-num__sub">堺・南堺・福岡・岡山 + 2026 東京。</div></div>
-    <div class="x-num"><div class="x-num__big">72<small>名</small></div><div class="x-num__lab">— 仲間</div><div class="x-num__sub">家族のような関係を、72人で。</div></div>
-    <div class="x-num"><div class="x-num__big">50<small>台</small></div><div class="x-num__lab">— 在庫</div><div class="x-num__sub">フェラーリ、ランボルなど常時50台。</div></div>
-    <div class="x-num"><div class="x-num__big">21<small>期</small></div><div class="x-num__lab">— 期数</div><div class="x-num__sub">2024年期で21期目を迎えました。</div></div>
-    <div class="x-num"><div class="x-num__big">100<small>%</small></div><div class="x-num__lab">— 内定承諾</div><div class="x-num__sub">2024 / 2025年内定者の100%が入社。</div></div>
-    <div class="x-num"><div class="x-num__big">3.4<small>年</small></div><div class="x-num__lab">— 平均勤続</div><div class="x-num__sub">短くない。長くもない。みんな育ち中。</div></div>
+<section class="x-sec alt">
+  <div class="x-wrap">
+    <span class="x-pre">━ Numbers</span>
+    <h2 class="x-title">数字で見る、<em>81</em>。</h2>
+    <p class="x-lead">21期の積み重ねで、こうなりました。誇張なく、事実を、いくつかの数字で。</p>
+    <div class="hb-nums">
+      <div class="hb-num"><div class="hb-num__big">29<small>歳</small></div><div class="hb-num__lab">Average Age / 平均年齢</div><p class="hb-num__desc">新卒1年目が、東京進出の議論に混ざる。</p></div>
+      <div class="hb-num"><div class="hb-num__big">52<small>億</small></div><div class="hb-num__lab">Revenue 2024 / 売上</div><p class="hb-num__desc">21期目、ここまで。次の山は100億。</p></div>
+      <div class="hb-num"><div class="hb-num__big">21<small>期</small></div><div class="hb-num__lab">Generation / 期数</div><p class="hb-num__desc">2024年期で21期目を迎えました。</p></div>
+      <div class="hb-num"><div class="hb-num__big">5<small>+</small></div><div class="hb-num__lab">Locations / 拠点</div><p class="hb-num__desc">堺・南堺・福岡・岡山 + 2026 東京。</p></div>
+      <div class="hb-num"><div class="hb-num__big">72<small>名</small></div><div class="hb-num__lab">People / 仲間</div><p class="hb-num__desc">家族のような関係を、72人で。</p></div>
+      <div class="hb-num"><div class="hb-num__big">50<small>台</small></div><div class="hb-num__lab">Inventory / 在庫</div><p class="hb-num__desc">フェラーリ、ランボルなど常時50台。</p></div>
+      <div class="hb-num"><div class="hb-num__big">100<small>%</small></div><div class="hb-num__lab">Acceptance / 内定承諾</div><p class="hb-num__desc">2024 / 2025年内定者の100%が入社。</p></div>
+      <div class="hb-num"><div class="hb-num__big">3.4<small>年</small></div><div class="hb-num__lab">Tenure / 平均勤続</div><p class="hb-num__desc">短くない。長くもない。みんな育ち中。</p></div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="x-sec"><div class="x-wrap">
-  <span class="x-pre">━ Career Path</span>
-  <h2 class="x-title">入社からの、成長ストーリー。</h2>
-  <p class="x-lead">最初の1年で、何が起きるか。3年目で、どこに立っているか。実際のキャリアパスを5ステップで。</p>
-  <div class="x-steps">
-    <div class="x-step"><div class="x-step__time">STEP 01<small>入社1ヶ月目</small></div><div><div class="x-step__title">新人研修</div><div class="x-step__desc">車両知識・業界理解・接客マナー。同期と一緒に「81」を体感する1ヶ月。</div></div><div class="x-step__tag">// 基礎</div></div>
-    <div class="x-step"><div class="x-step__time">STEP 02<small>3ヶ月目</small></div><div><div class="x-step__title">OJT 配属</div><div class="x-step__desc">先輩について実務スタート。最初の1台を任されるのもこの頃。</div></div><div class="x-step__tag">// 実務</div></div>
-    <div class="x-step"><div class="x-step__time">STEP 03<small>6ヶ月目</small></div><div><div class="x-step__title">独立担当</div><div class="x-step__desc">自分のお客様を持ち、商談から納車まで一気通貫で担当。</div></div><div class="x-step__tag">// 独立</div></div>
-    <div class="x-step"><div class="x-step__time">STEP 04<small>1〜2年目</small></div><div><div class="x-step__title">プロジェクト参画</div><div class="x-step__desc">新規出店、商品企画、東京進出など、希望のプロジェクトに混ざれる。</div></div><div class="x-step__tag">// 拡張</div></div>
-    <div class="x-step"><div class="x-step__time">STEP 05<small>3年目〜</small></div><div><div class="x-step__title">リーダー / 店長</div><div class="x-step__desc">適性とやる気次第で、店舗責任者へ。20代の店長が複数います。</div></div><div class="x-step__tag">// 経営</div></div>
+<section class="x-sec">
+  <div class="x-wrap">
+    <span class="x-pre">━ Founder Message</span>
+    <h2 class="x-title">代表から、<em>あなたへ。</em></h2>
+    <div class="hb-founder">
+      <div class="hb-founder__media">
+        <div class="hb-founder__photo"><img src="images/ceo.jpg" alt="" onerror="this.parentElement.style.background='linear-gradient(135deg,#F5F5F5,#E5E5E5)'"/></div>
+        <div class="hb-founder__cap">— 株式会社ラドルフ 代表取締役 / Ryo Inukai</div>
+      </div>
+      <div class="hb-founder__body">
+        <div class="hb-founder__pull">「関わるすべての人々の<br/>人生を豊かにする」<br/><span>— Enrich Your Life.</span></div>
+        <p>前職、輸入車販売会社で7年連続 No.1 セールスマンとして経験を積み、独立しました。21期目（2024年期）を迎えた今も、私たちが大切にしている言葉は変わりません。</p>
+        <p>会社が大きくなったから次の場所をつくる、のではない。「次の世代の人たちに、ゼロから何かを建ててもらう機会をつくる」。それが、創業から変わらない、私たちのモードです。</p>
+        <p>役職や年齢の壁はいりません。すべての社員が、ひとつの「81」を一緒につくる。72人で、もうすでにそうしています。一緒に「次の景色」を見にいく仲間を、ずっと探しています。</p>
+        <div class="hb-founder__sign">犬飼 良 <small>Founder &amp; CEO</small></div>
+      </div>
+    </div>
   </div>
-</div></section>
+</section>
 
 <section class="x-sec alt"><div class="x-wrap">
   <span class="x-pre">━ People</span>
@@ -376,77 +487,83 @@
   </div>
 </div></section>
 
-<section class="x-sec"><div class="x-wrap">
-  <span class="x-pre">━ Open Positions</span>
-  <h2 class="x-title">いま、募集中の4職種。</h2>
-  <p class="x-lead">職種は違っても、肩書きを越えて「81」を一緒につくる、対等な仕事です。</p>
-  <div class="x-jobs">
-    <a class="x-job"><div class="x-job__num">01</div><div><div class="x-job__title">営業スタッフ</div><div class="x-job__sub">プレミアムカーの提案営業 / 未経験OK / 新卒・第二新卒歓迎</div><div class="x-job__chips"><span class="x-chip">インセン青天井</span><span class="x-chip">月給25万〜</span><span class="x-chip">堺 / 福岡 / 東京</span></div></div><div class="x-job__arrow">→</div></a>
-    <a class="x-job"><div class="x-job__num">02</div><div><div class="x-job__title">自動車整備士</div><div class="x-job__sub">整備・板金・コーティング / 2級整備士資格優遇</div><div class="x-job__chips"><span class="x-chip">資格取得支援</span><span class="x-chip">堺本社</span><span class="x-chip">81ファクトリー</span></div></div><div class="x-job__arrow">→</div></a>
-    <a class="x-job"><div class="x-job__num">03</div><div><div class="x-job__title">カフェスタッフ</div><div class="x-job__sub">ホール・キッチン / 時給1200円〜 / 社員登用あり</div><div class="x-job__chips"><span class="x-chip">81ファクトリー&amp;カフェ</span><span class="x-chip">シフト自由</span></div></div><div class="x-job__arrow">→</div></a>
-    <a class="x-job"><div class="x-job__num">04</div><div><div class="x-job__title">社長秘書 / 事務サポート</div><div class="x-job__sub">経営サポート・事務 / 中途募集</div><div class="x-job__chips"><span class="x-chip">月給25万〜45万</span><span class="x-chip">経営の近く</span></div></div><div class="x-job__arrow">→</div></a>
+<section class="x-sec">
+  <div class="x-wrap">
+    <span class="x-pre">━ Career Path</span>
+    <h2 class="x-title">入社からの、<em>成長ストーリー。</em></h2>
+    <p class="x-lead">最初の1年で、何が起きるか。3年目で、どこに立っているか。実際のキャリアパスを5ステップで。</p>
+    <div class="hb-steps">
+      <div class="hb-step"><div class="hb-step__num">01</div><div class="hb-step__body"><div class="hb-step__time">— 入社1ヶ月目</div><h3 class="hb-step__title">新人研修</h3><p class="hb-step__desc">車両知識・業界理解・接客マナー。同期と一緒に「81」を体感する1ヶ月。</p></div></div>
+      <div class="hb-step"><div class="hb-step__num">02</div><div class="hb-step__body"><div class="hb-step__time">— 3ヶ月目</div><h3 class="hb-step__title">OJT 配属</h3><p class="hb-step__desc">先輩について実務スタート。最初の1台を任されるのもこの頃。</p></div></div>
+      <div class="hb-step"><div class="hb-step__num">03</div><div class="hb-step__body"><div class="hb-step__time">— 6ヶ月目</div><h3 class="hb-step__title">独立担当</h3><p class="hb-step__desc">自分のお客様を持ち、商談から納車まで一気通貫で担当。</p></div></div>
+      <div class="hb-step"><div class="hb-step__num">04</div><div class="hb-step__body"><div class="hb-step__time">— 1〜2年目</div><h3 class="hb-step__title">プロジェクト参画</h3><p class="hb-step__desc">新規出店、商品企画、東京進出など、希望のプロジェクトに混ざれる。</p></div></div>
+      <div class="hb-step"><div class="hb-step__num">05</div><div class="hb-step__body"><div class="hb-step__time">— 3年目〜</div><h3 class="hb-step__title">リーダー / 店長</h3><p class="hb-step__desc">適性とやる気次第で、店舗責任者へ。20代の店長が複数います。</p></div></div>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="x-sec alt"><div class="x-wrap">
-  <span class="x-pre">━ Offices</span>
-  <h2 class="x-title">働く場所、6拠点。</h2>
-  <p class="x-lead">堺の本社から、福岡、岡山、そして2026年の東京へ。どの拠点も、ただの職場じゃなく「81」を体現する場所。</p>
-  <div class="x-offices">
-    <article class="x-off"><div class="x-off__photo"><img src="images/hq-exterior.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">本社 / HQ</span><div class="x-off__name">81 SAKAI</div><div class="x-off__addr">大阪府堺市堺区北清水町 1丁2-15</div></div></article>
-    <article class="x-off"><div class="x-off__photo"><img src="images/showroom-cabin.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">フラッグシップ</span><div class="x-off__name">81 FACTORY</div><div class="x-off__addr">大阪府堺市 — 81ギャラリーから徒歩圏</div></div></article>
-    <article class="x-off"><div class="x-off__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">店舗</span><div class="x-off__name">81 SOUTH</div><div class="x-off__addr">大阪府堺市 — 南部エリア</div></div></article>
-    <article class="x-off"><div class="x-off__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">九州</span><div class="x-off__name">81 FUKUOKA</div><div class="x-off__addr">福岡県 — 九州エリアの拠点</div></div></article>
-    <article class="x-off"><div class="x-off__photo"><img src="images/showroom-plate.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">店舗</span><div class="x-off__name">81 OKAYAMA</div><div class="x-off__addr">岡山県 — 中国エリア</div></div></article>
-    <article class="x-off"><div class="x-off__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-off__body"><span class="x-off__chip">2026 OPEN</span><div class="x-off__name">81 TOKYO</div><div class="x-off__addr">東京都内 — 詳細は近日公開</div></div></article>
+<section class="x-sec alt">
+  <div class="x-wrap">
+    <span class="x-pre">━ Open Positions</span>
+    <h2 class="x-title">いま、<em>募集中</em>の<br/>4職種。</h2>
+    <p class="x-lead">職種は違っても、肩書きを越えて「81」を一緒につくる、対等な仕事です。</p>
+    <div class="hb-jobs">
+      <a class="hb-job"><div class="hb-job__num">01</div><div class="hb-job__body"><h3 class="hb-job__title">営業 <em>スタッフ</em></h3><p class="hb-job__desc">プレミアムカーの提案営業 / 未経験OK / 新卒・第二新卒歓迎</p><div class="hb-job__tags"><span>インセン青天井</span><span>月給25万〜</span><span>堺 / 福岡 / 東京</span></div></div><div class="hb-job__arrow">→</div></a>
+      <a class="hb-job"><div class="hb-job__num">02</div><div class="hb-job__body"><h3 class="hb-job__title">自動車 <em>整備士</em></h3><p class="hb-job__desc">整備・板金・コーティング / 2級整備士資格優遇</p><div class="hb-job__tags"><span>資格取得支援</span><span>堺本社</span><span>81ファクトリー</span></div></div><div class="hb-job__arrow">→</div></a>
+      <a class="hb-job"><div class="hb-job__num">03</div><div class="hb-job__body"><h3 class="hb-job__title">カフェ <em>スタッフ</em></h3><p class="hb-job__desc">ホール・キッチン / 時給1200円〜 / 社員登用あり</p><div class="hb-job__tags"><span>81ファクトリー&amp;カフェ</span><span>シフト自由</span></div></div><div class="hb-job__arrow">→</div></a>
+      <a class="hb-job"><div class="hb-job__num">04</div><div class="hb-job__body"><h3 class="hb-job__title">社長秘書 / <em>事務</em></h3><p class="hb-job__desc">経営サポート・事務 / 中途募集</p><div class="hb-job__tags"><span>月給25万〜45万</span><span>経営の近く</span></div></div><div class="hb-job__arrow">→</div></a>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="x-sec"><div class="x-wrap">
-  <span class="x-pre">━ Company</span>
-  <h2 class="x-title">会社概要</h2>
-  <dl class="x-dl">
-    <dt>会社名</dt><dd>株式会社ラドルフ</dd>
-    <dt>期数</dt><dd>21期目（2024年期）</dd>
-    <dt>資本金</dt><dd>1,000万円</dd>
-    <dt>代表取締役</dt><dd>犬飼 良</dd>
-    <dt>本社</dt><dd>大阪府堺市堺区北清水町 1丁2-15</dd>
-    <dt>事業所</dt><dd>堺本社 / 81ファクトリー店 / 南堺店 / 福岡店 / 岡山店（+ 東京店・福岡中央店 開設予定）</dd>
-    <dt>事業内容</dt><dd>プレミアムカー販売・整備・板金、工場カフェ運営、東京進出（2026）、バーチャルショールーム</dd>
-    <dt>売上</dt><dd>52億円（2024年度）</dd>
-    <dt>従業員数</dt><dd>72名（2026年4月時点）</dd>
-    <dt>企業理念</dt><dd>「関わる人々の人生を豊かにする」</dd>
-  </dl>
-</div></section>
-
-
-<section class="x-sec"><div class="x-wrap">
-  <span class="x-pre">━ 20年Vision / 7 GOAL</span>
-  <h2 class="x-title">20年後、81 GALLERYが業界のハブになる。</h2>
-  <p class="x-lead">21期目（2024年期）を迎えた今、私たちが見据えるのは、20年後の姿。以下の7つを「7 GOAL」として掲げ、日々の仕事に向かっています。</p>
-  <div class="x-goals">
-    <article class="x-goal"><div class="x-goal__num">GOAL 01</div><div class="x-goal__title">業界最大手</div><div class="x-goal__desc">日本を代表する業界最大手企業である</div></article>
-    <article class="x-goal"><div class="x-goal__num">GOAL 02</div><div class="x-goal__title">若者の挑戦</div><div class="x-goal__desc">次世代の若者が活躍、挑戦できる企業である</div></article>
-    <article class="x-goal"><div class="x-goal__num">GOAL 03</div><div class="x-goal__title">ワクワクが続く</div><div class="x-goal__desc">働くみんながいつもワクワク、楽しいと思える企業であり続ける</div></article>
-    <article class="x-goal"><div class="x-goal__num">GOAL 04</div><div class="x-goal__title">お客様に愛される</div><div class="x-goal__desc">お客様から愛されている企業である</div></article>
-    <article class="x-goal"><div class="x-goal__num">GOAL 05</div><div class="x-goal__title">社会に必要とされる</div><div class="x-goal__desc">社会から必要とされ感謝し続ける企業である</div></article>
-    <article class="x-goal"><div class="x-goal__num">GOAL 06</div><div class="x-goal__title">世界に注目される</div><div class="x-goal__desc">世界からも注目されているグローバル展開している企業である</div></article>
-    <article class="x-goal"><div class="x-goal__num">GOAL 07</div><div class="x-goal__title">業界を牽引</div><div class="x-goal__desc">自動車業界を牽引していく企業の存在である</div></article>
+<section class="x-sec">
+  <div class="x-wrap">
+    <span class="x-pre">━ Offices</span>
+    <h2 class="x-title">働く場所、<em>6拠点</em>。</h2>
+    <p class="x-lead">堺の本社から、福岡、岡山、そして2026年の東京へ。どの拠点も、ただの職場じゃなく「81」を体現する場所。</p>
+    <div class="hb-offices">
+      <article class="hb-office"><div class="hb-office__photo"><img src="images/hq-exterior.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">本社 / HQ</span><h3 class="hb-office__name">81 SAKAI</h3><p class="hb-office__addr">大阪府堺市堺区北清水町 1丁2-15</p></div></article>
+      <article class="hb-office"><div class="hb-office__photo"><img src="images/showroom-cabin.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">フラッグシップ</span><h3 class="hb-office__name">81 FACTORY</h3><p class="hb-office__addr">大阪府堺市 — 81ギャラリーから徒歩圏</p></div></article>
+      <article class="hb-office"><div class="hb-office__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">店舗</span><h3 class="hb-office__name">81 SOUTH</h3><p class="hb-office__addr">大阪府堺市 — 南部エリア</p></div></article>
+      <article class="hb-office"><div class="hb-office__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">九州</span><h3 class="hb-office__name">81 FUKUOKA</h3><p class="hb-office__addr">福岡県 — 九州エリアの拠点</p></div></article>
+      <article class="hb-office"><div class="hb-office__photo"><img src="images/showroom-plate.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">店舗</span><h3 class="hb-office__name">81 OKAYAMA</h3><p class="hb-office__addr">岡山県 — 中国エリア</p></div></article>
+      <article class="hb-office"><div class="hb-office__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip hb-office__chip--soon">2026 OPEN</span><h3 class="hb-office__name">81 TOKYO</h3><p class="hb-office__addr">東京都内 — 詳細は近日公開</p></div></article>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="x-sec alt"><div class="x-wrap">
-  <span class="x-pre">━ FAQ</span>
-  <h2 class="x-title">よくある質問</h2>
-  <div class="x-faq">
-    <div class="x-q"><div class="x-q__q">Q. 未経験でも応募できますか？</div><div class="x-q__a">A. はい。営業・カフェ・事務は未経験OK。整備士のみ2級資格優遇です。研修制度も整備されています。</div></div>
-    <div class="x-q"><div class="x-q__q">Q. 新卒と中途、どちらの応募が多いですか？</div><div class="x-q__a">A. 半々です。2026年4月は新卒13名、中途4名が入社しました。</div></div>
-    <div class="x-q"><div class="x-q__q">Q. 残業時間はどれくらいですか？</div><div class="x-q__a">A. 部署によりますが、平均20〜30時間/月。週休2日制、有給取得率90%以上です。</div></div>
-    <div class="x-q"><div class="x-q__q">Q. 東京勤務はいつから可能ですか？</div><div class="x-q__a">A. 2026年秋オープン予定。2026年4月入社者も希望すれば、東京の立ち上げメンバーになれます。</div></div>
-    <div class="x-q"><div class="x-q__q">Q. インターンや会社見学はできますか？</div><div class="x-q__a">A. もちろん。「81 FACTORY &amp; CAFE」は実際の業務スペースを見学できる空間として開放しています。エントリーから「見学希望」とお書きください。</div></div>
+<section class="x-sec alt">
+  <div class="x-wrap">
+    <span class="x-pre">━ Company</span>
+    <h2 class="x-title">会社<em>概要</em>。</h2>
+    <dl class="hb-dl">
+      <div class="hb-dl__row"><dt>会社名</dt><dd>株式会社ラドルフ</dd></div>
+      <div class="hb-dl__row"><dt>期数</dt><dd>21期目（2024年期）</dd></div>
+      <div class="hb-dl__row"><dt>資本金</dt><dd>1,000万円</dd></div>
+      <div class="hb-dl__row"><dt>代表取締役</dt><dd>犬飼 良</dd></div>
+      <div class="hb-dl__row"><dt>本社</dt><dd>大阪府堺市堺区北清水町 1丁2-15</dd></div>
+      <div class="hb-dl__row"><dt>事業所</dt><dd>堺本社 / 81ファクトリー店 / 南堺店 / 福岡店 / 岡山店<br/><small>（+ 東京店・福岡中央店 開設予定）</small></dd></div>
+      <div class="hb-dl__row"><dt>事業内容</dt><dd>プレミアムカー販売・整備・板金、工場カフェ運営、東京進出（2026）、バーチャルショールーム</dd></div>
+      <div class="hb-dl__row"><dt>売上</dt><dd>52億円（2024年度）</dd></div>
+      <div class="hb-dl__row"><dt>従業員数</dt><dd>72名（2026年4月時点）</dd></div>
+      <div class="hb-dl__row"><dt>企業理念</dt><dd>「関わる人々の人生を豊かにする」</dd></div>
+    </dl>
   </div>
-</div></section>
-<!-- ===== END INFO EXPANSION ===== -->
+</section>
+
+<section class="x-sec">
+  <div class="x-wrap">
+    <span class="x-pre">━ FAQ</span>
+    <h2 class="x-title">よくある、<em>質問。</em></h2>
+    <div class="hb-faq">
+      <div class="hb-q"><h3 class="hb-q__q">未経験でも応募できますか？</h3><p class="hb-q__a">はい。営業・カフェ・事務は未経験OK。整備士のみ2級資格優遇です。研修制度も整備されています。</p></div>
+      <div class="hb-q"><h3 class="hb-q__q">新卒と中途、どちらの応募が多いですか？</h3><p class="hb-q__a">半々です。2026年4月は新卒13名、中途4名が入社しました。</p></div>
+      <div class="hb-q"><h3 class="hb-q__q">残業時間はどれくらいですか？</h3><p class="hb-q__a">部署によりますが、平均20〜30時間/月。週休2日制、有給取得率90%以上です。</p></div>
+      <div class="hb-q"><h3 class="hb-q__q">東京勤務はいつから可能ですか？</h3><p class="hb-q__a">2026年秋オープン予定。2026年4月入社者も希望すれば、東京の立ち上げメンバーになれます。</p></div>
+      <div class="hb-q"><h3 class="hb-q__q">インターンや会社見学はできますか？</h3><p class="hb-q__a">もちろん。「81 FACTORY &amp; CAFE」は実際の業務スペースを見学できる空間として開放しています。エントリーから「見学希望」とお書きください。</p></div>
+    </div>
+  </div>
+</section>
 
 <section class="cta">
   <div class="cta__pre">— Recruitment 2026</div>

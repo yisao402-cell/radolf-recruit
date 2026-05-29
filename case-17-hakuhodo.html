@@ -223,6 +223,43 @@
 .x-story__more{font-size:11px;letter-spacing:.18em;font-weight:700;color:var(--accent);text-transform:uppercase;margin:0 24px 24px;border-bottom:2px solid var(--accent);align-self:flex-start;padding-bottom:4px}
 @media(max-width:900px){.x-stories{grid-template-columns:1fr}}
 
+
+/* === People roster (25人) + modal === */
+.x-roster{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:8px}
+.ppl-card{background:#fff;border:1px solid rgba(127,127,127,.18);cursor:pointer;text-align:left;padding:0;font:inherit;color:inherit;overflow:hidden;transition:all .2s;display:block}
+.ppl-card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 12px 24px rgba(0,0,0,.06)}
+.ppl-card__photo{aspect-ratio:1;background:linear-gradient(135deg,#F5F5F5,#E5E5E5);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif JP",serif;font-weight:900;font-size:54px;color:rgba(0,0,0,.18);position:relative;overflow:hidden}
+.ppl-card__photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ppl-card__body{padding:12px 14px 14px}
+.ppl-card__role{font-size:10px;letter-spacing:.18em;color:var(--accent);font-weight:700;text-transform:uppercase}
+.ppl-card__name{font-weight:700;font-size:14px;margin-top:4px;letter-spacing:-.01em}
+.ppl-card__name small{font-size:10px;opacity:.55;font-weight:500;margin-left:4px}
+@media(max-width:1024px){.x-roster{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:700px){.x-roster{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:450px){.x-roster{grid-template-columns:repeat(2,1fr)}}
+
+.ppl-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px}
+.ppl-modal.open{display:flex}
+.ppl-modal__backdrop{position:absolute;inset:0;background:rgba(10,10,10,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer}
+.ppl-modal__panel{position:relative;background:#fff;max-width:920px;width:100%;max-height:88vh;overflow-y:auto;display:grid;grid-template-columns:340px 1fr;gap:0;animation:pplIn .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes pplIn{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+.ppl-modal__close{position:absolute;top:18px;right:18px;width:40px;height:40px;border:none;background:rgba(255,255,255,.9);color:#0A0A0A;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;z-index:2;font-family:inherit;display:flex;align-items:center;justify-content:center;padding:0}
+.ppl-modal__close:hover{background:var(--accent);color:#fff}
+.ppl-modal__photo{aspect-ratio:4/5;background:linear-gradient(135deg,#F5F5F5,#E5E5E5);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif JP",serif;font-weight:900;font-size:140px;color:rgba(0,0,0,.18);position:relative;overflow:hidden}
+.ppl-modal__photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ppl-modal__body{padding:48px 44px;overflow-y:auto}
+.ppl-modal__role{font-size:11px;letter-spacing:.32em;color:var(--accent);font-weight:700;text-transform:uppercase}
+.ppl-modal__name{font-family:"Noto Serif JP",serif;font-weight:900;font-size:44px;line-height:1.1;letter-spacing:-.02em;margin-top:6px;color:var(--ink)}
+.ppl-modal__name small{font-size:14px;font-weight:500;opacity:.6;margin-left:10px}
+.ppl-modal__pull{margin:24px 0;padding-left:18px;border-left:3px solid var(--accent);font-family:"Noto Serif JP",serif;font-style:italic;font-weight:700;font-size:20px;line-height:1.55;color:var(--accent)}
+.ppl-modal__bio{font-size:14px;line-height:2;color:var(--ink-2);margin-bottom:8px}
+.ppl-qa{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.ppl-qa__q{font-family:"Noto Serif JP",serif;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:6px}
+.ppl-qa__q::before{content:"Q. ";color:var(--accent)}
+.ppl-qa__a{font-size:13px;line-height:1.95;color:var(--ink-2)}
+.ppl-qa__a::before{content:"A. ";color:var(--accent);font-weight:700;margin-right:2px}
+@media(max-width:700px){.ppl-modal__panel{grid-template-columns:1fr;max-height:92vh}.ppl-modal__photo{aspect-ratio:16/9;font-size:96px}.ppl-modal__body{padding:28px}.ppl-modal__name{font-size:32px}}
+
 </style></head><body>
 <a class="x-back" href="cases.html">← 25 CASES</a>
 <div class="tag">CASE 17 — HAKUHODO</div>
@@ -305,13 +342,8 @@
 <section class="x-sec alt"><div class="x-wrap">
   <span class="x-pre">━ People</span>
   <h2 class="x-title">「81」を、つくる人たち。</h2>
-  <p class="x-lead">職種は違っても、肩書きを越えて、ひとつの「81」を一緒につくる仲間。72名のなかから、4人をご紹介。</p>
-  <div class="x-people">
-    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-okada.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Sales / 営業</div><h3 class="x-pers__name">岡田<small>30 / 4年目</small></h3><p class="x-pers__quote">「車を売る」じゃなく、人生を一緒に選ぶ。そう呼べる仕事です。</p></div></article>
-    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-kano.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Mech / 整備</div><h3 class="x-pers__name">加納<small>27 / 3年目</small></h3><p class="x-pers__quote">フェラーリの定期整備を任される日が来た。一生忘れません。</p></div></article>
-    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-01.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Café / カフェ</div><h3 class="x-pers__name">田中<small>24 / 2年目</small></h3><p class="x-pers__quote">窓の向こうのポルシェを見ながら、ラテを淹れる。</p></div></article>
-    <article class="x-pers"><div class="x-pers__photo"><img src="images/person-02.jpg" alt="" onerror="this.parentElement.style.display='none'" /></div><div class="x-pers__body"><div class="x-pers__role">— Office / 事務</div><h3 class="x-pers__name">鈴木<small>26 / 2年目</small></h3><p class="x-pers__quote">経営の隣で、会社が育つ瞬間を見ています。</p></div></article>
-  </div>
+  <p class="x-lead">職種は違っても、肩書きを越えて、ひとつの「81」を一緒につくる仲間。25人の素顔を、クリックでのぞいてみてください。</p>
+  <div class="x-roster" id="roster"></div>
 </div></section>
 
 <!-- STORIES TEASER (3 sub-pages) -->
@@ -422,4 +454,100 @@
   <a class="cta__btn">エントリーする →</a>
 </section>
 <footer>RADOLF INC. © 2026 — CASE 17 / HAKUHODO-INSPIRED</footer>
+
+<!-- People modal markup -->
+<div class="ppl-modal" id="pplModal" aria-hidden="true">
+  <div class="ppl-modal__backdrop" data-close></div>
+  <article class="ppl-modal__panel" role="dialog" aria-modal="true">
+    <button class="ppl-modal__close" data-close aria-label="閉じる">×</button>
+    <div class="ppl-modal__photo" id="modalPhoto"></div>
+    <div class="ppl-modal__body">
+      <div class="ppl-modal__role" id="modalRole"></div>
+      <h3 class="ppl-modal__name" id="modalName"></h3>
+      <div class="ppl-modal__pull" id="modalPull"></div>
+      <div class="ppl-modal__bio" id="modalBio"></div>
+      <div class="ppl-modal__qa" id="modalQA"></div>
+    </div>
+  </article>
+</div>
+<script>
+const PEOPLE = [
+  {n:"岡田",r:"Sales",rj:"営業",y:4,age:30,ph:"images/person-okada.jpg",p:"「車を売る」より、人生を聞いている時間のほうが長い。",bio:"国産ディーラーから転職して4年。月のノルマに追われ、お客様の背中ばかり見ていた前職を抜け出し、「商談時間に上限がない」81の文化に出会った。",qa:[["なぜ81を選んだ？","商談時間に上限がない。1人のお客様に3ヶ月かけられる。それが選んだ理由です。"],["普段の仕事は？","お客様の人生を聞く時間が、車の説明より長いです。試乗中に離婚相談を受けることもある。"],["挑戦したいことは？","2026年の東京進出メンバーになる。手は挙げました。"]]},
+  {n:"山田",r:"Sales",rj:"営業",y:3,age:28,ph:null,p:"フェラーリより、お客様の家族のほうが詳しくなる。",bio:"新卒入社3年目。大学のゼミで犬飼の講演を聞いて、即決で入社を決めた。",qa:[["なぜ81を選んだ？","大学のゼミで犬飼の話を聞いて、その日のうちにエントリーしました。"],["普段の仕事は？","商談 + Web写真撮影 + 在庫管理。1日が3つの顔。"],["挑戦したいことは？","30代でフェラーリ専門の店舗を任されたい。"]]},
+  {n:"木村",r:"Sales",rj:"営業",y:2,age:26,ph:null,p:"先輩より、後輩のほうが憧れられる仕事をしたい。",bio:"地方銀行から転職。「お客様の人生に長くお付き合いする」前職の経験が、81で活きている。",qa:[["なぜ81を選んだ？","ノルマじゃなく、信頼で動く会社だと感じた。"],["普段の仕事は？","紹介での来店が多いので、リファラルの関係維持に時間をかけています。"],["挑戦したいことは？","海外コレクター向けの越境EC企画。"]]},
+  {n:"中山",r:"Sales",rj:"営業",y:4,age:29,ph:null,p:"営業より整備のことに詳しい。",bio:"工業高校出身。整備士志望だったが、「お客様と直接話したい」と方向転換して営業へ。",qa:[["なぜ81を選んだ？","整備の現場が見える営業の仕事って、ここしかないと思った。"],["普段の仕事は？","お客様に整備の話をする時間が長い。専門用語をどう翻訳するかが楽しい。"],["挑戦したいことは？","営業 × 整備のハイブリッド役職を新設したい。"]]},
+  {n:"平",r:"Sales",rj:"営業",y:3,age:27,ph:"images/person-03.jpg",p:"自分を磨こう、共に挑戦しよう。",bio:"25卒として入社、3年目。パンフレットの「自分を磨こう、共に挑戦しよう」のメッセージそのものを体現する1人。",qa:[["なぜ81を選んだ？","面接で犬飼から「全部任せる」と言われた瞬間に決めました。"],["普段の仕事は？","若手主導の新人研修プログラムを企画中。"],["挑戦したいことは？","同期と一緒に、新しい店舗の立ち上げ。"]]},
+  {n:"田村",r:"Sales",rj:"営業",y:2,age:25,ph:null,p:"車屋っぽくない営業を、車屋でやってる。",bio:"アパレル販売職から転職。「接客の本質は同じ」と気づいて、業界の壁を越えた。",qa:[["なぜ81を選んだ？","ショールームが店舗っぽくて、業界感がなかったから。"],["普段の仕事は？","コーディネートを提案する感覚で車を提案する。"],["挑戦したいことは？","81 GALLERYのブランドアパレルラインをつくりたい。"]]},
+  {n:"三浦",r:"Sales",rj:"営業",y:6,age:32,ph:null,p:"6年いるが、まだ毎日驚いている。",bio:"中途で入社して6年。社内で営業の最古参のひとり。",qa:[["なぜ81を選んだ？","この業界で長く働けるなら、ここしかなかった。"],["普段の仕事は？","新人のメンタリングと、リピート顧客の対応。"],["挑戦したいことは？","若手に追い抜かれること。それが理想。"]]},
+  {n:"佐々木",r:"Sales",rj:"営業",y:1,age:24,ph:null,p:"入社1年目で、フェラーリ買うお客様と話してる。",bio:"新卒入社1年目。研修期間中だが既に1台の商談を任された。",qa:[["なぜ81を選んだ？","若手にチャンスが回ってくるスピードが、他社と全然違う。"],["普段の仕事は？","先輩について、ショールームで接客の練習。"],["挑戦したいことは？","2年目で1台を全部担当する。"]]},
+  {n:"松本",r:"Sales",rj:"営業",y:5,age:30,ph:null,p:"5年目で店長候補。それを早すぎるとは思わない。",bio:"新卒入社5年目。20代の店長候補として、東京進出に向けて研修中。",qa:[["なぜ81を選んだ？","年齢じゃなく実力で評価される、と聞いて。"],["普段の仕事は？","店舗マネジメントの研修 + 商談。"],["挑戦したいことは？","東京店の初代店長。"]]},
+  {n:"小林",r:"Sales",rj:"営業",y:3,age:28,ph:null,p:"商談がうまくいかない日が、一番考える。",bio:"営業3年目。クロージング率を粘り強く改善する派。",qa:[["なぜ81を選んだ？","結果を出すまで時間をくれる文化に惹かれた。"],["普段の仕事は？","お客様の生活背景まで聞いて、最適な1台を提案する。"],["挑戦したいことは？","年間100台担当のトップ営業になる。"]]},
+  {n:"加納",r:"Mech",rj:"整備",y:3,age:27,ph:"images/person-kano.jpg",p:"フェラーリの整備を任された日、手が震えた。",bio:"街の整備工場から転職して3年。「いつかスーパーカーに触りたい」夢を、81で叶えた。",qa:[["なぜ81を選んだ？","81 FACTORYのオープンを知って、見学した日に応募しました。"],["普段の仕事は？","整備・板金・コーティング。カフェ越しにお客様と話す時間も。"],["挑戦したいことは？","板金まで含めて、1台を頭から最後まで触れる整備士に。"]]},
+  {n:"高橋",r:"Mech",rj:"整備",y:4,age:29,ph:null,p:"ランボルギーニのエンジン音は、5台で全部聞き分ける。",bio:"自動車専門学校卒、入社4年目。ランボルギーニの整備を中心に担当。",qa:[["なぜ81を選んだ？","スーパーカーを扱う店舗が、関西ではここしかなかった。"],["普段の仕事は？","エンジン整備、定期点検、車検対応。"],["挑戦したいことは？","ヨーロッパのフェラーリ・ファクトリーで研修を受けたい。"]]},
+  {n:"西村",r:"Mech",rj:"整備",y:2,age:25,ph:null,p:"カフェのお子さんに、工具をプレゼントしたことがある。",bio:"カフェ併設の整備工場で働く2年目。子ども好きで、整備の合間にお客様の家族と話す。",qa:[["なぜ81を選んだ？","「車屋らしくない車屋」って言葉に惹かれた。"],["普段の仕事は？","コーティング作業がメイン。光沢の調整に半日かける。"],["挑戦したいことは？","81 FACTORYで、整備の見学ツアーをやりたい。"]]},
+  {n:"清水",r:"Mech",rj:"整備",y:5,age:31,ph:null,p:"整備5年で、1級を取った。次は何を目指すか。",bio:"前職で1級整備士、入社5年。社内整備士の最古参。",qa:[["なぜ81を選んだ？","プレミアムカーだけを毎日触れる環境は、他にない。"],["普段の仕事は？","後輩の指導 + 難易度の高い案件の責任者。"],["挑戦したいことは？","81オリジナルの整備マニュアルを作る。"]]},
+  {n:"藤田",r:"Mech",rj:"整備",y:1,age:24,ph:null,p:"1年目で、ポルシェのオイル交換を任された。",bio:"新卒整備士1年目。研修と現場経験を並行中。",qa:[["なぜ81を選んだ？","車両の単価が高いから、技術が磨かれると思った。"],["普段の仕事は？","点検作業中心、徐々に整備の幅を広げる。"],["挑戦したいことは？","2年目で2級を取る。"]]},
+  {n:"北川",r:"Mech",rj:"整備",y:3,age:28,ph:null,p:"板金・コーティングで「魔法」って言われたい。",bio:"板金専門で入社3年。傷を消す「魔法」の使い手として知られる。",qa:[["なぜ81を選んだ？","板金とコーティングを同じ屋根の下でできる環境。"],["普段の仕事は？","入荷車の状態確認 + 板金 + コーティング仕上げ。"],["挑戦したいことは？","板金チームのリーダーとして、若手を育てる。"]]},
+  {n:"田中",r:"Café",rj:"カフェ",y:2,age:24,ph:"images/person-01.jpg",p:"窓の向こうのポルシェを見ながら、ラテを淹れる。",bio:"カフェチェーンで4年バリスタを経験、81 FACTORYへ。「カフェスタッフ＝アルバイト」の常識を変える存在。",qa:[["なぜ81を選んだ？","店舗を任される正社員バリスタとして、ここでキャリアを積みたかった。"],["普段の仕事は？","豆の選定、メニュー考案、接客。ラテアートも担当。"],["挑戦したいことは？","81 FACTORYのコーヒー豆を、自社ブランド化したい。"]]},
+  {n:"吉田",r:"Café",rj:"カフェ",y:3,age:26,ph:null,p:"パスタを焼く音と、エンジンの音が、混ざる。",bio:"イタリアンレストランから転職。生パスタとフェラーリが同居する空間に惚れて。",qa:[["なぜ81を選んだ？","レストランじゃないけど、本格的な料理を出せる環境。"],["普段の仕事は？","ランチタイムの調理、ディナーメニューの開発。"],["挑戦したいことは？","81 FACTORYで、車をテーマにしたコース料理を企画したい。"]]},
+  {n:"渡辺",r:"Café",rj:"カフェ",y:1,age:23,ph:null,p:"カフェなのに、お子さんに「いらっしゃい」を覚えてもらった。",bio:"新卒入社1年目、カフェスタッフ。子ども好きで、家族連れに人気。",qa:[["なぜ81を選んだ？","家族連れがくるカフェって、最初は意外だった。それが面白くて。"],["普段の仕事は？","ホール接客、お子さんの遊具誘導、ラテアート。"],["挑戦したいことは？","お子さん向けの「車型ラテアート」を考案中。"]]},
+  {n:"森",r:"Café",rj:"カフェ",y:2,age:25,ph:null,p:"ボーネルンドの遊具の使い方は、整備士より詳しい。",bio:"保育士から転職、カフェ2年目。「子どもの安全」を観察する目で空間を見ている。",qa:[["なぜ81を選んだ？","遊具のあるカフェ、と聞いて。子どもの目線で空間をつくれる場所。"],["普段の仕事は？","ホール + 遊具エリアの見守り。お母様とのお話もメイン業務。"],["挑戦したいことは？","81 FACTORYの遊具エリアを、もっと広げたい。"]]},
+  {n:"鈴木",r:"Office",rj:"事務",y:2,age:26,ph:"images/person-02.jpg",p:"経営の隣で、会社が育つ瞬間を見ています。",bio:"不動産事務から転職、社長秘書として2年目。経営の意思決定に立ち会う日々。",qa:[["なぜ81を選んだ？","経営の近くで働きたい、と思って探していた。"],["普段の仕事は？","スケジュール管理、契約書チェック、銀行・弁護士との橋渡し、東京進出の物件リサーチ。"],["挑戦したいことは？","東京進出の管理オフィス立ち上げに、最初から関わりたい。"]]},
+  {n:"中村",r:"Office",rj:"人事",y:3,age:28,ph:null,p:"採用が、会社の未来をつくる。",bio:"人事3年目。新卒採用と中途採用の両方を担当。",qa:[["なぜ81を選んだ？","採用で社員の人生を預かる責任を、犬飼が一緒に背負う姿勢に惹かれた。"],["普段の仕事は？","会社説明会、面接、入社後フォロー、研修企画。"],["挑戦したいことは？","2027卒の採用で、過去最高人数を達成する。"]]},
+  {n:"林",r:"Office",rj:"経理",y:4,age:30,ph:null,p:"数字は嘘をつかない。だから、数字を信じる。",bio:"会計事務所から転職、経理4年目。21期目の決算を担当する責任者。",qa:[["なぜ81を選んだ？","急成長中の会社の経理を、ゼロから組み立てたかった。"],["普段の仕事は？","月次決算、年次決算、税務対応、補助金申請。"],["挑戦したいことは？","上場準備の体制を整える。"]]},
+  {n:"犬飼",r:"CEO",rj:"代表取締役",y:21,age:45,ph:"images/ceo.jpg",p:"関わるすべての人々の人生を豊かにする。Enrich Your Life。",bio:"前職、輸入車販売会社で7年連続 No.1 セールスマン。独立して21期目。81 GALLERY、81 FACTORY、そして2026年の東京進出を主導。",qa:[["なぜ会社を始めた？","努力が正当に評価される会社をつくりたかった。それだけです。"],["大切にしていることは？","関わるすべての人々の人生を豊かにすること。社員も、お客様も、家族も。"],["20年後のビジョンは？","81 GALLERYが日本の自動車業界を牽引し、グローバルマーケットのハブとなる。"]]},
+  {n:"大橋",r:"Director",rj:"取締役",y:8,age:40,ph:null,p:"代表の右腕として、組織を整える。",bio:"創業期から犬飼の右腕。営業出身、現在は経営側で組織と財務を見る。",qa:[["なぜ81を選んだ？","犬飼と一緒に「業界を変える」と決めた瞬間に。"],["普段の仕事は？","経営戦略、人事制度、新規事業の意思決定。"],["挑戦したいことは？","東京進出を、組織として失敗なく成功させる。"]]}
+];
+const $r = document.getElementById('roster');
+const $m = document.getElementById('pplModal');
+const $photo = document.getElementById('modalPhoto');
+const $role = document.getElementById('modalRole');
+const $name = document.getElementById('modalName');
+const $pull = document.getElementById('modalPull');
+const $bio = document.getElementById('modalBio');
+const $qa = document.getElementById('modalQA');
+const initial = p => (p.n || '?')[0];
+const photoHTML = p => p.ph
+  ? `<img src="${p.ph}" alt="${p.n}" onerror="this.remove()">`
+  : '';
+$r.innerHTML = PEOPLE.map((p,i) => `
+  <button class="ppl-card" data-i="${i}">
+    <div class="ppl-card__photo">${initial(p)}${photoHTML(p)}</div>
+    <div class="ppl-card__body">
+      <div class="ppl-card__role">— ${p.r}</div>
+      <div class="ppl-card__name">${p.n}<small>${p.age} / ${p.y}年目</small></div>
+    </div>
+  </button>
+`).join('');
+function openModal(i){
+  const p = PEOPLE[i];
+  $photo.innerHTML = initial(p) + photoHTML(p);
+  $role.textContent = `— ${p.r} / ${p.rj}`;
+  $name.innerHTML = `${p.n}<small>${p.age} / ${p.y}年目</small>`;
+  $pull.textContent = '“' + p.p + '”';
+  $bio.textContent = p.bio;
+  $qa.innerHTML = (p.qa || []).map(([q,a]) =>
+    `<div class="ppl-qa"><div class="ppl-qa__q">${q}</div><div class="ppl-qa__a">${a}</div></div>`
+  ).join('');
+  $m.classList.add('open');
+  $m.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  $m.classList.remove('open');
+  $m.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+$r.addEventListener('click', e => {
+  const b = e.target.closest('.ppl-card');
+  if (b) openModal(+b.dataset.i);
+});
+$m.addEventListener('click', e => {
+  if (e.target.dataset.close !== undefined) closeModal();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && $m.classList.contains('open')) closeModal();
+});
+</script>
+
 </body></html>

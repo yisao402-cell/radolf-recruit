@@ -18,16 +18,21 @@
   .logo .dot{display:inline-block;width:8px;height:8px;background:var(--ink);border-radius:50%;margin:0 6px}
   .menu{display:flex;gap:24px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
   .menu .cta{background:var(--ink);color:#fff;padding:10px 22px;font-weight:700}
-  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:120px 32px 64px;text-align:center;position:relative}
-  .hero__pre{font-size:11px;letter-spacing:.5em;color:var(--mute);text-transform:uppercase;margin-bottom:48px;font-weight:500}
-  .hero__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(56px,10vw,200px);line-height:.95;letter-spacing:-.04em;color:var(--ink);max-width:1200px}
-  .hero__title em{font-style:italic;color:var(--accent);font-weight:900}
-  .hero__title .small{font-size:.16em;display:block;margin-top:32px;font-weight:500;font-style:italic;color:var(--mute);letter-spacing:.08em}
-  .hero__sub{margin-top:64px;font-size:16px;line-height:2.2;color:var(--ink-2);max-width:580px;font-weight:500}
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:120px 32px 64px;text-align:center;position:relative;overflow:hidden;background:#050505;color:#fff}
+  .hero__bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .hero__bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) contrast(1.1) saturate(.85);animation:heroZoom 20s ease-in-out infinite alternate}
+  @keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+  .hero__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(5,5,5,.2) 0%,rgba(5,5,5,.65) 60%,rgba(5,5,5,.9) 100%)}
+  .hero > *:not(.hero__bg){position:relative;z-index:2}
+  .hero__pre{font-size:11px;letter-spacing:.5em;color:var(--accent);text-transform:uppercase;margin-bottom:48px;font-weight:700}
+  .hero__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(56px,10vw,200px);line-height:.95;letter-spacing:-.04em;color:#fff;max-width:1200px;text-shadow:0 6px 40px rgba(0,0,0,.5)}
+  .hero__title em{font-style:italic;color:var(--accent);font-weight:900;text-shadow:0 0 32px rgba(255,61,0,.4)}
+  .hero__title .small{font-size:.16em;display:block;margin-top:32px;font-weight:500;font-style:italic;color:rgba(255,255,255,.55);letter-spacing:.08em;text-shadow:none}
+  .hero__sub{margin-top:64px;font-size:16px;line-height:2.2;color:rgba(255,255,255,.82);max-width:580px;font-weight:500;text-shadow:0 2px 12px rgba(0,0,0,.5)}
   .hero__sub em{color:var(--accent);font-style:normal;font-weight:700}
-  .hero__cta{margin-top:48px;display:inline-block;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px;transition:color .2s}
+  .hero__cta{margin-top:48px;display:inline-block;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;border-bottom:2px solid #fff;padding-bottom:6px;transition:color .2s;color:#fff}
   .hero__cta:hover{color:var(--accent);border-color:var(--accent)}
-  .scroll-tip{position:absolute;bottom:32px;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--mute);writing-mode:vertical-rl}
+  .scroll-tip{position:absolute;bottom:32px;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.6);writing-mode:vertical-rl}
   .scroll-tip::after{content:" ↓"}
   .messages{padding:160px 0;background:var(--bg)}
   .msg{padding:80px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:120px 1fr 1fr;gap:48px;align-items:center}
@@ -381,6 +386,7 @@
 <nav class="nav"><a class="logo">RADOLF<span class="dot"></span>81</a><div class="menu"><a>About</a><a>People</a><a>Jobs</a><a class="cta">Entry</a></div></nav>
 
 <section class="hero">
+  <div class="hero__bg"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
   <div class="hero__pre">— RADOLF / 81 — Recruitment 2026</div>
   <h1 class="hero__title">I'M NOT<br/><em>a car dealer.</em><span class="small">(period)</span></h1>
   <p class="hero__sub">プレミアムカーの画廊と、家族のための工場カフェ。<br/>21期目、まだ業界の<em>異物</em>。<br/>これからも、ずっと。</p>

@@ -8,7 +8,9 @@
 <style>
   :root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-2:#3D3D3D;--mute:#888;--accent:#FF3D00;--line:#EEE}
   *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+  section[id]{scroll-margin-top:80px}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%;height:auto}
   .wrap{max-width:1280px;margin:0 auto;padding:0 32px}
@@ -382,13 +384,13 @@
 
 </style></head><body>
 <a class="x-back" href="cases.html">← 25 CASES</a>
-<nav class="nav"><a class="logo">RADOLF<span class="dot"></span>81</a><div class="menu"><a>About</a><a>People</a><a>Jobs</a><a class="cta">Entry</a></div></nav>
+<nav class="nav"><a class="logo" href="#top">RADOLF<span class="dot"></span>81</a><div class="menu"><a href="#about">About</a><a href="#people">People</a><a href="#jobs">Jobs</a><a class="cta" href="#entry">Entry</a></div></nav>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero__bg"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
   <div class="hero__pre">— RADOLF / 81 — Recruitment 2026</div>
   <h1 class="hero__title">I'M NOT<br/><em>a car dealer.</em><span class="small">(period)</span></h1>
-  <a class="hero__cta">エントリーする ↓</a>
+  <a class="hero__cta" href="#entry">エントリーする ↓</a>
   <div class="scroll-tip">SCROLL</div>
 </section>
 
@@ -410,7 +412,7 @@
   </div>
 </div></section>
 
-<section class="x-sec">
+<section class="x-sec" id="about">
   <div class="x-wrap">
     <span class="x-pre">━ Vision / 7 GOAL</span>
     <h2 class="x-title">20年後、<em>81</em>が<br/>業界のハブになる。</h2>
@@ -465,7 +467,7 @@
   </div>
 </section>
 
-<section class="x-sec alt"><div class="x-wrap">
+<section class="x-sec alt" id="people"><div class="x-wrap">
   <span class="x-pre">━ People</span>
   <h2 class="x-title">「81」を、つくる人たち。</h2>
   <p class="x-lead">職種は違っても、肩書きを越えて、ひとつの「81」を一緒につくる仲間。25人の素顔を、クリックでのぞいてみてください。</p>
@@ -524,7 +526,7 @@
   </div>
 </section>
 
-<section class="x-sec alt">
+<section class="x-sec alt" id="jobs">
   <div class="x-wrap">
     <span class="x-pre">━ Open Positions</span>
     <h2 class="x-title">いま、<em>募集中</em>の<br/>4職種。</h2>
@@ -573,10 +575,10 @@
   </div>
 </section>
 
-<section class="cta">
+<section class="cta" id="entry">
   <div class="cta__pre">— RADOLF / 81 — Recruitment 2026</div>
   <h2 class="cta__title">じゃあ、<br/><em>あなた</em>は？</h2>
-  <a class="cta__btn">エントリーする →</a>
+  <a class="cta__btn" href="#entry">エントリーする →</a>
 </section>
 <footer>RADOLF INC. © 2026</footer>
 

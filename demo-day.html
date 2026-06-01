@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja"><head>
 <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Project 81 Story — Case 17 / RADOLF × 81</title>
+<title>A Day in the Life — Case 17 / RADOLF × 81</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet" />
@@ -38,7 +38,10 @@ footer{padding:32px;text-align:center;color:var(--mute);font-size:11px;letter-sp
 .day-sub__avatar img{width:100%;height:100%;object-fit:cover}
 .day-sub__name{font-weight:700;font-size:18px;color:var(--ink)}
 .day-sub__role{font-size:13px;color:var(--ink-2);line-height:1.7;margin-top:2px}
-.day-line{display:grid;grid-template-columns:160px 1fr;gap:48px;padding:32px 0;border-top:1px solid var(--line);align-items:start}
+.day-line{display:grid;grid-template-columns:140px 1fr 280px;gap:40px;padding:36px 0;border-top:1px solid var(--line);align-items:center}
+.day-line__photo{aspect-ratio:4/3;overflow:hidden;background:#f5f5f5;border-radius:4px}
+.day-line__photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.day-line:hover .day-line__photo img{transform:scale(1.04)}
 .day-line:last-child{border-bottom:1px solid var(--line)}
 .day-time{font-family:"Noto Serif JP",serif;font-weight:900;font-size:56px;color:var(--accent);line-height:.95;letter-spacing:-.04em}
 .day-act__title{font-family:"Noto Serif JP",serif;font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:8px}
@@ -87,7 +90,8 @@ footer{padding:32px;text-align:center;color:var(--mute);font-size:11px;letter-sp
 .proj-chap__pull{margin:32px 0;padding:24px 32px;background:#fff;border-left:4px solid var(--accent);font-family:"Noto Serif JP",serif;font-style:italic;font-weight:700;font-size:clamp(18px,2.2vw,24px);line-height:1.6;color:var(--ink)}
 
 @media(max-width:900px){
-  .day-line{grid-template-columns:1fr;gap:8px;padding:24px 0}
+  .day-line{grid-template-columns:1fr;gap:16px;padding:32px 0}
+  .day-line__photo{aspect-ratio:16/9;max-height:280px;width:100%}
   .day-time{font-size:42px}
   .intv-card{grid-template-columns:1fr;gap:32px;padding:64px 0}
   .proj-chap{grid-template-columns:1fr;gap:24px;padding:64px 0}
@@ -104,63 +108,89 @@ footer{padding:32px;text-align:center;color:var(--mute);font-size:11px;letter-sp
 }
 </style></head>
 <body>
-<a class="x-back" href="case-17-hakuhodo.html">← CASE 17</a>
-<div class="tag">CASE 17 — PROJECT 81</div>
-<div class="subnav">CASE 17 / <a href="case-17-hakuhodo.html">HAKUHODO-STYLE TOP</a></div>
+<a class="x-back" href="demo.html">← TOP</a>
+<div class="tag">A DAY</div>
+<div class="subnav"><a href="demo.html">TOP</a></div>
 
-<!-- PROJECT STORY -->
-<section class="proj-sec">
-  <div class="proj-wrap">
-    <div class="proj-head">
-      <div class="proj-pre">— Project 81</div>
-      <h2 class="proj-title"><em>81</em>を、<br/>つくった物語。</h2>
-      <p class="proj-sub">創業から21期。RADOLFが歩んだ3つのターニングポイント。それぞれの「ゼロを1にした瞬間」を、当時を知る社員の言葉で。</p>
+<!-- A DAY in the Life -->
+<section class="day-sec">
+  <div class="day-wrap">
+    <div class="day-head">
+      <div class="day-pre">— A Day in the Life</div>
+      <h2 class="day-title">ある日の、<br/><em>81。</em></h2>
+      <div class="day-sub">
+        <div class="day-sub__avatar"><img src="images/person-okada.jpg" onerror="this.parentElement.style.display='none'"/></div>
+        <div>
+          <div class="day-sub__name">岡田 — 営業 / 入社4年目</div>
+          <div class="day-sub__role">プレミアムカーの提案営業として、ショールームに立つ。</div>
+        </div>
+      </div>
     </div>
 
-    <article class="proj-chap">
-      <div class="proj-num">01<small>2020 — GALLERY</small></div>
-      <div>
-        <h3 class="proj-chap__title">「<em>業界の異物</em>」<br/>として、画廊を建てた。</h3>
-        <div class="proj-photo"><img src="images/showroom-ferrari.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="proj-chap__body">
-          <p>2020年、堺の街角に「画廊のような車屋」を建てる。それが代表・犬飼の決断だった。当時、業界の常識は「中古車屋は薄暗くて、車を並べて、安く売る」。誰もが知っているそのモデルを、ひっくり返す挑戦だった。</p>
-          <p>「車を、車として売るのをやめよう」。社内で繰り返し言われた言葉。フェラーリも、ランボルギーニも、1,000万円を超える車を「商品」ではなく「作品」として扱う。お客様を「客」ではなく「コレクター」として迎える。そのために、ショールームの床は大理石になり、照明は美術館仕様になり、コーヒーはバリスタが淹れた。</p>
-          <p>オープン初月、来店ゼロの日があった。誰もが「やっぱり業界の常識を破るのは無理だ」と思いかけたその時、最初のお客様が、ランボルギーニ・ウラカンを買ってくれた。「ここでしか感じられない世界がある」と言って。</p>
-          <div class="proj-chap__pull">「画廊」って言葉に込めた覚悟は、<br/>お客様の「ここで買いたい」という一言で報われた。</div>
-          <p>そこから5年。81GALLERYは年間100台超のプレミアムカーを販売する、業界でも特異な存在になった。常時在庫50台。お客様の70%がWeb経由。そして、ショールームには毎週、新しい「コレクター」が訪れている。</p>
-        </div>
+    <div class="day-line">
+      <div class="day-time">08:30</div>
+      <div class="day-act">
+        <div class="day-act__title">出社・ショールーム清掃</div>
+        <div class="day-act__desc">フェラーリも、ランボルギーニも、1mmのホコリを拭く。1台1,000万円を超える車たちが、お客様を迎える準備をする時間。</div>
       </div>
-    </article>
-
-    <article class="proj-chap">
-      <div class="proj-num">02<small>2024 — FACTORY</small></div>
-      <div>
-        <h3 class="proj-chap__title">整備工場に、<br/><em>カフェ</em>を、つくった。</h3>
-        <div class="proj-photo"><img src="images/store-sakai.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="proj-chap__body">
-          <p>2024年、堺の街にもう一つの「異端」が生まれた。81 FACTORY &amp; CAFE。整備工場とカフェを同じ屋根の下に置く、業界で前例のないプロジェクト。きっかけは、ある日の社内ミーティングだった。</p>
-          <p>「整備の待ち時間って、お客様にとって辛い時間ですよね」。新卒3年目の社員の一言。「車屋って、家族連れには敷居が高い。なんとかしたいです」。その言葉が、犬飼の頭から離れなかった。</p>
-          <p>整備工場の隣を、家族が過ごせる場所にする。コーヒーを淹れる。生パスタを焼く。ボーネルンドの遊具を置く。「父親の整備待ちが、子どもの楽しい記憶になる場所」。そういう車屋を、誰も見たことがなかった。</p>
-          <div class="proj-chap__pull">「整備工場でコーヒー？」という意外性が、<br/>業界の常識を、家族のものに変えた。</div>
-          <p>オープン後、客層が変わった。土日の駐車場には、ベビーカーが並ぶ。整備を待ちながら、お母さんがラテを飲み、お子さんが遊具で遊ぶ。整備士の窓ガラスの向こうには、ポルシェが並ぶ。「車屋＝怖い・汚い」を、コーヒーの香りで上書きする。それが81 FACTORYの挑戦だった。</p>
-        </div>
+      <div class="day-line__photo"><img src="images/showroom-ferrari.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">09:30</div>
+      <div class="day-act">
+        <div class="day-act__title">朝礼・全店ZOOM</div>
+        <div class="day-act__desc">本社、南堺、福岡、岡山の全店メンバーがオンラインで集合。前日の商談状況、業界ニュース、代表からの一言。所要時間20分。</div>
       </div>
-    </article>
-
-    <article class="proj-chap">
-      <div class="proj-num">03<small>2026 — TOKYO</small></div>
-      <div>
-        <h3 class="proj-chap__title">名前のない場所を、<br/><em>東京</em>に建てる。</h3>
-        <div class="proj-photo"><img src="images/sales-scene.jpg" onerror="this.parentElement.style.display='none'"/></div>
-        <div class="proj-chap__body">
-          <p>2026年、東京。RADOLFは次の挑戦に乗り出す。バーチャル × リアル × 越境EC、3つを掛け合わせた「次の81」。名前は、まだない。これから入社する人たちと一緒に決める。それが、犬飼の決めたルールだった。</p>
-          <p>「会社が大きくなったから、次の場所をつくる」のではない。「次の世代の人たちに、ゼロから何かを建ててもらう機会をつくる」のだ。だから、東京進出メンバーは新卒・若手中心。20代の店長が、新拠点を立ち上げる。</p>
-          <p>準備は2025年から始まった。物件探し、コンセプト設計、Webバーチャルショールームの設計、海外コレクターへの越境EC展開。社内から手を挙げた数十名のメンバーが、毎週ZOOMで議論を重ねる。「業界をどう変えたいか」を真剣に話し合う場所が、社内の宝物になった。</p>
-          <div class="proj-chap__pull">「名前のない場所」だから、自由がある。<br/>あなたが、その名前を決める一人になれる。</div>
-          <p>東京の場所は決まった。秋にオープン予定。残りの数ヶ月、入社してくる新しい仲間と一緒に、「81 ◯◯」の名前を決める。物語は、まだ書き始めたばかりだ。</p>
-        </div>
+      <div class="day-line__photo"><img src="images/meeting-room.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">10:00</div>
+      <div class="day-act">
+        <div class="day-act__title">商談 / 1組目</div>
+        <div class="day-act__desc">継続のお客様。3ヶ月前から探しているフェラーリ458の入荷連絡。試乗から、1台目の購入が決まりそう。</div>
       </div>
-    </article>
+      <div class="day-line__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">12:00</div>
+      <div class="day-act">
+        <div class="day-act__title">ランチ / 81 FACTORY</div>
+        <div class="day-act__desc">徒歩2分の工場カフェへ。本格生パスタとコーヒー。家族連れのお客様もいる空間で、頭をリセットする1時間。</div>
+      </div>
+      <div class="day-line__photo"><img src="images/store-sakai.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">13:30</div>
+      <div class="day-act">
+        <div class="day-act__title">商談 / 2組目</div>
+        <div class="day-act__desc">紹介でのご来店。お子さんと一緒。ショールームで「将来このフェラーリを買ってあげる」って言うお父さんが、毎月1組はいる。</div>
+      </div>
+      <div class="day-line__photo"><img src="images/showroom-cabin.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">16:00</div>
+      <div class="day-act">
+        <div class="day-act__title">納車準備</div>
+        <div class="day-act__desc">来週納車予定のお客様の車を最終チェック。整備士の加納さんと一緒に、コンディションを1点1点確認。最終洗車、ナンバープレート取付。</div>
+      </div>
+      <div class="day-line__photo"><img src="images/person-kano.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">18:00</div>
+      <div class="day-act">
+        <div class="day-act__title">在庫車の撮影</div>
+        <div class="day-act__desc">新入荷の写真撮影。Web集客が売上の70%を占めるので、写真の質は売上に直結する。スマホ撮影だが、こだわりは一眼レフ並み。</div>
+      </div>
+      <div class="day-line__photo"><img src="images/showroom-plate.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
+    <div class="day-line">
+      <div class="day-time">19:30</div>
+      <div class="day-act">
+        <div class="day-act__title">退社</div>
+        <div class="day-act__desc">残業ではなく、定時+αで終わる日が多い。月の平均残業は20時間以内。週末は趣味のキャンプか、お客様の納車立ち会い。</div>
+      </div>
+      <div class="day-line__photo"><img src="images/hq-exterior.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div>
+    </div>
   </div>
 </section>
 
@@ -168,11 +198,11 @@ footer{padding:32px;text-align:center;color:var(--mute);font-size:11px;letter-sp
 <section class="cta-end">
   <h2 class="cta-end__title">続けて、読む？</h2>
   <div class="cta-end__btns">
-    <a class="cta-end__btn" href="case-17-hakuhodo.html">← Case 17 トップへ</a>
-    <a class="cta-end__btn" href="case-17-day.html">A Day →</a>
-    <a class="cta-end__btn" href="case-17-interview.html">Interview →</a>
+    <a class="cta-end__btn" href="demo.html">← Case 17 トップへ</a>
+    <a class="cta-end__btn" href="demo-interview.html">Interview →</a>
+    <a class="cta-end__btn" href="demo-story.html">Project 81 →</a>
     <a class="cta-end__btn primary" href="entry.html">エントリーする →</a>
   </div>
 </section>
-<footer>RADOLF INC. © 2026 — CASE 17 / HAKUHODO-INSPIRED — PROJECT 81</footer>
+<footer>RADOLF INC. © 2026 — A DAY</footer>
 </body></html>

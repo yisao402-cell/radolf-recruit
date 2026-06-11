@@ -366,7 +366,18 @@
 .off-modal__close{position:absolute;top:18px;right:18px;width:40px;height:40px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;z-index:2;font-family:inherit;display:flex;align-items:center;justify-content:center;padding:0}
 .off-modal__close:hover{background:var(--accent);color:#fff}
 .off-modal__photo{background:#f5f5f5;position:relative;overflow:hidden;min-height:340px}
-.off-modal__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.off-modal__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:offFade .4s}
+@keyframes offFade{from{opacity:0}to{opacity:1}}
+.off-modal__nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;border-radius:50%;background:rgba(255,255,255,.92);color:#1a1a1a;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:300;padding:0;z-index:3;transition:all .2s;box-shadow:0 4px 16px rgba(0,0,0,.18)}
+.off-modal__nav:hover{background:var(--accent);color:#fff;transform:translateY(-50%) scale(1.08)}
+.off-modal__nav--prev{left:16px;padding-right:3px}
+.off-modal__nav--next{right:calc(50% + 16px);padding-left:3px}
+.off-modal__counter{position:absolute;bottom:18px;left:18px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;letter-spacing:.18em;font-weight:600;padding:6px 12px;border-radius:99px;z-index:3;font-family:"Noto Sans JP",sans-serif}
+@media(max-width:700px){
+  .off-modal__nav--next{right:auto;left:calc(100% - 60px)}
+  .off-modal__nav{width:38px;height:38px;font-size:26px}
+  .off-modal__counter{bottom:auto;top:14px;left:14px;font-size:10px;padding:4px 10px}
+}
 .off-modal__body{padding:44px 40px;overflow-y:auto}
 .off-modal__chip{display:inline-block;font-size:10px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;color:var(--accent)}
 .off-modal__name{font-family:"Noto Serif JP",serif;font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.02em;margin:8px 0 24px;color:var(--ink)}
@@ -695,6 +706,9 @@
   <article class="off-modal__panel" role="dialog" aria-modal="true">
     <button class="off-modal__close" data-close aria-label="閉じる">×</button>
     <div class="off-modal__photo" id="offPhoto"></div>
+    <button class="off-modal__nav off-modal__nav--prev" id="offPrev" aria-label="前の写真" type="button">‹</button>
+    <button class="off-modal__nav off-modal__nav--next" id="offNext" aria-label="次の写真" type="button">›</button>
+    <div class="off-modal__counter" id="offCounter">1 / 1</div>
     <div class="off-modal__body">
       <div class="off-modal__chip" id="offChip"></div>
       <h3 class="off-modal__name" id="offName"></h3>
@@ -805,18 +819,18 @@ document.addEventListener('keydown', e => {
 
 /* === Offices roster + modal === */
 const OFFICES = [
-  {id:"sakai",chip:"本社 / HQ",name:"81GALLERY 堺店",teaser:"大阪・堺 本社",ph:"images/shop-sakai.jpg",zip:"〒590-0004",addr:"大阪府堺市堺区北清水町 1丁2-15",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"072-242-8135",fax:"072-242-8145",note:"ラドルフ本社。2023年3月18日に移転OPEN。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市堺区北清水町1丁2-15"},
-  {id:"factory",chip:"FACTORY + CAFE",name:"81 FACTORY & CAFE",teaser:"整備工場 + カフェ併設",ph:"images/shop-factory.jpg",zip:"〒590-0004",addr:"大阪府堺市堺区北清水町 1丁6-8-1",hours:"FACTORY 10:00〜18:30 / CAFE 10:00〜20:00",holiday:"月曜日／日曜日／GW／お盆／年末年始（CAFEは月曜のみ）",tel:"FACTORY 072-276-4691 / CAFE 072-276-4693",fax:"072-276-4716",note:"2026年4月19日グランドOPEN。整備・洗車・コーティング・車検 + 家族で楽しめるカフェを併設。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市堺区北清水町1丁6-8-1"},
-  {id:"minamisakai",chip:"店舗",name:"81GALLERY 南堺店",teaser:"大阪・堺 南エリア",ph:"images/shop-minamisakai.jpg",zip:"〒599-8253",addr:"大阪府堺市中区深阪 5丁4-36",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"072-349-4000",fax:"072-242-8145",note:"本社堺店ができるまでは本社として運営していた店舗。ラドルフの歴史が詰まった場所。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市中区深阪5丁4-36"},
-  {id:"fukuoka",chip:"九州",name:"81GALLERY 福岡店",teaser:"福岡・須惠町",ph:"images/shop-fukuoka.jpg",zip:"〒811-2221",addr:"福岡県糟屋郡須惠町旅石 887-7",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"092-710-8146",fax:"092-710-8189",note:"2023年9月30日OPEN。関西を飛び出し、ラドルフ新たな拠点として誕生した九州エリアの店舗。",map:"https://www.google.com/maps/search/?api=1&query=福岡県糟屋郡須惠町旅石887-7"},
-  {id:"okayama",chip:"中国",name:"81GALLERY 岡山店",teaser:"岡山・東区",ph:"images/shop-okayama.jpg",zip:"〒709-0625",addr:"岡山県岡山市東区上道北方 721-1",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"086-201-6012",fax:"086-201-6014",note:"2025年12月13日OPEN。ラドルフ4店舗目となる新たなエリアへの挑戦。",map:"https://www.google.com/maps/search/?api=1&query=岡山県岡山市東区上道北方721-1"},
-  {id:"tokyo",chip:"2026 OPEN",chipSoon:true,name:"81GALLERY 東京店",teaser:"関東エリア初出店",ph:"images/sales-scene.jpg",zip:"",addr:"東京都内 — 詳細は近日公開",hours:"未定",holiday:"未定",tel:"未定",fax:"—",note:"ラドルフ7店舗目。関東エリアへの初出店を予定。詳細は近日公開。",map:null}
+  {id:"sakai",chip:"本社 / HQ",name:"81GALLERY 堺店",teaser:"大阪・堺 本社",photos:["images/shop-sakai.jpg","images/shop-sakai-2.jpg","images/shop-sakai-3.jpg","images/shop-sakai-4.jpg"],zip:"〒590-0004",addr:"大阪府堺市堺区北清水町 1丁2-15",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"072-242-8135",fax:"072-242-8145",note:"ラドルフ本社。2023年3月18日に移転OPEN。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市堺区北清水町1丁2-15"},
+  {id:"factory",chip:"FACTORY + CAFE",name:"81 FACTORY & CAFE",teaser:"整備工場 + カフェ併設",photos:["images/shop-factory.jpg","images/shop-factory-2.jpg","images/shop-factory-3.jpg","images/shop-factory-4.jpg"],zip:"〒590-0004",addr:"大阪府堺市堺区北清水町 1丁6-8-1",hours:"FACTORY 10:00〜18:30 / CAFE 10:00〜20:00",holiday:"月曜日／日曜日／GW／お盆／年末年始（CAFEは月曜のみ）",tel:"FACTORY 072-276-4691 / CAFE 072-276-4693",fax:"072-276-4716",note:"2026年4月19日グランドOPEN。整備・洗車・コーティング・車検 + 家族で楽しめるカフェを併設。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市堺区北清水町1丁6-8-1"},
+  {id:"minamisakai",chip:"店舗",name:"81GALLERY 南堺店",teaser:"大阪・堺 南エリア",photos:["images/shop-minamisakai.jpg","images/shop-minamisakai-2.jpg","images/shop-minamisakai-3.jpg","images/shop-minamisakai-4.jpg"],zip:"〒599-8253",addr:"大阪府堺市中区深阪 5丁4-36",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"072-349-4000",fax:"072-242-8145",note:"本社堺店ができるまでは本社として運営していた店舗。ラドルフの歴史が詰まった場所。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市中区深阪5丁4-36"},
+  {id:"fukuoka",chip:"九州",name:"81GALLERY 福岡店",teaser:"福岡・須惠町",photos:["images/shop-fukuoka.jpg","images/shop-fukuoka-2.jpg","images/shop-fukuoka-3.jpg","images/shop-fukuoka-4.jpg"],zip:"〒811-2221",addr:"福岡県糟屋郡須惠町旅石 887-7",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"092-710-8146",fax:"092-710-8189",note:"2023年9月30日OPEN。関西を飛び出し、ラドルフ新たな拠点として誕生した九州エリアの店舗。",map:"https://www.google.com/maps/search/?api=1&query=福岡県糟屋郡須惠町旅石887-7"},
+  {id:"okayama",chip:"中国",name:"81GALLERY 岡山店",teaser:"岡山・東区",photos:["images/shop-okayama.jpg","images/shop-okayama-2.jpg","images/shop-okayama-3.jpg","images/shop-okayama-4.jpg"],zip:"〒709-0625",addr:"岡山県岡山市東区上道北方 721-1",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"086-201-6012",fax:"086-201-6014",note:"2025年12月13日OPEN。ラドルフ4店舗目となる新たなエリアへの挑戦。",map:"https://www.google.com/maps/search/?api=1&query=岡山県岡山市東区上道北方721-1"},
+  {id:"tokyo",chip:"2026 OPEN",chipSoon:true,name:"81GALLERY 東京店",teaser:"関東エリア初出店",photos:["images/sales-scene.jpg"],zip:"",addr:"東京都内 — 詳細は近日公開",hours:"未定",holiday:"未定",tel:"未定",fax:"—",note:"ラドルフ7店舗目。関東エリアへの初出店を予定。詳細は近日公開。",map:null}
 ];
 
 const $offRoot = document.getElementById('offices');
 $offRoot.innerHTML = OFFICES.map(o => `
   <button class="hb-office" data-off="${o.id}">
-    <div class="hb-office__photo"><img src="${o.ph}" alt="${o.name}" onerror="this.parentElement.style.background='linear-gradient(135deg,#F5F5F5,#E5E5E5)';this.remove()"/></div>
+    <div class="hb-office__photo"><img src="${o.photos[0]}" alt="${o.name}" onerror="this.parentElement.style.background='linear-gradient(135deg,#F5F5F5,#E5E5E5)';this.remove()"/></div>
     <span class="hb-office__chip${o.chipSoon ? ' hb-office__chip--soon' : ''}">${o.chip}</span>
     <h3 class="hb-office__name">${o.name}</h3>
     <p class="hb-office__teaser">${o.teaser}</p>
@@ -824,11 +838,37 @@ $offRoot.innerHTML = OFFICES.map(o => `
 `).join('');
 
 const $off = document.getElementById('offModal');
+let currentOff = null;
+let currentPhotoIdx = 0;
+
+function renderOffPhoto() {
+  if (!currentOff) return;
+  const photo = document.getElementById('offPhoto');
+  const url = currentOff.photos[currentPhotoIdx];
+  photo.innerHTML = url ? `<img src="${url}" alt="${currentOff.name}" onerror="this.remove()"/>` : '';
+  const counter = document.getElementById('offCounter');
+  counter.textContent = `${currentPhotoIdx + 1} / ${currentOff.photos.length}`;
+  const prev = document.getElementById('offPrev');
+  const next = document.getElementById('offNext');
+  const single = currentOff.photos.length <= 1;
+  prev.style.display = single ? 'none' : 'flex';
+  next.style.display = single ? 'none' : 'flex';
+  counter.style.display = single ? 'none' : 'block';
+}
+
+function shiftPhoto(delta) {
+  if (!currentOff) return;
+  const n = currentOff.photos.length;
+  currentPhotoIdx = (currentPhotoIdx + delta + n) % n;
+  renderOffPhoto();
+}
+
 function openOff(id) {
   const o = OFFICES.find(x => x.id === id);
   if (!o) return;
-  const photo = document.getElementById('offPhoto');
-  photo.innerHTML = o.ph ? `<img src="${o.ph}" alt="${o.name}" onerror="this.remove()"/>` : '';
+  currentOff = o;
+  currentPhotoIdx = 0;
+  renderOffPhoto();
   document.getElementById('offChip').textContent = o.chip;
   document.getElementById('offName').textContent = o.name;
   document.getElementById('offZip').textContent = o.zip || '';
@@ -848,16 +888,22 @@ function closeOff() {
   $off.classList.remove('open');
   $off.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  currentOff = null;
 }
 $offRoot.addEventListener('click', e => {
   const c = e.target.closest('.hb-office');
   if (c) openOff(c.dataset.off);
 });
+document.getElementById('offPrev').addEventListener('click', e => { e.stopPropagation(); shiftPhoto(-1); });
+document.getElementById('offNext').addEventListener('click', e => { e.stopPropagation(); shiftPhoto(1); });
 $off.addEventListener('click', e => {
   if (e.target.dataset.close !== undefined) closeOff();
 });
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && $off.classList.contains('open')) closeOff();
+  if (!$off.classList.contains('open')) return;
+  if (e.key === 'Escape') closeOff();
+  else if (e.key === 'ArrowLeft') shiftPhoto(-1);
+  else if (e.key === 'ArrowRight') shiftPhoto(1);
 });
 </script>
 

@@ -345,14 +345,38 @@
 
 /* Offices */
 .hb-offices{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.hb-office{display:flex;flex-direction:column}
-.hb-office__photo{aspect-ratio:4/3;overflow:hidden;background:#f5f5f5;margin-bottom:16px}
+.hb-office{display:flex;flex-direction:column;background:none;border:none;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer;position:relative}
+.hb-office__photo{aspect-ratio:4/3;overflow:hidden;background:#f5f5f5;margin-bottom:16px;position:relative}
 .hb-office__photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
 .hb-office:hover .hb-office__photo img{transform:scale(1.05)}
+.hb-office__photo::after{content:"+";position:absolute;top:14px;right:14px;width:36px;height:36px;background:rgba(255,255,255,.95);color:var(--accent);font-size:24px;font-weight:300;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(-6px);transition:all .25s}
+.hb-office:hover .hb-office__photo::after{opacity:1;transform:none}
 .hb-office__chip{display:inline-block;font-size:10px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .hb-office__chip--soon{color:#FFF;background:var(--accent);padding:4px 10px}
-.hb-office__name{font-family:"Noto Serif JP",serif;font-weight:900;font-size:28px;letter-spacing:-.02em;line-height:1.1;margin-bottom:8px;color:var(--ink)}
-.hb-office__addr{font-size:12px;line-height:1.7;color:var(--ink-2)}
+.hb-office__name{font-family:"Noto Serif JP",serif;font-weight:900;font-size:24px;letter-spacing:-.02em;line-height:1.2;margin-bottom:6px;color:var(--ink)}
+.hb-office__teaser{font-size:12px;line-height:1.6;color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.hb-office__teaser::after{content:"詳細 →";font-size:10px;letter-spacing:.16em;color:var(--accent);font-weight:700;margin-left:auto;transition:transform .2s}
+.hb-office:hover .hb-office__teaser::after{transform:translateX(4px)}
+
+/* Office modal */
+.off-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:24px}
+.off-modal.open{display:flex}
+.off-modal__backdrop{position:absolute;inset:0;background:rgba(10,10,10,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer}
+.off-modal__panel{position:relative;background:#fff;max-width:840px;width:100%;max-height:88vh;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;gap:0;animation:pplIn .35s cubic-bezier(.2,.8,.2,1)}
+.off-modal__close{position:absolute;top:18px;right:18px;width:40px;height:40px;border:none;background:rgba(255,255,255,.95);color:#0A0A0A;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;z-index:2;font-family:inherit;display:flex;align-items:center;justify-content:center;padding:0}
+.off-modal__close:hover{background:var(--accent);color:#fff}
+.off-modal__photo{background:#f5f5f5;position:relative;overflow:hidden;min-height:340px}
+.off-modal__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.off-modal__body{padding:44px 40px;overflow-y:auto}
+.off-modal__chip{display:inline-block;font-size:10px;letter-spacing:.32em;font-weight:700;text-transform:uppercase;color:var(--accent)}
+.off-modal__name{font-family:"Noto Serif JP",serif;font-weight:900;font-size:32px;line-height:1.15;letter-spacing:-.02em;margin:8px 0 24px;color:var(--ink)}
+.off-modal__dl{display:grid;grid-template-columns:80px 1fr;gap:14px 18px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;line-height:1.7}
+.off-modal__dl dt{font-size:10px;letter-spacing:.18em;font-weight:700;color:var(--accent);text-transform:uppercase;padding-top:3px}
+.off-modal__dl dd{color:var(--ink);font-weight:500}
+.off-modal__dl dd small{display:block;color:var(--ink-2);font-size:12px;margin-top:2px;font-weight:400}
+.off-modal__map{margin-top:24px;display:inline-block;padding:10px 20px;background:var(--ink);color:#fff;font-size:11px;letter-spacing:.18em;font-weight:700;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.off-modal__map:hover{background:var(--accent)}
+@media(max-width:700px){.off-modal__panel{grid-template-columns:1fr;max-height:92vh}.off-modal__photo{min-height:220px;aspect-ratio:16/9}.off-modal__body{padding:28px}.off-modal__name{font-size:24px}}
 
 /* Company DL */
 .hb-dl{margin-top:80px;border-top:1px solid var(--line)}
@@ -635,14 +659,7 @@
     <span class="x-pre">━ Offices</span>
     <h2 class="x-title">働く場所、<em>6拠点</em>。</h2>
     <p class="x-lead">堺の本社・FACTORYから、南堺・福岡・岡山、そして2026年の東京へ。どの拠点も、ただの職場じゃなく「81」を体現する場所。</p>
-    <div class="hb-offices">
-      <article class="hb-office"><div class="hb-office__photo"><img src="images/shop-sakai.jpg" alt="81GALLERY 本社 堺店" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">本社 / HQ</span><h3 class="hb-office__name">81GALLERY 堺店</h3><p class="hb-office__addr">〒590-0004 大阪府堺市堺区北清水町 1丁2-15<br/><small>10:00–18:30 / 月・日休 / TEL 072-242-8135</small></p></div></article>
-      <article class="hb-office"><div class="hb-office__photo"><img src="images/shop-factory.jpg" alt="81GALLERY FACTORY店 / 81FACTORY&amp;CAFE" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">FACTORY + CAFE</span><h3 class="hb-office__name">81 FACTORY &amp; CAFE</h3><p class="hb-office__addr">〒590-0004 大阪府堺市堺区北清水町 1丁6-8-1<br/><small>整備・洗車・コーティング・車検 + カフェ併設 / TEL 072-276-4691</small></p></div></article>
-      <article class="hb-office"><div class="hb-office__photo"><img src="images/shop-minamisakai.jpg" alt="81GALLERY 南堺店" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">店舗</span><h3 class="hb-office__name">81GALLERY 南堺店</h3><p class="hb-office__addr">〒599-8253 大阪府堺市中区深阪 5丁4-36<br/><small>10:00–18:30 / 月・日休 / TEL 072-349-4000</small></p></div></article>
-      <article class="hb-office"><div class="hb-office__photo"><img src="images/shop-fukuoka.jpg" alt="81GALLERY 福岡店" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">九州</span><h3 class="hb-office__name">81GALLERY 福岡店</h3><p class="hb-office__addr">〒811-2221 福岡県糟屋郡須惠町旅石 887-7<br/><small>10:00–18:30 / 月・日休 / TEL 092-710-8146</small></p></div></article>
-      <article class="hb-office"><div class="hb-office__photo"><img src="images/shop-okayama.jpg" alt="81GALLERY 岡山店" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip">中国</span><h3 class="hb-office__name">81GALLERY 岡山店</h3><p class="hb-office__addr">〒709-0625 岡山県岡山市東区上道北方 721-1<br/><small>10:00–18:30 / 月・日休 / TEL 086-201-6012</small></p></div></article>
-      <article class="hb-office"><div class="hb-office__photo"><img src="images/sales-scene.jpg" alt="" onerror="this.parentElement.style.display='none'"/></div><div class="hb-office__body"><span class="hb-office__chip hb-office__chip--soon">2026 OPEN</span><h3 class="hb-office__name">81GALLERY 東京店</h3><p class="hb-office__addr">東京都内 — 詳細は近日公開<br/><small>関東エリア初出店、ラドルフ7店舗目</small></p></div></article>
-    </div>
+    <div class="hb-offices" id="offices"></div>
   </div>
 </section>
 
@@ -673,6 +690,26 @@
 <footer>RADOLF INC. © 2026</footer>
 
 <!-- People modal markup -->
+<div class="off-modal" id="offModal" aria-hidden="true">
+  <div class="off-modal__backdrop" data-close></div>
+  <article class="off-modal__panel" role="dialog" aria-modal="true">
+    <button class="off-modal__close" data-close aria-label="閉じる">×</button>
+    <div class="off-modal__photo" id="offPhoto"></div>
+    <div class="off-modal__body">
+      <div class="off-modal__chip" id="offChip"></div>
+      <h3 class="off-modal__name" id="offName"></h3>
+      <dl class="off-modal__dl">
+        <dt>住所</dt><dd><span id="offZip"></span><br/><span id="offAddr"></span></dd>
+        <dt>営業</dt><dd id="offHours"></dd>
+        <dt>定休</dt><dd id="offHoliday"></dd>
+        <dt>TEL</dt><dd id="offTel"></dd>
+        <dt>FAX</dt><dd id="offFax"></dd>
+      </dl>
+      <a class="off-modal__map" id="offMap" href="#" target="_blank" rel="noopener">Google Maps で開く ↗</a>
+    </div>
+  </article>
+</div>
+
 <div class="ppl-modal" id="pplModal" aria-hidden="true">
   <div class="ppl-modal__backdrop" data-close></div>
   <article class="ppl-modal__panel" role="dialog" aria-modal="true">
@@ -764,6 +801,63 @@ $m.addEventListener('click', e => {
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && $m.classList.contains('open')) closeModal();
+});
+
+/* === Offices roster + modal === */
+const OFFICES = [
+  {id:"sakai",chip:"本社 / HQ",name:"81GALLERY 堺店",teaser:"大阪・堺 本社",ph:"images/shop-sakai.jpg",zip:"〒590-0004",addr:"大阪府堺市堺区北清水町 1丁2-15",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"072-242-8135",fax:"072-242-8145",note:"ラドルフ本社。2023年3月18日に移転OPEN。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市堺区北清水町1丁2-15"},
+  {id:"factory",chip:"FACTORY + CAFE",name:"81 FACTORY & CAFE",teaser:"整備工場 + カフェ併設",ph:"images/shop-factory.jpg",zip:"〒590-0004",addr:"大阪府堺市堺区北清水町 1丁6-8-1",hours:"FACTORY 10:00〜18:30 / CAFE 10:00〜20:00",holiday:"月曜日／日曜日／GW／お盆／年末年始（CAFEは月曜のみ）",tel:"FACTORY 072-276-4691 / CAFE 072-276-4693",fax:"072-276-4716",note:"2026年4月19日グランドOPEN。整備・洗車・コーティング・車検 + 家族で楽しめるカフェを併設。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市堺区北清水町1丁6-8-1"},
+  {id:"minamisakai",chip:"店舗",name:"81GALLERY 南堺店",teaser:"大阪・堺 南エリア",ph:"images/shop-minamisakai.jpg",zip:"〒599-8253",addr:"大阪府堺市中区深阪 5丁4-36",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"072-349-4000",fax:"072-242-8145",note:"本社堺店ができるまでは本社として運営していた店舗。ラドルフの歴史が詰まった場所。",map:"https://www.google.com/maps/search/?api=1&query=大阪府堺市中区深阪5丁4-36"},
+  {id:"fukuoka",chip:"九州",name:"81GALLERY 福岡店",teaser:"福岡・須惠町",ph:"images/shop-fukuoka.jpg",zip:"〒811-2221",addr:"福岡県糟屋郡須惠町旅石 887-7",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"092-710-8146",fax:"092-710-8189",note:"2023年9月30日OPEN。関西を飛び出し、ラドルフ新たな拠点として誕生した九州エリアの店舗。",map:"https://www.google.com/maps/search/?api=1&query=福岡県糟屋郡須惠町旅石887-7"},
+  {id:"okayama",chip:"中国",name:"81GALLERY 岡山店",teaser:"岡山・東区",ph:"images/shop-okayama.jpg",zip:"〒709-0625",addr:"岡山県岡山市東区上道北方 721-1",hours:"10:00〜18:30",holiday:"月曜日／日曜日／GW／お盆／年末年始",tel:"086-201-6012",fax:"086-201-6014",note:"2025年12月13日OPEN。ラドルフ4店舗目となる新たなエリアへの挑戦。",map:"https://www.google.com/maps/search/?api=1&query=岡山県岡山市東区上道北方721-1"},
+  {id:"tokyo",chip:"2026 OPEN",chipSoon:true,name:"81GALLERY 東京店",teaser:"関東エリア初出店",ph:"images/sales-scene.jpg",zip:"",addr:"東京都内 — 詳細は近日公開",hours:"未定",holiday:"未定",tel:"未定",fax:"—",note:"ラドルフ7店舗目。関東エリアへの初出店を予定。詳細は近日公開。",map:null}
+];
+
+const $offRoot = document.getElementById('offices');
+$offRoot.innerHTML = OFFICES.map(o => `
+  <button class="hb-office" data-off="${o.id}">
+    <div class="hb-office__photo"><img src="${o.ph}" alt="${o.name}" onerror="this.parentElement.style.background='linear-gradient(135deg,#F5F5F5,#E5E5E5)';this.remove()"/></div>
+    <span class="hb-office__chip${o.chipSoon ? ' hb-office__chip--soon' : ''}">${o.chip}</span>
+    <h3 class="hb-office__name">${o.name}</h3>
+    <p class="hb-office__teaser">${o.teaser}</p>
+  </button>
+`).join('');
+
+const $off = document.getElementById('offModal');
+function openOff(id) {
+  const o = OFFICES.find(x => x.id === id);
+  if (!o) return;
+  const photo = document.getElementById('offPhoto');
+  photo.innerHTML = o.ph ? `<img src="${o.ph}" alt="${o.name}" onerror="this.remove()"/>` : '';
+  document.getElementById('offChip').textContent = o.chip;
+  document.getElementById('offName').textContent = o.name;
+  document.getElementById('offZip').textContent = o.zip || '';
+  document.getElementById('offAddr').innerHTML = `${o.addr}${o.note ? `<small>${o.note}</small>` : ''}`;
+  document.getElementById('offHours').textContent = o.hours;
+  document.getElementById('offHoliday').textContent = o.holiday;
+  document.getElementById('offTel').textContent = o.tel;
+  document.getElementById('offFax').textContent = o.fax;
+  const mapBtn = document.getElementById('offMap');
+  if (o.map) { mapBtn.href = o.map; mapBtn.style.display = 'inline-block'; }
+  else { mapBtn.style.display = 'none'; }
+  $off.classList.add('open');
+  $off.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeOff() {
+  $off.classList.remove('open');
+  $off.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+$offRoot.addEventListener('click', e => {
+  const c = e.target.closest('.hb-office');
+  if (c) openOff(c.dataset.off);
+});
+$off.addEventListener('click', e => {
+  if (e.target.dataset.close !== undefined) closeOff();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && $off.classList.contains('open')) closeOff();
 });
 </script>
 

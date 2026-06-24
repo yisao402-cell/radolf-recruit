@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2027新卒 募集要項 — RADOLF × 81GALLERY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet" />
+<style>
+:root{--bg:#FFFFFF;--ink:#0A0A0A;--ink-2:#3D3D3D;--mute:#888;--accent:#FF3D00;--line:#EEE}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",sans-serif;line-height:1.85;-webkit-font-smoothing:antialiased}
+section[id]{scroll-margin-top:80px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+.x-back{position:fixed;top:18px;left:20px;z-index:300;background:rgba(255,255,255,.94);color:#1A1410;padding:10px 18px 10px 14px;font-size:11px;font-weight:700;letter-spacing:.18em;border:1px solid rgba(127,127,127,.3);border-radius:100px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 4px 14px rgba(0,0,0,.08);transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.x-back:hover{background:#1A1410;color:#fff;border-color:#1A1410;transform:translateX(-2px)}
+@media(max-width:600px){.x-back{top:10px;left:10px;padding:8px 14px 8px 10px;font-size:10px;letter-spacing:.12em}}
+
+.jobs-hero{padding:140px 32px 80px;text-align:center;border-bottom:1px solid var(--line)}
+.jobs-hero__pre{font-size:11px;letter-spacing:.4em;color:var(--accent);font-weight:700;text-transform:uppercase;margin-bottom:20px}
+.jobs-hero__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(40px,6vw,72px);line-height:1.15;letter-spacing:-.02em;margin-bottom:20px}
+.jobs-hero__title em{font-style:italic;color:var(--accent)}
+.jobs-hero__sub{font-size:15px;line-height:2;color:var(--ink-2);max-width:680px;margin:0 auto}
+
+.job-nav{padding:32px;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.job-nav__link{padding:14px 28px;border:1.5px solid var(--ink);font-weight:700;font-size:12px;letter-spacing:.16em;transition:all .2s;display:inline-flex;align-items:center;gap:10px}
+.job-nav__link:hover{background:var(--ink);color:#fff}
+.job-nav__link em{font-style:normal;color:var(--accent);font-weight:900;font-size:14px}
+
+.job-sec{padding:120px 32px;border-top:1px solid var(--line)}
+.job-sec.alt{background:#FAFAFA}
+.job-wrap{max-width:1000px;margin:0 auto}
+.job-num{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(80px,12vw,160px);line-height:.9;color:var(--accent);letter-spacing:-.05em;margin-bottom:8px;font-style:italic}
+.job-pre{font-size:11px;letter-spacing:.32em;color:var(--ink-2);font-weight:700;text-transform:uppercase;margin-bottom:12px}
+.job-title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(36px,5vw,60px);line-height:1.15;letter-spacing:-.02em;margin-bottom:32px;color:var(--ink)}
+.job-title em{font-style:italic;color:var(--accent)}
+.job-lead{font-size:16px;line-height:2.1;color:var(--ink-2);margin-bottom:60px;max-width:820px;border-left:4px solid var(--accent);padding-left:24px}
+
+.job-grid{display:grid;grid-template-columns:200px 1fr;gap:32px 56px;margin-top:48px;border-top:1px solid var(--line)}
+.job-grid dt{padding:32px 0 8px;font-size:11px;letter-spacing:.28em;color:var(--accent);font-weight:700;text-transform:uppercase;border-bottom:1px solid var(--line)}
+.job-grid dd{padding:32px 0;font-size:14px;line-height:2;color:var(--ink-2);border-bottom:1px solid var(--line)}
+.job-grid dd strong{color:var(--ink);font-weight:700;font-size:15px;display:block;margin-bottom:4px}
+.job-grid dd ul{list-style:none;padding:0;margin:8px 0 0}
+.job-grid dd ul li{padding-left:18px;position:relative}
+.job-grid dd ul li::before{content:"━";position:absolute;left:0;color:var(--accent);font-weight:700}
+.job-grid dd .salary{font-family:"Noto Serif JP",serif;font-weight:900;font-size:28px;color:var(--ink);line-height:1.3;letter-spacing:-.01em;display:block;margin-bottom:6px}
+.job-grid dd .salary small{font-size:13px;font-weight:500;color:var(--ink-2);margin-left:6px;letter-spacing:0}
+
+.flow{margin-top:48px;display:grid;grid-template-columns:repeat(8,1fr);gap:0;border-top:1px solid var(--line);padding-top:32px}
+.flow__step{padding:24px 12px;text-align:center;position:relative;font-size:11px;line-height:1.6;color:var(--ink-2);font-weight:500}
+.flow__step::after{content:"›";position:absolute;right:-6px;top:50%;transform:translateY(-50%);color:var(--mute);font-size:18px;font-weight:300}
+.flow__step:last-child::after{display:none}
+.flow__step strong{display:block;font-family:"Noto Serif JP",serif;font-weight:900;font-size:11px;color:var(--accent);margin-bottom:6px;letter-spacing:.16em}
+.flow__step--final{background:var(--accent);color:#fff;border-radius:4px}
+.flow__step--final strong{color:#fff}
+
+.job-cta{margin-top:64px;padding:48px;background:#0A0A0A;color:#fff;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.job-cta__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:24px;line-height:1.4;letter-spacing:-.01em}
+.job-cta__title em{font-style:italic;color:var(--accent)}
+.job-cta__sub{font-size:12px;margin-top:6px;color:rgba(255,255,255,.6);letter-spacing:.08em}
+.job-cta__btn{background:var(--accent);color:#fff;padding:20px 44px;font-weight:900;font-size:14px;letter-spacing:.18em;text-transform:uppercase;transition:all .2s;display:inline-flex;align-items:center;gap:10px;font-family:inherit}
+.job-cta__btn:hover{background:#fff;color:var(--accent)}
+.job-cta__btn .arrow{font-size:20px;line-height:1}
+
+.locations{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}
+.locations span{display:inline-block;padding:8px 16px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--ink-2);letter-spacing:.04em}
+
+.footer-cta{padding:120px 32px;text-align:center;border-top:1px solid var(--line);background:#FAFAFA}
+.footer-cta__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(32px,5vw,56px);line-height:1.2;margin-bottom:16px}
+.footer-cta__title em{font-style:italic;color:var(--accent)}
+.footer-cta__sub{font-size:14px;color:var(--ink-2);margin-bottom:40px}
+.footer-cta__btns{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.footer-cta__btn{padding:18px 36px;font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;transition:all .2s}
+.footer-cta__btn--primary{background:var(--accent);color:#fff}
+.footer-cta__btn--primary:hover{background:var(--ink)}
+.footer-cta__btn--ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.footer-cta__btn--ghost:hover{background:var(--ink);color:#fff}
+
+footer{padding:32px;text-align:center;color:var(--mute);font-size:11px;letter-spacing:.18em;background:var(--bg);border-top:1px solid var(--line)}
+
+@media(max-width:900px){
+  .job-grid{grid-template-columns:1fr;gap:0}
+  .job-grid dt{padding:24px 0 4px;border-bottom:0}
+  .job-grid dd{padding:0 0 24px}
+  .flow{grid-template-columns:repeat(4,1fr)}
+  .flow__step::after{display:none}
+  .job-cta{grid-template-columns:1fr;text-align:center}
+  .job-sec{padding:80px 24px}
+}
+@media(max-width:520px){
+  .flow{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head><body>
+
+<a class="x-back" href="demo.html">← TOP</a>
+
+<section class="jobs-hero">
+  <div class="jobs-hero__pre">— Open Positions / 2027新卒</div>
+  <h1 class="jobs-hero__title"><em>2</em>つのコースで、<br/>「81」を一緒につくる。</h1>
+  <p class="jobs-hero__sub">職種は違っても、肩書きを越えて「81」を一緒につくる、対等な仕事です。<br/>各コースの詳細を読んでから、マイナビでエントリーしてください。</p>
+</section>
+
+<nav class="job-nav">
+  <a class="job-nav__link" href="#sales"><em>01</em> コンサルティングセールスコース</a>
+  <a class="job-nav__link" href="#corporate"><em>02</em> コーポレートコース</a>
+</nav>
+
+<!-- ============== 01 セールスコース ============== -->
+<section class="job-sec" id="sales">
+  <div class="job-wrap">
+    <div class="job-num">01</div>
+    <div class="job-pre">— Sales / 正社員 / 既卒可</div>
+    <h2 class="job-title">コンサルティング<br/><em>セールス</em>コース</h2>
+    <p class="job-lead">プレミアムカー業界の常識を変える。<br/>その挑戦は、全国規模へ。<br/>81GALLERYは社員約30名で売上50億円を突破した急成長企業。今は "完成された会社" ではありません。だからこそ、ポジションがあります。</p>
+
+    <dl class="job-grid">
+      <dt>配属職種</dt>
+      <dd>
+        <strong>セールスコンシェルジュ</strong>
+        プレミアムカー専門ディーラーの提案営業。商談・契約・納車までの一貫対応、既存顧客への継続フォロー、下取査定や自動車保険の提案、登録業務・納車ディレクション、在庫管理や販売戦略への関与など、仕入れから販売・アフターまで一貫して担当します。
+        <ul>
+          <li>Web集客に加え、ご紹介や既存顧客からのリピートも多い</li>
+          <li>購入意欲の高いお客様への提案が中心</li>
+          <li>単なる販売ではなく、お客様のニーズや価値観を深くヒアリングするコンサルティング型営業</li>
+        </ul>
+      </dd>
+
+      <dt>求める人物像</dt>
+      <dd>
+        <strong>「安定」よりも「成長」を選べる人</strong>
+        営業経験の有無は問いません。大切なのは、本気で成長したいという意欲と覚悟。平均年齢20代の若い組織だからこそ、受け身ではなく、主体的に挑戦できる人が活躍しています。
+        <ul>
+          <li>目標に対して本気で向き合える人</li>
+          <li>成果で評価される環境に身を置きたい人</li>
+          <li>若いうちから裁量を持ちたい人</li>
+        </ul>
+      </dd>
+
+      <dt>活かせるスキル・経験</dt>
+      <dd>
+        接客・コミュニケーション経験 / プレゼンテーション・説明スキル / PC・Office操作スキル / 計画立案・目標達成経験 / チームワーク・協調性 / 柔軟な対応力・課題解決力 / 向上心・挑戦力<br/><br/>
+        <small style="color:var(--mute)">※ 営業経験・自動車業界経験は不問。文系・理系不問、全学部・全学科対象。</small>
+      </dd>
+
+      <dt>初任給</dt>
+      <dd>
+        <span class="salary">250,920<small>円／月</small></span>
+        基本月額 230,000円 ＋ 諸手当（一律）20,920円<br/>
+        <small style="color:var(--mute)">※ みなし残業15時間分（20,920円）を含む。試用期間（約3ヶ月）はみなし残業代支給なし。</small>
+      </dd>
+
+      <dt>モデル月収例</dt>
+      <dd>
+        <strong>新卒1年目で月収30万円以上が可能</strong>
+        大阪勤務、入社1年目のモデルケースで「250,920円（固定残業代20,920円含む）＋ 販売インセンティブ」。<br/>
+        30歳平均年収は <strong style="display:inline">600万円以上</strong>。
+      </dd>
+
+      <dt>勤務地</dt>
+      <dd>
+        全国6拠点で、配属先は適性と希望を考慮。
+        <div class="locations">
+          <span>本社 堺店（大阪）</span>
+          <span>Factory店（大阪）</span>
+          <span>南堺店（大阪）</span>
+          <span>福岡店（福岡）</span>
+          <span>岡山店（岡山）</span>
+          <span>東京店（東京）</span>
+        </div>
+        <small style="color:var(--mute);display:block;margin-top:10px">※ 全国展開予定で転勤の可能性あり。</small>
+      </dd>
+
+      <dt>勤務時間</dt>
+      <dd>10:00 〜 19:00（実働8時間 / 休憩60分）。平均残業時間は月20時間以内。</dd>
+
+      <dt>休日休暇</dt>
+      <dd>完全週休2日制 / 年間休日120日以上 / GW・お盆・年末年始休暇あり / 有給休暇 / 慶弔休暇</dd>
+
+      <dt>福利厚生</dt>
+      <dd>
+        社会保険完備 / MyCar購入割引制度 / 親族割引制度 / 国内研修旅行 / 社員旅行 / エクシブ利用制度（リゾート施設） / 資格取得支援制度 / 交通費支給（上限あり） / 屋内原則禁煙（喫煙専用室設置あり）
+      </dd>
+
+      <dt>採用予定人数</dt>
+      <dd><strong style="display:inline">6〜10名</strong>（営業職として7〜10名）</dd>
+
+      <dt>キャリアと成長</dt>
+      <dd>
+        平均年齢は20代。年功序列はありません。今年刷新された公正な評価制度により、成果は年2回の昇給・昇格に反映されます。実際に20代で支店長として活躍している社員も在籍。<br/>
+        拡大フェーズだからこそ、数年でマネジメントポジションを目指せる環境があります。
+      </dd>
+    </dl>
+
+    <h3 class="job-pre" style="margin-top:64px">━ 選考フロー</h3>
+    <div class="flow">
+      <div class="flow__step"><strong>01</strong>マイナビからエントリー</div>
+      <div class="flow__step"><strong>02</strong>エントリーシート提出</div>
+      <div class="flow__step"><strong>03</strong>会社説明会（対面/WEB）</div>
+      <div class="flow__step"><strong>04</strong>適性検査（WEB）</div>
+      <div class="flow__step"><strong>05</strong>一次面接</div>
+      <div class="flow__step"><strong>06</strong>二次面接</div>
+      <div class="flow__step"><strong>07</strong>最終面接</div>
+      <div class="flow__step flow__step--final"><strong>08</strong>内々定</div>
+    </div>
+    <p style="margin-top:16px;font-size:12px;color:var(--mute)">※ 応募から内々定までは通常2週間以内。昇給：年1回、賞与：年2回（1月/7月）。</p>
+
+    <div class="job-cta">
+      <div>
+        <div class="job-cta__title"><em>セールス</em>に、エントリーする。</div>
+        <div class="job-cta__sub">マイナビ2027 経由でエントリー → 説明会のご案内をお送りします。</div>
+      </div>
+      <a class="job-cta__btn" href="https://job.mynavi.jp/27/pc/corpinfo/displayEmployment/index/?corpId=279276&recruitingCourseId=27052382" target="_blank" rel="noopener">マイナビでエントリー <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 02 コーポレートコース ============== -->
+<section class="job-sec alt" id="corporate">
+  <div class="job-wrap">
+    <div class="job-num">02</div>
+    <div class="job-pre">— Corporate / 正社員 / 既卒可</div>
+    <h2 class="job-title">コーポレート<br/><em>コース</em></h2>
+    <p class="job-lead">バックオフィスから、急成長中の会社を支える。<br/>「人と関わるのが好き」「誰かを支える仕事にやりがいを感じる」あなたが、管理部門のスペシャリストとして組織を組み立てる10期目のフェーズで活躍できるコースです。</p>
+
+    <dl class="job-grid">
+      <dt>配属職種</dt>
+      <dd>
+        <strong>総務・人事・経理・広報</strong>
+        データ入力や書類作成、電話・来客対応などの事務業務をはじめ、採用活動のサポート、人事関連業務、経理業務、広報活動など幅広い業務を担当。
+        <ul>
+          <li>総合職採用 — 入社後は適性・希望を考慮した配置</li>
+          <li>バックオフィスからの会社全体を支える役割</li>
+          <li>管理部門のスペシャリストとしてのキャリアパス</li>
+        </ul>
+      </dd>
+
+      <dt>求める人物像</dt>
+      <dd>
+        <strong>人を支え、共に成長したい人</strong>
+        <ul>
+          <li>人と関わることが好きな方</li>
+          <li>誰かを支える仕事にやりがいを感じる方</li>
+          <li>素直に学び、前向きにチャレンジできる方</li>
+          <li>チームワークを大切にできる方</li>
+          <li>成長企業でさまざまな経験を積みたい方</li>
+        </ul>
+      </dd>
+
+      <dt>活かせるスキル・経験</dt>
+      <dd>
+        コミュニケーション力 / 協調性 / 主体性 / Word・Excel・PowerPointなどのPC技能 / SNS活用経験や情報発信への関心<br/><br/>
+        <small style="color:var(--mute)">※ 経験不問、前向きな姿勢を重視。</small>
+      </dd>
+
+      <dt>初任給</dt>
+      <dd>
+        <span class="salary">230,000<small>円／月</small></span>
+        <strong style="font-weight:400;display:inline">大学卒</strong>　230,000円<br/>
+        <strong style="font-weight:400;display:inline">短大卒・専門卒</strong>　210,000円<br/>
+        <small style="color:var(--mute)">※ 別途手当あり。試用期間3ヶ月（待遇変更なし）。</small>
+      </dd>
+
+      <dt>勤務地</dt>
+      <dd>
+        本社 堺店（大阪）に配属。
+        <div class="locations">
+          <span>大阪府堺市堺区北清水町 1丁2-15</span>
+        </div>
+      </dd>
+
+      <dt>勤務時間</dt>
+      <dd>10:00 〜 19:00（実働8時間 / 休憩60分）</dd>
+
+      <dt>休日休暇</dt>
+      <dd>完全週休2日制 / 年間休日120日 / GW休暇 / 夏季休暇 / 年末年始休暇 / 有給休暇 / 慶弔休暇 / 産前産後休暇 / 育児休暇</dd>
+
+      <dt>福利厚生</dt>
+      <dd>
+        各種社会保険完備 / 資格取得支援制度 / 産前産後休暇制度 / 育児休暇制度 / 健康診断 / 研修制度 / 社員割引制度
+      </dd>
+
+      <dt>採用予定人数</dt>
+      <dd><strong style="display:inline">3〜5名</strong></dd>
+    </dl>
+
+    <h3 class="job-pre" style="margin-top:64px">━ 選考フロー</h3>
+    <div class="flow">
+      <div class="flow__step"><strong>01</strong>マイナビからエントリー</div>
+      <div class="flow__step"><strong>02</strong>会社説明会</div>
+      <div class="flow__step"><strong>03</strong>エントリーシート提出</div>
+      <div class="flow__step"><strong>04</strong>書類選考</div>
+      <div class="flow__step"><strong>05</strong>適性検査（WEB）</div>
+      <div class="flow__step"><strong>06</strong>面接（個別）</div>
+      <div class="flow__step"><strong>07</strong>面接（個別）</div>
+      <div class="flow__step flow__step--final"><strong>08</strong>内々定</div>
+    </div>
+
+    <div class="job-cta">
+      <div>
+        <div class="job-cta__title"><em>コーポレート</em>に、エントリーする。</div>
+        <div class="job-cta__sub">マイナビ2027 経由でエントリー → 説明会のご案内をお送りします。</div>
+      </div>
+      <a class="job-cta__btn" href="https://job.mynavi.jp/27/pc/corpinfo/displayEmployment/index/?corpId=279276&recruitingCourseId=27069632" target="_blank" rel="noopener">マイナビでエントリー <span class="arrow">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="footer-cta">
+  <h2 class="footer-cta__title">まずは、<em>会社説明会</em>から。</h2>
+  <p class="footer-cta__sub">どちらのコースが合うかは、説明会で一緒に考えましょう。WEB説明会あり、選考直結。</p>
+  <div class="footer-cta__btns">
+    <a class="footer-cta__btn footer-cta__btn--primary" href="https://job.mynavi.jp/27/pc/search/corp279276/employment.html" target="_blank" rel="noopener">マイナビでエントリー ↗</a>
+    <a class="footer-cta__btn footer-cta__btn--ghost" href="demo.html">← TOPへ戻る</a>
+  </div>
+</section>
+
+<footer>RADOLF INC. © 2026</footer>
+
+</body></html>

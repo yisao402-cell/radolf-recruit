@@ -235,6 +235,14 @@
 .x-story__img{aspect-ratio:4/3;overflow:hidden;background:#f5f5f5}
 .x-story__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .x-story:hover .x-story__img img{transform:scale(1.04)}
+.x-story--video{display:flex;flex-direction:column;background:#0A0A0A;color:#fff;border-color:#0A0A0A}
+.x-story--video:hover{transform:none;box-shadow:none;border-color:var(--accent)}
+.x-story--video .x-story__img{aspect-ratio:16/9}
+.x-story--video .x-story__img iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.x-story--video .x-story__cat{color:var(--accent)}
+.x-story--video .x-story__title{color:#fff}
+.x-story--video .x-story__desc{color:rgba(255,255,255,.7)}
+.x-story--video .x-story__more{color:var(--accent);border-color:var(--accent)}
 .x-story__cat{font-size:11px;letter-spacing:.32em;color:var(--accent);font-weight:700;text-transform:uppercase;margin:20px 24px 6px}
 .x-story__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:0 24px 12px;color:var(--ink)}
 .x-story__title em{font-style:italic;color:var(--accent)}
@@ -606,7 +614,7 @@
 <section class="x-sec" id="stories"><div class="x-wrap">
   <span class="x-pre">━ Stories — Deep Dive</span>
   <h2 class="x-title">もっと、<em>読む。</em></h2>
-  <p class="x-lead">「FACTORY 戦略の一手」「ある日の1日」「なぜ81を選んだか」「81をつくった物語」— 4つのストーリーを、別ページで深く読めます。</p>
+  <p class="x-lead">「FACTORY 戦略の一手」「会社紹介ムービー」「なぜ81を選んだか」「81をつくった物語」— 別ページで深く読む / 動画で見る。</p>
   <div class="x-stories">
     <a class="x-story x-story--featured" href="demo-factory.html">
       <div class="x-story__img"><img src="images/shop-factory.jpg" onerror="this.parentElement.style.display='none'"/><span class="x-story__badge">★ STRATEGIC MOVE</span></div>
@@ -615,13 +623,13 @@
       <p class="x-story__desc">2024年、業界に前例のない一手。「車屋」の常識を、コーヒーで上書きする戦略の舞台裏。Instagram も。</p>
       <span class="x-story__more">81 FACTORY Story →</span>
     </a>
-    <a class="x-story" href="demo-day.html">
-      <div class="x-story__img"><img src="images/person-okada.jpg" onerror="this.parentElement.style.display='none'"/></div>
-      <div class="x-story__cat">— Story 02</div>
-      <h3 class="x-story__title">ある日の、<em>81。</em></h3>
-      <p class="x-story__desc">営業 岡田さんの1日 — 8:30の出社から、19:30の退社まで。フェラーリとお客様と、ふつうの日常。</p>
-      <span class="x-story__more">A Day in the Life →</span>
-    </a>
+    <div class="x-story x-story--video">
+      <div class="x-story__img"><iframe src="https://www.youtube.com/embed/6aNNLPqKl_M?list=PLfQrOoEoLPbK94bkp5mejbel-x-jD2Fky&rel=0" title="株式会社ラドルフ 会社紹介ムービー" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="x-story__cat">— Story 02 / Video</div>
+      <h3 class="x-story__title">会社紹介、<em>動画で見る。</em></h3>
+      <p class="x-story__desc">社員の声、店舗の空気、仕事の現場 — 言葉だけじゃ伝わらない81を、動画で。</p>
+      <a class="x-story__more" href="https://www.youtube.com/watch?v=6aNNLPqKl_M&list=PLfQrOoEoLPbK94bkp5mejbel-x-jD2Fky" target="_blank" rel="noopener" style="margin:0 24px 24px;display:inline-block;width:fit-content">YouTubeで全編を見る ↗</a>
+    </div>
     <a class="x-story" href="demo-interview.html">
       <div class="x-story__img"><img src="images/person-kano.jpg" onerror="this.parentElement.style.display='none'"/></div>
       <div class="x-story__cat">— Story 03</div>

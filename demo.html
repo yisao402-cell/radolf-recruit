@@ -346,17 +346,19 @@
 .hb-steps__tagline small{font-size:12px;letter-spacing:.16em;color:rgba(255,255,255,.6);font-weight:500}
 
 /* Jobs */
-.hb-jobs{margin-top:80px;border-top:1px solid var(--line)}
-.hb-job{display:grid;grid-template-columns:120px 1fr 60px;gap:40px;padding:40px 0;border-bottom:1px solid var(--line);align-items:center;text-decoration:none;color:inherit;transition:padding .2s}
+.hb-jobs{margin-top:80px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.hb-job{display:flex;flex-direction:column;gap:24px;padding:48px 40px;background:#fff;border:1px solid var(--line);text-decoration:none;color:inherit;transition:all .25s;position:relative}
+.hb-job:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 18px 36px rgba(0,0,0,.08)}
+.hb-job__arrow{position:absolute;top:32px;right:32px;font-size:24px;color:var(--accent);font-weight:300}
+@media(max-width:900px){.hb-jobs{grid-template-columns:1fr}}
 .hb-job:hover{padding-left:16px}
-.hb-job__num{font-family:"Noto Serif JP",serif;font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-.04em}
-.hb-job__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(24px,3vw,32px);line-height:1.2;letter-spacing:-.02em;margin-bottom:8px;color:var(--ink)}
+.hb-job__num{font-family:"Noto Serif JP",serif;font-weight:900;font-style:italic;font-size:64px;line-height:1;color:var(--accent);letter-spacing:-.04em}
+.hb-job__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(24px,2.6vw,30px);line-height:1.2;letter-spacing:-.02em;margin-bottom:10px;color:var(--ink)}
 .hb-job__title em{font-style:italic;color:var(--accent)}
-.hb-job__desc{font-size:13px;color:var(--ink-2);line-height:1.85;margin-bottom:12px}
-.hb-job__tags{display:flex;gap:8px;flex-wrap:wrap}
-.hb-job__tags span{font-size:10px;letter-spacing:.15em;padding:4px 10px;border:1px solid var(--ink);color:var(--ink);font-weight:500;text-transform:uppercase}
-.hb-job__arrow{font-family:"Noto Serif JP",serif;font-weight:900;font-size:32px;color:var(--accent);transition:transform .3s;justify-self:end}
-.hb-job:hover .hb-job__arrow{transform:translateX(8px)}
+.hb-job__desc{font-size:13px;color:var(--ink-2);line-height:1.9;margin-bottom:16px}
+.hb-job__tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.hb-job__tags span{font-size:10px;letter-spacing:.12em;padding:5px 10px;border:1px solid var(--ink);color:var(--ink);font-weight:500;text-transform:uppercase;white-space:nowrap}
+.hb-job:hover .hb-job__arrow{transform:translateX(4px) translateY(-4px)}
 
 /* Offices */
 .hb-offices{margin-top:80px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
@@ -684,27 +686,27 @@
 
 <section class="x-sec alt" id="jobs">
   <div class="x-wrap">
-    <span class="x-pre">━ Open Positions / 2027新卒</span>
-    <h2 class="x-title">2027新卒、<br/><em>2コース</em>募集中。</h2>
+    <span class="x-pre">━ Open Positions</span>
+    <h2 class="x-title">募集職種、<em>2コース</em>。<br/>エントリーは、<em>マイナビ</em>から。</h2>
     <p class="x-lead">職種は違っても、肩書きを越えて「81」を一緒につくる、対等な仕事です。<br/>応募 → 説明会 → 面接 → 内定。気になる方はマイナビからエントリー。</p>
     <div class="hb-jobs">
-      <a class="hb-job" href="demo-jobs.html#sales">
+      <a class="hb-job" href="https://job.mynavi.jp/27/pc/corpinfo/displayEmployment/index/?corpId=279276&recruitingCourseId=27052382" target="_blank" rel="noopener">
         <div class="hb-job__num">01</div>
         <div class="hb-job__body">
           <h3 class="hb-job__title">コンサルティング<br/><em>セールス</em>コース</h3>
           <p class="hb-job__desc">プレミアムカー専門ディーラーの営業職。仕入れ → 販売 → アフターまで一貫して担当し、若手のうちから大きな裁量を持って活躍できるコース。初任給25.0万円、月収30万円〜。</p>
           <div class="hb-job__tags"><span>正社員</span><span>東京 / 大阪 / 岡山 / 福岡</span><span>採用 6〜10名</span></div>
         </div>
-        <div class="hb-job__arrow">→</div>
+        <div class="hb-job__arrow">↗</div>
       </a>
-      <a class="hb-job" href="demo-jobs.html#corporate">
+      <a class="hb-job" href="https://job.mynavi.jp/27/pc/corpinfo/displayEmployment/index/?corpId=279276&recruitingCourseId=27069632" target="_blank" rel="noopener">
         <div class="hb-job__num">02</div>
         <div class="hb-job__body">
           <h3 class="hb-job__title">コーポレート<br/><em>コース</em></h3>
           <p class="hb-job__desc">総務・人事・経理・広報などのバックオフィス業務を通じて会社全体を支えるコース。10期目で急成長中の組織を、管理部門のスペシャリストとして組み立てる。初任給23.0万円。</p>
           <div class="hb-job__tags"><span>正社員</span><span>大阪</span><span>採用 3〜5名</span></div>
         </div>
-        <div class="hb-job__arrow">→</div>
+        <div class="hb-job__arrow">↗</div>
       </a>
     </div>
   </div>

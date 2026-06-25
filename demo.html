@@ -332,12 +332,18 @@
 .hb-founder__sign small{font-size:11px;letter-spacing:.32em;color:var(--ink-2);text-transform:uppercase;font-weight:700;margin-left:14px}
 
 /* Career steps */
-.hb-steps{margin-top:80px;border-top:1px solid var(--line)}
-.hb-step{display:grid;grid-template-columns:140px 1fr;gap:48px;padding:48px 0;border-bottom:1px solid var(--line);align-items:start}
-.hb-step__num{font-family:"Noto Serif JP",serif;font-weight:900;font-size:80px;line-height:1;color:var(--accent);letter-spacing:-.04em}
-.hb-step__time{font-size:11px;letter-spacing:.32em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-bottom:8px}
-.hb-step__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(24px,3vw,32px);line-height:1.25;letter-spacing:-.02em;margin-bottom:12px;color:var(--ink)}
-.hb-step__desc{font-size:14px;line-height:2;color:var(--ink-2);max-width:640px}
+.hb-steps{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.hb-step{padding:48px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);position:relative}
+.hb-step:last-child{border-right:0}
+.hb-step__num{font-family:"Noto Serif JP",serif;font-weight:900;font-style:italic;font-size:clamp(72px,9vw,128px);line-height:.9;color:var(--accent);letter-spacing:-.05em}
+.hb-step__num small{font-family:"Noto Sans JP",sans-serif;font-style:normal;font-size:.22em;font-weight:700;color:var(--ink-2);margin-left:6px;letter-spacing:.16em}
+.hb-step__time{font-size:11px;letter-spacing:.32em;color:var(--accent);text-transform:uppercase;font-weight:700;margin-top:24px}
+.hb-step__title{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(28px,3vw,36px);line-height:1.2;letter-spacing:-.02em;margin:6px 0 16px;color:var(--ink)}
+.hb-step__desc{font-size:13px;line-height:2;color:var(--ink-2)}
+.hb-steps__tagline{margin-top:48px;padding:32px 40px;background:#0A0A0A;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.hb-steps__tagline strong{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(20px,2.4vw,28px);line-height:1.4;letter-spacing:-.01em}
+.hb-steps__tagline strong em{font-style:italic;color:var(--accent)}
+.hb-steps__tagline small{font-size:12px;letter-spacing:.16em;color:rgba(255,255,255,.6);font-weight:500}
 
 /* Jobs */
 .hb-jobs{margin-top:80px;border-top:1px solid var(--line)}
@@ -424,8 +430,12 @@
 @media(max-width:700px){
   .x-sec{padding:96px 24px}
   .hb-goals{grid-template-columns:1fr}
-  .hb-step,.hb-job,.hb-dl__row{grid-template-columns:1fr;gap:8px}
-  .hb-step__num,.hb-job__num{font-size:48px}
+  .hb-job,.hb-dl__row{grid-template-columns:1fr;gap:8px}
+  .hb-steps{grid-template-columns:1fr;border-right:0}
+  .hb-step{border-right:0;padding:32px 24px}
+  .hb-step__num{font-size:64px}
+  .hb-job__num{font-size:48px}
+  .hb-steps__tagline{padding:24px;flex-direction:column;align-items:flex-start;gap:12px;text-align:left}
   .hb-founder{grid-template-columns:1fr;gap:48px}
   .hb-founder__photo{max-width:380px}
   .hb-nums{grid-template-columns:1fr}
@@ -643,14 +653,31 @@
 <section class="x-sec" id="career">
   <div class="x-wrap">
     <span class="x-pre">━ Career Path</span>
-    <h2 class="x-title">入社からの、<em>成長ストーリー。</em></h2>
-    <p class="x-lead">最初の1年で、何が起きるか。3年目で、どこに立っているか。実際のキャリアパスを5ステップで。</p>
+    <h2 class="x-title">若くして、<br/><em>責任</em>と<em>権限</em>を。</h2>
+    <p class="x-lead">1年目でプレイヤー、3年目でリーダー、5年目で支店長。<br/>急成長フェーズだからこそ、年齢ではなく実力でポジションが回ってくる。</p>
     <div class="hb-steps">
-      <div class="hb-step"><div class="hb-step__num">01</div><div class="hb-step__body"><div class="hb-step__time">— 入社1ヶ月目</div><h3 class="hb-step__title">新人研修</h3><p class="hb-step__desc">車両知識・業界理解・接客マナー。同期と一緒に「81」を体感する1ヶ月。</p></div></div>
-      <div class="hb-step"><div class="hb-step__num">02</div><div class="hb-step__body"><div class="hb-step__time">— 3ヶ月目</div><h3 class="hb-step__title">OJT 配属</h3><p class="hb-step__desc">先輩について実務スタート。最初の1台を任されるのもこの頃。</p></div></div>
-      <div class="hb-step"><div class="hb-step__num">03</div><div class="hb-step__body"><div class="hb-step__time">— 6ヶ月目</div><h3 class="hb-step__title">独立担当</h3><p class="hb-step__desc">自分のお客様を持ち、商談から納車まで一気通貫で担当。</p></div></div>
-      <div class="hb-step"><div class="hb-step__num">04</div><div class="hb-step__body"><div class="hb-step__time">— 1〜2年目</div><h3 class="hb-step__title">プロジェクト参画</h3><p class="hb-step__desc">新規出店、商品企画、東京進出など、希望のプロジェクトに混ざれる。</p></div></div>
-      <div class="hb-step"><div class="hb-step__num">05</div><div class="hb-step__body"><div class="hb-step__time">— 3年目〜</div><h3 class="hb-step__title">リーダー / 店長</h3><p class="hb-step__desc">適性とやる気次第で、店舗責任者へ。20代の店長が複数います。</p></div></div>
+      <div class="hb-step">
+        <div class="hb-step__num">1<small>YEAR</small></div>
+        <div class="hb-step__time">— 入社1年目</div>
+        <h3 class="hb-step__title">プレイヤー</h3>
+        <p class="hb-step__desc">研修を経て、自分のお客様を担当。商談 → 契約 → 納車まで、一気通貫で任される。</p>
+      </div>
+      <div class="hb-step">
+        <div class="hb-step__num">3<small>YEAR</small></div>
+        <div class="hb-step__time">— 入社3年目</div>
+        <h3 class="hb-step__title">リーダー</h3>
+        <p class="hb-step__desc">後輩のメンタリング、店舗の数字管理、新規施策の企画。チームを動かす側へ。</p>
+      </div>
+      <div class="hb-step">
+        <div class="hb-step__num">5<small>YEAR</small></div>
+        <div class="hb-step__time">— 入社5年目</div>
+        <h3 class="hb-step__title">支店長</h3>
+        <p class="hb-step__desc">店舗の責任者として、売上・人材育成・店舗運営を統括。20代で支店長を任される実例あり。</p>
+      </div>
+    </div>
+    <div class="hb-steps__tagline">
+      <strong>若くして、<em>責任</em>と<em>権限</em>が持てる、<br/>キャリア設計。</strong>
+      <small>RADOLF / 平均年齢20代・年功序列なし</small>
     </div>
   </div>
 </section>
